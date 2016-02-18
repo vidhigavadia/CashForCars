@@ -16,7 +16,7 @@ include_once 'includes/form_validate.php';
 <!-- <meta http-equiv='cache-control' content='no-cache'> -->
 <!-- <meta http-equiv='expires' content='0'> -->
 <!-- <meta http-equiv='pragma' content='no-cache'> -->
-<title>Cars With Heart</title>
+<title>Cash For Cars</title>
 
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/themes/base/jquery-ui.css" />
 <link rel="stylesheet" href="/library/css/donationForm2.css" />
