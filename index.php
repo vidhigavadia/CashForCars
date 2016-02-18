@@ -1,8 +1,8 @@
 <?php
 session_start();
 error_reporting(0);
-include_once('admin/common.php');
-include_once 'includes/form_validate.php';
+include_once('connection.php');
+include_once 'form_validate.php';
 ?>
 <!doctype html>
 <html lang="en">
@@ -11,7 +11,7 @@ include_once 'includes/form_validate.php';
 <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
 
 <META Name="keywords" Content="donate a car, donate car, donate car to charity, donating car, car donation, car donations, car donation charity, vehicle donations, auto donations">
-	<meta name="description" content="The Cars with Heart� Vehicle Donation Program makes it easy to donate to your favorite cause. Check out our full directory of Non-profit partner organizations. " >
+	<meta name="description" content="The Cash for cars� Vehicle Donation Program makes it easy to donate to your favorite cause. Check out our full directory of Non-profit partner organizations. " >
 
 <!-- <meta http-equiv='cache-control' content='no-cache'> -->
 <!-- <meta http-equiv='expires' content='0'> -->
@@ -19,14 +19,14 @@ include_once 'includes/form_validate.php';
 <title>Cash For Cars</title>
 
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/themes/base/jquery-ui.css" />
-<link rel="stylesheet" href="/library/css/donationForm2.css" />
+<link rel="stylesheet" href="/css/formStyle.css" />
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.js"></script>
 <script type="text/javascript" src="library/js/jquery.autotab-1.1b.js"></script>
 <script type="text/javascript" >$(document).ready(function(){ $('.phac, .pha, .phb').autotab_magic(); });</script>
-<script type="text/javascript" src="/library/js/sliding.form.widget.js"></script>
-<script type="text/javascript" src="/library/js/common2.js" ></script>
+<script type="text/javascript" src="js/slidingformwidget.js"></script>
+<script type="text/javascript" src="js/common2.js" ></script>
 <script src='https://www.google.com/recaptcha/api.js'></script>
 
 <script type="text/javascript">
