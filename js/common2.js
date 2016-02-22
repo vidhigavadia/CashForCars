@@ -9,7 +9,7 @@ function carMakeModelLoad(passID) {
 	else{
 		$("#Model").append("<option value="option6">Test</option>");
 	}
-		/*else {
+	/*	else {
 		if (passID == "not") {
 			myData = {'fnName':'modelFromMake' ,'carMake': makeValue};
 		} else {
@@ -33,8 +33,8 @@ function carMakeModelLoad(passID) {
 				$("#Model").empty();
 				$("#Model").append($("<option />").val('').text(''));
 			}
-   		}); */
-	}
+   		}); 
+	} */
 }
 
 
