@@ -1,7 +1,7 @@
 <?php
 session_start();
 error_reporting(0);
-include_once('connection.php');
+include_once 'connection.php';
 include_once 'form_validate.php';
 ?>
 <!doctype html>
@@ -23,7 +23,7 @@ include_once 'form_validate.php';
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.js"></script>
-<script type="text/javascript" src="library/js/jquery.autotab-1.1b.js"></script>
+<script type="text/javascript" src="/js/jquery_autotab_1.js"></script>
 <script type="text/javascript" >$(document).ready(function(){ $('.phac, .pha, .phb').autotab_magic(); });</script>
 <script type="text/javascript" src="js/slidingformwidget.js"></script>
 <script type="text/javascript" src="js/common2.js" ></script>
@@ -31,7 +31,7 @@ include_once 'form_validate.php';
 
 <script type="text/javascript">
 	var idToJS = "<?php echo $_GET['i'] ?>";
-	var formName = "<?php echo "formWidget.php"; ?>";
+	var formName = "<?php echo "index.php"; ?>";
 	window.onload = hideSubmit;
 </script>
 
@@ -134,7 +134,7 @@ $state_list = array('AL'=>"Alabama",
 		if (captchaValid($_POST['txtCaptcha'])) $GLOBALS['formErrors'][] = captchaValid($_POST['txtCaptcha']) ;
 	} 
 	if(isset($_POST['OrgID']) && sizeof($GLOBALS['formErrors']) == 0) {
-		include_once '/lead.php';
+		include_once 'lead.php';
 		$sfconfig = sfConfigRead();
 		
 		$formValues = array();
