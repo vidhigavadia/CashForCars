@@ -1,7 +1,7 @@
 <?php
 session_start();
 error_reporting(0);
-include_once 'connection.php';
+//include_once 'connection.php';
 include_once 'form_validate.php';
 ?>
 <!doctype html>
