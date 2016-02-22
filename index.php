@@ -559,7 +559,7 @@ $state_list = array('AL'=>"Alabama",
 		<td></td>
 		<td colspan="1" style="margin: 0px auto !important;">
 		<table><tr>
-		<td><img style="-webkit-border-radius: 10px !important; border-radius: 10px !important; border: 1px solid black;" src="/includes/captcha.php?<?php echo microtime(); ?>" alt= "Captcha" id= "captchaimg" /></td>
+		<td><img style="-webkit-border-radius: 10px !important; border-radius: 10px !important; border: 1px solid black;" src="/captcha.php?<?php echo microtime(); ?>" alt= "Captcha" id= "captchaimg" /></td>
 		<td style="text-align: center;"><div style="line-height: 10px;">&nbsp;<input style="width: 120px;" type="text" id= "captchatext" name="txtCaptcha" maxlength="6"/><br><label class="statictext">Enter Captcha</label></div></td>
 		</tr>
 		<tr><td class="acenter" colspan="2"><label class="customText" style="text-align: center;">Letters are case sensitive</label></td></tr>
