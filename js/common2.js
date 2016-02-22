@@ -7,7 +7,9 @@ function carMakeModelLoad(passID) {
 		$("#Model").append($("<option />").val('').text(''));
 	} 
 	else{
-		$("#Model").append($("<option></option>").val(1).html("Op 1"));
+		$("#Model").append($("<option></option>").val(1).html("Test val 1"));
+		$("#Model").append($("<option></option>").val(2).html("Test val 2"));
+			$("#Model").append($("<option></option>").val(3).html("Test val 3"));
 	}
 	/*	else {
 		if (passID == "not") {
