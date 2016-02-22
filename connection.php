@@ -7,12 +7,14 @@ define('APP_URL',SERVER_URL.APP_FOL);
 define('APP_DIR',SERVER_DOC_ROOT.APP_FOL);
 define('SERVER_ADDRESS',$_SERVER['SERVER_NAME']);
 define('PAGE_URL',"https://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
-include_once SERVER_DOC_ROOT.'/admin/includes/config.php';
-include_once SERVER_DOC_ROOT.'/admin/includes/functions.php';
-error_log("config: ".SERVER_DOC_ROOT.'/admin/includes/config.php');
-error_log("function: ".SERVER_DOC_ROOT.'/admin/includes/functions.php');
+define('DB_HOST','cwh-db.copart.com');
+define('DB_USER', 'cwhappp1');
+define('DB_PASSWORD','s3wUzApH');
+define('DB_DATABASE','cwhp');
+include_once SERVER_DOC_ROOT.'functions_query.php';                       
+error_log("function: ".SERVER_DOC_ROOT.'functions_query.php');
 function db_connect(){
-	static $dbConnection;
+	static $dbConnection;    
 	
 	if(!isset($dbConnection)){
 		$dbConnection = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE);
