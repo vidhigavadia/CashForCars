@@ -134,7 +134,7 @@ $state_list = array('AL'=>"Alabama",
 		if (captchaValid($_POST['txtCaptcha'])) $GLOBALS['formErrors'][] = captchaValid($_POST['txtCaptcha']) ;
 	} 
 	if(isset($_POST['OrgID']) && sizeof($GLOBALS['formErrors']) == 0) {
-		include_once 'includes/lead.php';
+		include_once '/lead.php';
 		$sfconfig = sfConfigRead();
 		
 		$formValues = array();
