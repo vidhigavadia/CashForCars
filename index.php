@@ -25,8 +25,8 @@ include_once 'form_validate.php';
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.js"></script>
 <script type="text/javascript" src="/js/jquery_autotab_1.js"></script>
 <script type="text/javascript" >$(document).ready(function(){ $('.phac, .pha, .phb').autotab_magic(); });</script>
-<script type="text/javascript" src="js/slidingformwidget.js"></script>
-<script type="text/javascript" src="js/common2.js" ></script>
+<script type="text/javascript" src="/js/slidingformwidget.js"></script>
+<script type="text/javascript" src="/js/common2.js" ></script>
 <script src='https://www.google.com/recaptcha/api.js'></script>
 
 <script type="text/javascript">
