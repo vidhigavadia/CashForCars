@@ -1,6 +1,6 @@
 <?php
 session_start();
-error_reporting(0);
+error_reporting(E_ALL);
 //include_once 'connection.php';
 include_once 'form_validate.php';
 ?>
