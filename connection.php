@@ -22,5 +22,6 @@ function db_connect(){
 		error_log("Common.php: MYSQL connect error: " . mysqli_connect_error());
 	}
 	return $dbConnection;
+	//dddd
 }
 ?>
