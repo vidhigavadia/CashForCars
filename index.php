@@ -30,7 +30,7 @@ include_once 'form_validate.php';
 <script src='https://www.google.com/recaptcha/api.js'></script>
 
 <script type="text/javascript">
-	var idToJS = "<?php echo $_GET['i'] ?>";
+//	var idToJS = "<?php echo $_GET['i'] ?>";
 	var formName = "<?php echo "index.php"; ?>";
 	window.onload = hideSubmit;
 </script>
@@ -204,7 +204,7 @@ $state_list = array('AL'=>"Alabama",
 	
 	<?php 
 		$id = (empty($_GET['i'])) ? '' : $_GET['i']; 
-		extract(orgDetails($id));
+		//extract(orgDetails($id));
 	?>
 
 <!-- <noscript> 
@@ -249,10 +249,10 @@ $state_list = array('AL'=>"Alabama",
 <div class="reducedOpacity">
   <table style="width:550px; margin: 0;">
 		<tr><td class="aleftBold" rowspan="5">Organization</td></tr>
-		<tr><td class="customText" class="aleft" colspan="2"><?php echo trim($OrgName); ?></td></tr>
-		<tr><td class="customText" class="aleft" colspan="2"><?php echo trim($OrgAddress1).", ".trim($OrgAddress2); ?></td></tr>
-		<tr><td class="customText" class="aleft" colspan="2"><?php echo trim($OrgCity).", ".trim($OrgState).", ".trim($OrgZip); ?></td></tr>
-		<tr><td class="customText" class="aleft" colspan="2"><?php echo trim($OrgWebAddress); ?></td></tr>
+		<tr><td class="customText" class="aleft" colspan="2">Test</td></tr>
+		<tr><td class="customText" class="aleft" colspan="2">Test</td></tr>
+		<tr><td class="customText" class="aleft" colspan="2">Test</td></tr>
+		<tr><td class="customText" class="aleft" colspan="2">TEst</td></tr>
 		<tr class="blank_row"><td colspan="3"></td></tr>
 		
 		<tr><td class="aleftBold" rowspan="9">Contact</td></tr>
