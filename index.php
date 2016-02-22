@@ -481,7 +481,15 @@ $state_list = array('AL'=>"Alabama",
                             	
                             		?>
                             </select></td> 
-					<td><select name="Make" id="Make"><?php echo makeWithCode($Make); ?></select></td>
+					<td><select name="Make" id="Make">
+					<option>ABACO</option>
+					<option>ACADMEY YATCHS/CANYON</option>
+					<optionC-DORY</option>
+					<option>BRISTOL</option>
+					<option>BLUE STAR</option>
+					<option>BIG MAC</option>
+					<option>VOLVO</option>
+					</select></td>
 					<td><select name="Model" id="Model" style="width: 100%;"></select></td> 		
 					</tr>
 					<tr>
