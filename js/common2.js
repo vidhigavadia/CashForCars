@@ -5,13 +5,17 @@ function carMakeModelLoad(passID) {
 	if(makeValue == '') {
 		$("#Model").empty();
 		$("#Model").append($("<option />").val('').text(''));
-	} else {
+	} 
+	else{
+		$("#Model").append("<option>Test 1</option><option>Test 2</option><option>Test 3</option>")
+	}
+		/*else {
 		if (passID == "not") {
 			myData = {'fnName':'modelFromMake' ,'carMake': makeValue};
 		} else {
 			myData = {'fnName':'modelFromMake', 'id':idToJS, 'carMake': makeValue};
 		}
-   		$.ajax({
+   	$.ajax({
    			type: "POST",
    			url: "/admin/includes/loadModels.php",
    			data: myData,
@@ -29,7 +33,7 @@ function carMakeModelLoad(passID) {
 				$("#Model").empty();
 				$("#Model").append($("<option />").val('').text(''));
 			}
-   		}); 
+   		}); */
 	}
 }
 
