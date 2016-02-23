@@ -1,6 +1,6 @@
 <?php
 // include ('../../includes/sql-helper.php');
-//$cipher = '!@VWfekj5bwe^4db@M0pAkDk;ccnwd!``~][asdBm;<p';
+$cipher = '!@VWfekj5bwe^4db@M0pAkDk;ccnwd!``~][asdBm;<p';
 //include_once $_SERVER["DOCUMENT_ROOT"].'/admin/common.php';
 $dblink = db_connect();
 /*#######################################
