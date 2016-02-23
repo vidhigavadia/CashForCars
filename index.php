@@ -239,11 +239,11 @@ $state_list = array('AL'=>"Alabama",
 
 <!-- <div class="fullform"> -->
 <?php 
-	if (strcmp($_GET['i'], '2503') == 0 || strcmp($_GET['i'], '2504') == 0) {
+/*	if (strcmp($_GET['i'], '2503') == 0 || strcmp($_GET['i'], '2504') == 0) {
 		echo "<label id=\"label1\" class=\"nraformlabel\">Schedule A Pick-up</label>";
-	} else {
+	} else { */
 		echo "<label id=\"label1\" class=\"formlabel\">SCHEDULE A PICK-UP</label>";
-	}
+//	}
 ?>
 <?php echo "<br><br>"; ?>
 <div class="reducedOpacity">
@@ -322,7 +322,7 @@ $state_list = array('AL'=>"Alabama",
 		    <td><select style="border: 1px solid #C40A20 !important;" id="State" name="State">
 		                        		<option value=""></option>
 		                            	<?php foreach ($state_list as $key => $value) {
-		                            	//echo '<option value="'.$key.'" '.(($_POST['State'] == ($key.' - '.$value))?'selected="selected"':"").'>'.$key.' - '.$value.'</option>';
+		                          
 		                            		echo '<option value="'.$key.'" '.'>'.$key.' - '.$value.'</option>';
 		                            		
 		                            	}
