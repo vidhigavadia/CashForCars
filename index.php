@@ -30,7 +30,7 @@ include_once 'form_validate.php';
 <script src='https://www.google.com/recaptcha/api.js'></script>
 
 <script type="text/javascript">
-//	var idToJS = "<?php echo $_GET['i'] ?>";
+
 	var formName = "<?php echo "index.php"; ?>";
 	window.onload = hideSubmit;
 </script>
@@ -322,9 +322,8 @@ $state_list = array('AL'=>"Alabama",
 		    <td><select style="border: 1px solid #C40A20 !important;" id="State" name="State">
 		                        		<option value=""></option>
 		                            	<?php foreach ($state_list as $key => $value) {
-		                          
-		                            		echo '<option value="'.$key.'" '.'>'.$key.' - '.$value.'</option>';
-		                            		
+		                     
+		                            			echo '<option value="'.$key.'" '.'>'.$key.' - '.$value.'</option>';
 		                            	}
 		                            		?>
 		                            </select></td> 
