@@ -322,7 +322,9 @@ $state_list = array('AL'=>"Alabama",
 		    <td><select style="border: 1px solid #C40A20 !important;" id="State" name="State">
 		                        		<option value=""></option>
 		                            	<?php foreach ($state_list as $key => $value) {
-		                            	echo '<option value="'.$key.'" '.(($_POST['State'] == ($key.' - '.$value))?'selected="selected"':"").'>'.$key.' - '.$value.'</option>';
+		                            	//echo '<option value="'.$key.'" '.(($_POST['State'] == ($key.' - '.$value))?'selected="selected"':"").'>'.$key.' - '.$value.'</option>';
+		                            		echo '<option value="'.$key.'" .'>'.$key.' - '.$value.'</option>';
+		                            		
 		                            	}
 		                            		?>
 		                            </select></td> 
