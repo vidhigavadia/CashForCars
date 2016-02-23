@@ -3,6 +3,7 @@
 error_reporting(E_ALL);
 
 include_once 'lead.php';
+include_once 'functions_query.php';
 		$sfconfig = sfConfigRead();
 		
 		$formValues = array();
