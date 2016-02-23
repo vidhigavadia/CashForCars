@@ -217,22 +217,11 @@ $state_list = array('AL'=>"Alabama",
 	
 <p>
 	<input type='hidden' name='OrgID' id='OrgID' value='<?php echo $id; ?>'>
-	<!--<input type='hidden' name='NPOQAAccID' id='NPOQAAccID' value='<?//php echo $NPOQAAccID; ?>'> -->
 	<input type='hidden' name='proceed' id='proceed' value='<?php echo $proceed; ?>'>
 	<input id="NewOrg" name="NewOrg" type='hidden'   value=''/>
 </p>
 
-<?php 
-/*	echo "<table id=\"errorbox\">";
-	if(count($GLOBALS['formErrors']) != 0) {
-		foreach ($GLOBALS['formErrors'] as $key => $errmessage){
-			if($errmessage != '') {
-				echo "<tr><td>&nbsp;$errmessage</td></tr>";
-			}
-		}
-	}
-	echo "</table>"; */
-?>
+
 
 <tr class="blank_row"><td colspan="3"></td></tr>
 
@@ -578,11 +567,9 @@ $state_list = array('AL'=>"Alabama",
 <?php echo "<br><br>"; ?>
 <div class="acenter">
 <?php 
-/*	if (strcmp($_GET['i'], '2503') == 0  || strcmp($_GET['i'], '2504') == 0) {
-		echo "<input class=\"nracustomSubmit\" type=\"submit\" value=\"DONATE MY VEHICLE\" id=\"registerButton\" name=\"submit\">";
-	} else { */
+
 		echo "<input class=\"customSubmit\" type=\"submit\" value=\"Donate my vehicle\" id=\"registerButton\" name=\"submit\">";
-//	}
+
 ?>
 </div>
 <br>	
