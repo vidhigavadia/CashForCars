@@ -1,5 +1,6 @@
 <?php
 session_start();
+phpinfo();
 function randString($length) {
 	$char = "123456789BCDFGHJKLMNPQRSTVWXYZ";
 	$char = str_shuffle($char);
