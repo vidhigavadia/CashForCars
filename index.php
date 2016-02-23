@@ -475,7 +475,7 @@ $state_list = array('AL'=>"Alabama",
                         		<option value=""></option>
                             	<?php for($i=date('Y', strtotime('+1 years')); $i>= 1900 ; $i--) {
 //                             	echo "<option value=\"$i\">$i</option>";
-                            	echo '<option value="'.$i.'" '.(($_POST['Year1'] == $i)?'selected="selected"':"").'>'.$i.'</option>';
+                            //	echo '<option value="'.$i.'" '.(($_POST['Year1'] == $i)?'selected="selected"':"").'>'.$i.'</option>';
                             	}
                             	
                             	
