@@ -461,7 +461,7 @@ $state_list = array('AL'=>"Alabama",
 		echo "<label id=\"label1\" class=\"nraformlabel\">Donation Details</label>";
 	} else { */
 		echo "<label id=\"label1\" class=\"formlabel\">DONATION DETAILS</label>";
-	} */
+//	}
 ?>
 
 <?php echo "<br><br>"; ?>
