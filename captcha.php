@@ -13,7 +13,7 @@ $string = randString(6);
 $_SESSION['captchaText'] = $string;
 header("Content-Type: image/png");
 //$im = @imagecreate(82, 35) or error_log("Cannot Initialize new GD image stream");
-$im = imagecreate(82, 35)
+$im = imagecreate(82, 35);
 $background_color = imagecolorallocate($im, 255, 255, 255);
 $text_color = imagecolorallocate($im, 0, 0, 0);
 $line_color = imagecolorallocate($im, 120, 120, 120);
