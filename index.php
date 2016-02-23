@@ -223,7 +223,7 @@ $state_list = array('AL'=>"Alabama",
 </p>
 
 <?php 
-	echo "<table id=\"errorbox\">";
+/*	echo "<table id=\"errorbox\">";
 	if(count($GLOBALS['formErrors']) != 0) {
 		foreach ($GLOBALS['formErrors'] as $key => $errmessage){
 			if($errmessage != '') {
@@ -231,7 +231,7 @@ $state_list = array('AL'=>"Alabama",
 			}
 		}
 	}
-	echo "</table>";
+	echo "</table>"; */
 ?>
 
 <tr class="blank_row"><td colspan="3"></td></tr>
