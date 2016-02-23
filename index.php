@@ -189,13 +189,13 @@ $state_list = array('AL'=>"Alabama",
 		
 		$leadResponse = create_lead($formValues, $sfconfig['instance'], $sfconfig['token']);
 		if($leadResponse == 1) { 
-			if (strcmp($_GET['i'], '2503') == 0 || strcmp($_GET['i'], '2504') == 0) {
+		/*	if (strcmp($_GET['i'], '2503') == 0 || strcmp($_GET['i'], '2504') == 0) {
 				header("location: nra_thankyou.php?i=".$_GET['i']);
 				exit();
-			} else {
+			} else { */
 				header("location: thankyou.php?i=".$_GET['i']);
 				exit();
-			}
+		//	}
  		} 
 	} else {  ?>
 
@@ -577,11 +577,11 @@ $state_list = array('AL'=>"Alabama",
 <?php echo "<br><br>"; ?>
 <div class="acenter">
 <?php 
-	if (strcmp($_GET['i'], '2503') == 0  || strcmp($_GET['i'], '2504') == 0) {
+/*	if (strcmp($_GET['i'], '2503') == 0  || strcmp($_GET['i'], '2504') == 0) {
 		echo "<input class=\"nracustomSubmit\" type=\"submit\" value=\"DONATE MY VEHICLE\" id=\"registerButton\" name=\"submit\">";
-	} else {
+	} else { */
 		echo "<input class=\"customSubmit\" type=\"submit\" value=\"Donate my vehicle\" id=\"registerButton\" name=\"submit\">";
-	}
+//	}
 ?>
 </div>
 <br>	
