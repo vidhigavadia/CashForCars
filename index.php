@@ -3,6 +3,7 @@ session_start();
 error_reporting(E_ALL);
 include_once 'connection.php';
 include_once 'form_validate.php';
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -568,11 +569,8 @@ $state_list = array('AL'=>"Alabama",
 
 <?php echo "<br><br>"; ?>
 <div class="acenter">
-<?php 
+	<input class="customSubmit" type="submit" action="process.php" method="post" value="Donate my vehicle" id="registerButton" name="submit">
 
-		echo "<input class=\"customSubmit\" type=\"submit\" value=\"Donate my vehicle\" id=\"registerButton\" name=\"submit\">";
-
-?>
 </div>
 <br>	
 </form>		
