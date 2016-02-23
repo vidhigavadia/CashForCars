@@ -457,11 +457,11 @@ $state_list = array('AL'=>"Alabama",
 
 <!-- <label id="label1" class="formlabel">DONATION DETAILS</label> -->
 <?php 
-	if (strcmp($_GET['i'], '2503') == 0 || strcmp($_GET['i'], '2504') == 0) {
+/*	if (strcmp($_GET['i'], '2503') == 0 || strcmp($_GET['i'], '2504') == 0) {
 		echo "<label id=\"label1\" class=\"nraformlabel\">Donation Details</label>";
-	} else {
+	} else { */
 		echo "<label id=\"label1\" class=\"formlabel\">DONATION DETAILS</label>";
-	}
+	} */
 ?>
 
 <?php echo "<br><br>"; ?>
