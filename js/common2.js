@@ -93,7 +93,7 @@ function verifyCaptcha() {
 	var inputtext = $('#captchatext').val();
 	
 	$.ajax({
-			url: "/includes/captcha_helper.php",
+			url: "captcha_helper.php",
 			dataType: "html",
 			success: function(data) {
 				if(inputtext == data) {
@@ -118,7 +118,7 @@ function verifyCaptcha() {
 //Function to refresh captcha when wrong code is entered.
 function reloadCaptcha() {
 	var d = new Date();
-	$('#captchaimg').attr('src','/includes/captcha.php?'+d.getTime());
+	$('#captchaimg').attr('src','captcha.php?'+d.getTime());
 	$('#captchatext').val('');
 	$('#captchafail').hide();
 	hideSubmit();
