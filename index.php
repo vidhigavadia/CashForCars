@@ -1,7 +1,7 @@
 <?php
 session_start();
 error_reporting(E_ALL);
-//include_once 'connection.php';
+include_once 'connection.php';
 include_once 'form_validate.php';
 ?>
 <!doctype html>
@@ -468,6 +468,8 @@ $state_list = array('AL'=>"Alabama",
                             	<?php for($i=date('Y', strtotime('+1 years')); $i>= 1900 ; $i--) {
 //                             	echo "<option value=\"$i\">$i</option>";
                             //	echo '<option value="'.$i.'" '.(($_POST['Year1'] == $i)?'selected="selected"':"").'>'.$i.'</option>';
+                            echo '<option value="'.$i.'" '.'>'.$i.'</option>';
+                         
                             	}
                             	
                             	
