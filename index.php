@@ -195,7 +195,7 @@ $state_list = array('AL'=>"Alabama",
 				header("location: nra_thankyou.php?i=".$_GET['i']);
 				exit();
 			} else { */
-				header("location: thankyou.php?i=".$_GET['i']);
+				header("location: thankyou.php");
 				exit();
 		//	}
  		} 
