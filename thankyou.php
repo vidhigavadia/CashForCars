@@ -18,7 +18,7 @@
 		<tr><td class="tuheader">THANK YOU</td></tr>
 		<tr><td class="anotherBtn">Thank you for your generous donation. We will call you within 24 hours to confirm and complete the donation process. You can also call us at 800-477-1335 with any questions or concerns.</td></tr>
 		<tr><td class="anotherBtn" style="text-align: center;">
-		<a href="/formWidget.php?i=<?php echo $_GET['i']; ?>">Donate Another Vehicle</a></td></tr>
+		<a href="index.php">Donate Another Vehicle</a></td></tr>
 		<tr><td></td></tr>
 	</table>
 </div>
