@@ -136,7 +136,7 @@ $state_list = array('AL'=>"Alabama",
 	} 
 	if(isset($_POST['OrgID']) && sizeof($GLOBALS['formErrors']) == 0) {
 		include_once 'lead.php';
-		$sfconfig = sfConfigRead();
+
 		
 		$formValues = array();
 		if(isset($_POST['First_Name']) && $_POST['First_Name'] != '') $formValues['FirstName'] = $_POST['First_Name'];
