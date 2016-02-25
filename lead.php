@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 //include_once $_SERVER["DOCUMENT_ROOT"].'/common_config.php';
 function checkVar($var) {
 	if(strcmp(gettype($var), 'string') == 0) {
