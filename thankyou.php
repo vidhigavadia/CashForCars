@@ -12,7 +12,8 @@
 </head>
 
 <body>
-<?php include_once("form_thankyou_ga.php"); session_start(); ?>
+<?php //include_once("form_thankyou_ga.php"); session_start(); 
+?> 
 <div id="thankyou">
 	<table style="border: 5px solid #CC0000;-moz-border-radius: 3px; border-radius: 3px;">
 		<tr><td class="tuheader">THANK YOU</td></tr>
