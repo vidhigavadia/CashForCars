@@ -173,8 +173,8 @@ $state_list = array('AL'=>"Alabama",
 		
 // 		if(checkbox_value("Drivable") == 1) { $formValues['Is_Car_Drivable__c'] = 'Yes'; }
 // 		if(checkbox_value("LienRelease") == 0) { $formValues['Lien__c'] = 'Yes'; }
-//		if(isset($_POST["Drivable"] == 1) { $formValues['Is_Car_Drivable__c'] = 'Yes'; } else {$formValues['Is_Car_Drivable__c'] = 'No';}
-//		if(isset($_POST["LienRelease"]== 0) { $formValues['Lien__c'] = 'Yes'; } else { $formValues['Lien__c'] = 'No'; }
+		if(isset($_POST["Drivable"] == 1)) { $formValues['Is_Car_Drivable__c'] = 'Yes'; } else {$formValues['Is_Car_Drivable__c'] = 'No';}
+		if(isset($_POST["LienRelease"]== 0)) { $formValues['Lien__c'] = 'Yes'; } else { $formValues['Lien__c'] = 'No'; }
 		if(isset($_POST['Comments']) && $_POST['Comments'] != '') $formValues['Web_Lead_Comments__c'] = $_POST['Comments'];
 		if (strcmp(strtoupper(trim($_POST['howHear'])), strtoupper(trim('Other'))) != 0) {
 			$formValues['How_did_you_hear_about_us__c'] = $_POST['howHear'];
@@ -240,10 +240,10 @@ $state_list = array('AL'=>"Alabama",
 <div class="reducedOpacity">
   <table style="width:550px; margin: 0;">
 		<tr><td class="aleftBold" rowspan="5">Organization</td></tr>
-		<tr><td class="customText" class="aleft" colspan="2">Test</td></tr>
-		<tr><td class="customText" class="aleft" colspan="2">Test</td></tr>
-		<tr><td class="customText" class="aleft" colspan="2">Test</td></tr>
-		<tr><td class="customText" class="aleft" colspan="2">TEst</td></tr>
+		<tr><td class="customText" class="aleft" colspan="2">The NRA Foundation</td></tr>
+		<tr><td class="customText" class="aleft" colspan="2">11250 Waples Mill Road</td></tr>
+		<tr><td class="customText" class="aleft" colspan="2">Fairfax, VA, 22030</td></tr>
+		<tr><td class="customText" class="aleft" colspan="2">https://www.nrafoundation.org/ways-of-giving/car-donation/</td></tr>
 		<tr class="blank_row"><td colspan="3"></td></tr>
 		
 		<tr><td class="aleftBold" rowspan="9">Contact</td></tr>
