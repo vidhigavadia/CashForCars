@@ -189,7 +189,7 @@ $state_list = array('AL'=>"Alabama",
 		$formValues['LeadSource'] = 'Form Widget'; // "Pictorial Widget" for Pictorial form
 		$formValues['ownerId'] = '00G320000030A70';
 		
-		$leadResponse = create_lead($formValues, $sfconfig['instance'], $sfconfig['token']);
+		$leadResponse = create_lead($formValues);
 		if($leadResponse == 1) { 
 		/*	if (strcmp($_GET['i'], '2503') == 0 || strcmp($_GET['i'], '2504') == 0) {
 				header("location: nra_thankyou.php?i=".$_GET['i']);
