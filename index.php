@@ -218,7 +218,7 @@ $state_list = array('AL'=>"Alabama",
 	
 <p>
 
-
+	<input type='hidden' name='OrgID' id='OrgID' value='2503'>
 	<input id="NewOrg" name="NewOrg" type='hidden'   value=''/>
 </p>
 
