@@ -32,6 +32,6 @@ curl_close($curl);
 $response = json_decode($json_response, true);
 $access_token = $response['access_token'];
 $instance_url = $response['instance_url'];
-echo "response:- $response";
+print_r "response:- $response";
 
 ?>
