@@ -173,8 +173,8 @@ $state_list = array('AL'=>"Alabama",
 		
 // 		if(checkbox_value("Drivable") == 1) { $formValues['Is_Car_Drivable__c'] = 'Yes'; }
 // 		if(checkbox_value("LienRelease") == 0) { $formValues['Lien__c'] = 'Yes'; }
-		if(isset($_POST["Drivable"] == 1) { $formValues['Is_Car_Drivable__c'] = 'Yes'; } else {$formValues['Is_Car_Drivable__c'] = 'No';}
-		if(isset($_POST["LienRelease"]== 0) { $formValues['Lien__c'] = 'Yes'; } else { $formValues['Lien__c'] = 'No'; }
+//		if(isset($_POST["Drivable"] == 1) { $formValues['Is_Car_Drivable__c'] = 'Yes'; } else {$formValues['Is_Car_Drivable__c'] = 'No';}
+//		if(isset($_POST["LienRelease"]== 0) { $formValues['Lien__c'] = 'Yes'; } else { $formValues['Lien__c'] = 'No'; }
 		if(isset($_POST['Comments']) && $_POST['Comments'] != '') $formValues['Web_Lead_Comments__c'] = $_POST['Comments'];
 		if (strcmp(strtoupper(trim($_POST['howHear'])), strtoupper(trim('Other'))) != 0) {
 			$formValues['How_did_you_hear_about_us__c'] = $_POST['howHear'];
