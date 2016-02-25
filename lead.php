@@ -79,9 +79,9 @@ $instance_url = $response['instance_url'];
     	$responseMsg = (($response[0]['message']) ? $response[0]['message'] : "--");
     	$responseECode = (($response[0]['errorCode']) ? $response[0]['errorCode'] : "--");
     	
-    //	$mailData = array("Salesforce Lead creation failure!", $status, $responseMsg, $responseECode, trim(curl_errno($curl)));
+    	$mailData = array("Salesforce Lead creation failure!", $status, $responseMsg, $responseECode, trim(curl_errno($curl)));
     	
-    	$message = FormSubmitFailureTemplate($mailData);
+    //	$message = FormSubmitFailureTemplate($mailData);
     	$headers  = 'MIME-Version: 1.0' . "\r\n";
 		$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
     //	mail(SF_ERROR_MAIL, SF_ERROR_SUBJECT, $message, $headers);
