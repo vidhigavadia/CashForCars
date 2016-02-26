@@ -62,7 +62,8 @@ $formErrors = array();
 				exit();
 			} else { */
 				header("location: thankyou.php");
-				exit();
+				echo "<p>Ok</p>";
+				//exit();
 		//	}
  		} 
 		
