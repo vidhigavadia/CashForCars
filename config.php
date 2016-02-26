@@ -11,7 +11,10 @@ error_log($form_data['Last_Name'][0]);
 	
 
 //	if($form_data->Last_Name[0]!='') echo "<p>json last</p>";
-		
+	if (lastnameValid($form_data['Last_Name'][0])) $GLOBALS['formErrors'][] = lastnameValid($form_data['Last_Name'][0]) ;
+	if (emailValid($form_data['email'][0])) $GLOBALS['formErrors'][] = emailValid($form_data['email'][0]) ;
+	if (phoneValid($form_data['phone_number'][0])) $GLOBALS['formErrors'][] = phoneValid($form_data['phone_number'][0]);
+	if(sizeof($GLOBALS['formErrors']) == 0) {
 
 		include_once 'lead.php';
 		
@@ -35,6 +38,10 @@ error_log($form_data['Last_Name'][0]);
 				echo "<p>Ok</p>";
 			
  		} 
+	
+	
+	}
+	
 		
 //	}
 
