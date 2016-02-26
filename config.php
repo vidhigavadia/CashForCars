@@ -41,18 +41,25 @@ $instance_url = $response['instance_url'];
 //getting values
 
 $formErrors = array();
+$post_data = $_POST;
+$form_data = json_decode($post_data['data_json']);
 		//if (firstnameValid($_POST['First_Name'])) $GLOBALS['formErrors'][] = firstnameValid($_POST['First_Name']);
 	//	if (lastnameValid($_POST['Last_Name'])) $GLOBALS['formErrors'][] = lastnameValid($_POST['Last_Name']) ;
 	if(isset($_POST['First_Name'])) echo "<p>present</p>";
 	if(isset($_POST['Last_Name'])) echo "<p>present2</p>";
-		
+	if($form_data['Last_Name']!='') echo "<p>json last</p>";
 		
 //	if(sizeof($GLOBALS['formErrors']) == 0) {
 		include_once 'lead.php';
 		
 		$formValues = array();
-		if(isset($_POST['First_Name']) && $_POST['First_Name'] != '') $formValues['FirstName'] = $_POST['First_Name'];
-		if(isset($_POST['Last_Name']) && $_POST['Last_Name'] != '') $formValues['LastName'] = $_POST['Last_Name'];
+	//	if(isset($_POST['First_Name']) && $_POST['First_Name'] != '') $formValues['FirstName'] = $_POST['First_Name'];
+	//	if(isset($_POST['Last_Name']) && $_POST['Last_Name'] != '') $formValues['LastName'] = $_POST['Last_Name'];
+		
+		
+		if($form_data['Last_Name'] != '') $formValues['LastName'] = $form_data['Last_Name'];
+	//	if(isset($_POST['Last_Name']) && $_POST['Last_Name'] != '') $formValues['LastName'] = $_POST['Last_Name'];
+		
 		$formValues['RecordTypeid'] = '012320000009eyu'; 
 		$formValues['LeadSource'] = 'Form Widget'; // "Pictorial Widget" for Pictorial form
 		$formValues['ownerId'] = '00G320000030A70';
