@@ -42,7 +42,7 @@ $instance_url = $response['instance_url'];
 
 $formErrors = array();
 $post_data = $_POST;
-$form_data = json_decode($post_data['data_json']);
+$form_data = json_decode($post_data['data_json'],true);
 		//if (firstnameValid($_POST['First_Name'])) $GLOBALS['formErrors'][] = firstnameValid($_POST['First_Name']);
 	//	if (lastnameValid($_POST['Last_Name'])) $GLOBALS['formErrors'][] = lastnameValid($_POST['Last_Name']) ;
 	if(isset($_POST['First_Name'])) echo "<p>present</p>";
