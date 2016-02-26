@@ -41,12 +41,12 @@ $instance_url = $response['instance_url'];
 //getting values
 
 $formErrors = array();
-		if (firstnameValid($_POST['First_Name'])) $GLOBALS['formErrors'][] = firstnameValid($_POST['First_Name']);
-		if (lastnameValid($_POST['Last_Name'])) $GLOBALS['formErrors'][] = lastnameValid($_POST['Last_Name']) ;
+		//if (firstnameValid($_POST['First_Name'])) $GLOBALS['formErrors'][] = firstnameValid($_POST['First_Name']);
+	//	if (lastnameValid($_POST['Last_Name'])) $GLOBALS['formErrors'][] = lastnameValid($_POST['Last_Name']) ;
 	
 		
 		
-	if(sizeof($GLOBALS['formErrors']) == 0) {
+//	if(sizeof($GLOBALS['formErrors']) == 0) {
 		include_once 'lead.php';
 		
 		$formValues = array();
@@ -67,6 +67,6 @@ $formErrors = array();
 		//	}
  		} 
 		
-	}
+//	}
 
 ?>
