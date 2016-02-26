@@ -1,5 +1,8 @@
 <?php
-$params = array(
+session_start();
+error_reporting(E_ALL);
+include_once 'form_validate.php';
+/*$params = array(
 		"grant_type" => "password",
 		"client_id" => "3MVG93MGy9V8hF9OvSukhaaKeTLsvrXwKAttYW8AT5vD6ZOe5Y4hjepm1gJLaRxIrkztbKFlflN6gdtuuhftQ",
 		"client_secret" => "2174335346123706887",
@@ -32,6 +35,37 @@ curl_close($curl);
 $response = json_decode($json_response, true);
 $access_token = $response['access_token'];
 $instance_url = $response['instance_url'];
-print_r ($response);
+//print_r ($response); */
+
+
+//getting values
+
+$formErrors = array();
+		if (firstnameValid($_POST['First_Name'])) $GLOBALS['formErrors'][] = firstnameValid($_POST['First_Name']);
+		if (lastnameValid($_POST['Last_Name'])) $GLOBALS['formErrors'][] = lastnameValid($_POST['Last_Name']) ;
+	
+		
+		} 
+	if(sizeof($GLOBALS['formErrors']) == 0) {
+		include_once 'lead.php';
+		
+		$formValues = array();
+		if(isset($_POST['First_Name']) && $_POST['First_Name'] != '') $formValues['FirstName'] = $_POST['First_Name'];
+		if(isset($_POST['Last_Name']) && $_POST['Last_Name'] != '') $formValues['LastName'] = $_POST['Last_Name'];
+		$formValues['RecordTypeid'] = '012320000009eyu'; 
+		$formValues['LeadSource'] = 'Form Widget'; // "Pictorial Widget" for Pictorial form
+		$formValues['ownerId'] = '00G320000030A70';
+		$leadResponse = create_lead($formValues);
+		if($leadResponse == 1) { 
+		/*	if (strcmp($_GET['i'], '2503') == 0 || strcmp($_GET['i'], '2504') == 0) {
+				header("location: nra_thankyou.php?i=".$_GET['i']);
+				exit();
+			} else { */
+				header("location: thankyou.php");
+				exit();
+		//	}
+ 		} 
+		
+	}
 
 ?>
