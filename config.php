@@ -45,7 +45,7 @@ $formErrors = array();
 		if (lastnameValid($_POST['Last_Name'])) $GLOBALS['formErrors'][] = lastnameValid($_POST['Last_Name']) ;
 	
 		
-		} 
+		
 	if(sizeof($GLOBALS['formErrors']) == 0) {
 		include_once 'lead.php';
 		
