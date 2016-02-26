@@ -44,12 +44,12 @@ $formErrors = array();
 $post_data = $_POST['data_json'];
 $form_data = json_decode($post_data,true);
 error_log( print_R($form_data,TRUE) );
-error_log("last $form_data['Last_Name'][0]");
+error_log($form_data->Last_Name[0]);
 		//if (firstnameValid($_POST['First_Name'])) $GLOBALS['formErrors'][] = firstnameValid($_POST['First_Name']);
 	//	if (lastnameValid($_POST['Last_Name'])) $GLOBALS['formErrors'][] = lastnameValid($_POST['Last_Name']) ;
 	if(isset($_POST['First_Name'])) echo "<p>present</p>";
 	if(isset($_POST['Last_Name'])) echo "<p>present2</p>";
-	if($form_data['Last_Name'][0]!='') echo "<p>json last</p>";
+	if($form_data->Last_Name[0]!='') echo "<p>json last</p>";
 		
 //	if(sizeof($GLOBALS['formErrors']) == 0) {
 		include_once 'lead.php';
@@ -59,7 +59,7 @@ error_log("last $form_data['Last_Name'][0]");
 	//	if(isset($_POST['Last_Name']) && $_POST['Last_Name'] != '') $formValues['LastName'] = $_POST['Last_Name'];
 		
 		
-		if($form_data['last_name']!='') $formValues['LastName'] = $form_data['last_name'];
+		if($form_data->Last_Name[0]!='') $formValues['LastName'] =$form_data->Last_Name[0];
 	//	if(isset($_POST['Last_Name']) && $_POST['Last_Name'] != '') $formValues['LastName'] = $_POST['Last_Name'];
 		
 		$formValues['RecordTypeid'] = '012320000009eyu'; 
