@@ -43,7 +43,7 @@ $instance_url = $response['instance_url'];
 $formErrors = array();
 		//if (firstnameValid($_POST['First_Name'])) $GLOBALS['formErrors'][] = firstnameValid($_POST['First_Name']);
 	//	if (lastnameValid($_POST['Last_Name'])) $GLOBALS['formErrors'][] = lastnameValid($_POST['Last_Name']) ;
-	if(isset($_GET['First_Name'])) echo "<p>present</p>";
+	if(isset($_POST['First_Name'])) echo "<p>present</p>";
 	if(isset($_GET['Last_Name'])) echo "<p>present2</p>";
 		
 		
