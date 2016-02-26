@@ -59,7 +59,7 @@ error_log($form_data['Last_Name'][0]);
 	//	if(isset($_POST['Last_Name']) && $_POST['Last_Name'] != '') $formValues['LastName'] = $_POST['Last_Name'];
 		
 		
-		if($form_data->Last_Name[0]!='') $formValues['LastName'] =$form_data->Last_Name[0];
+		if($form_data['Last_Name'][0]!='') $formValues['LastName'] =$form_data['Last_Name'][0];
 	//	if(isset($_POST['Last_Name']) && $_POST['Last_Name'] != '') $formValues['LastName'] = $_POST['Last_Name'];
 		
 		$formValues['RecordTypeid'] = '012320000009eyu'; 
