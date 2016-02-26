@@ -22,9 +22,9 @@ error_log($form_data['Last_Name'][0]);
 		if($form_data['Last_Name'][0]!='') $formValues['LastName'] =$form_data['Last_Name'][0];
 		if($form_data['phone_number'][0]!='') $formValues['Phone'] = $form_data['phone_number'][0];
 		if($form_data['email'][0]!='') $formValues['email'] = $form_data['email'][0];
-		if(isset($form_data['year'][0]) $formValues['year__c'] = $form_data['year'][0];
-		if(isset($form_data['make'][0]) $formValues['make__c'] =$form_data['make'][0];
-		if($form_data['model'][0]) $formValues['model__c'] = $form_data['model'][0];
+		if($form_data['year'][0]!='') $formValues['year__c'] = $form_data['year'][0];
+		if($form_data['make'][0]!='') $formValues['make__c'] =$form_data['make'][0];
+		if($form_data['model'][0]!='') $formValues['model__c'] = $form_data['model'][0];
 		$formValues['RecordTypeid'] = '012320000009eyu'; 
 		$formValues['LeadSource'] = 'Form Widget'; // "Pictorial Widget" for Pictorial form
 		$formValues['ownerId'] = '00G320000030A70';
