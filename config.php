@@ -48,7 +48,7 @@ error_log("response: $post_data['data_json']");
 	//	if (lastnameValid($_POST['Last_Name'])) $GLOBALS['formErrors'][] = lastnameValid($_POST['Last_Name']) ;
 	if(isset($_POST['First_Name'])) echo "<p>present</p>";
 	if(isset($_POST['Last_Name'])) echo "<p>present2</p>";
-	if($form_data['last_name'][0]!='') echo "<p>json last</p>";
+	if($form_data['last_name']!='') echo "<p>json last</p>";
 		
 //	if(sizeof($GLOBALS['formErrors']) == 0) {
 		include_once 'lead.php';
@@ -58,7 +58,7 @@ error_log("response: $post_data['data_json']");
 	//	if(isset($_POST['Last_Name']) && $_POST['Last_Name'] != '') $formValues['LastName'] = $_POST['Last_Name'];
 		
 		
-		if($form_data['last_name'][0]!='') $formValues['LastName'] = $form_data['last_name'][0];
+		if($form_data['last_name']!='') $formValues['LastName'] = $form_data['last_name'];
 	//	if(isset($_POST['Last_Name']) && $_POST['Last_Name'] != '') $formValues['LastName'] = $_POST['Last_Name'];
 		
 		$formValues['RecordTypeid'] = '012320000009eyu'; 
