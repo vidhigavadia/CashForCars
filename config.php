@@ -15,14 +15,14 @@ error_log($form_data['Last_Name'][0]);
 	if (lastnameValid($form_data['Last_Name'][0])) $GLOBALS['formErrors'][] = lastnameValid($form_data['Last_Name'][0]) ;
 	if (emailValid($form_data['email'][0])) $GLOBALS['formErrors'][] = emailValid($form_data['email'][0]) ;
 	if (phoneValid($form_data['phone_number'][0])) $GLOBALS['formErrors'][] = phoneValid($form_data['phone_number'][0]);
-	if (address1Valid($form_data['address_line_1'])) $GLOBALS['formErrors'][] = address1Valid($form_data['address_line_1']) ;
-	if (address2Valid($form_data['address_line_2'])) $GLOBALS['formErrors'][] = address2Valid($form_data['address_line_2']) ;
-	if (cityValid($form_data['city'])) $GLOBALS['formErrors'][] = cityValid($form_data['city']) ;
-	if (stateValid($form_data['state'])) $GLOBALS['formErrors'][] = stateValid($form_data['state']) ;
-	if (zipValid($form_data['zip'])) $GLOBALS['formErrors'][] = zipValid($form_data['zip']) ;
-	if (mileageValid($form_data['mileage'])) $GLOBALS['formErrors'][] = mileageValid($form_data['mileage']) ;
-	if (commentsValid($form_data['comments'])) $GLOBALS['formErrors'][] = commentsValid($form_data['comments']) ;
-	if (otherValid($form_data['other'])) $GLOBALS['formErrors'][] = otherValid($form_data['other']) ;
+	if (address1Valid($form_data['address_line_1'][0])) $GLOBALS['formErrors'][] = address1Valid($form_data['address_line_1'][0]) ;
+	if (address2Valid($form_data['address_line_2'][0])) $GLOBALS['formErrors'][] = address2Valid($form_data['address_line_2'][0]) ;
+	if (cityValid($form_data['city'][0])) $GLOBALS['formErrors'][] = cityValid($form_data['city'][0]) ;
+	if (stateValid($form_data['state'][0])) $GLOBALS['formErrors'][] = stateValid($form_data['state'][0]) ;
+	if (zipValid($form_data['zip'][0])) $GLOBALS['formErrors'][] = zipValid($form_data['zip'][0]) ;
+	if (mileageValid($form_data['mileage'][0])) $GLOBALS['formErrors'][] = mileageValid($form_data['mileage'][0]) ;
+	if (commentsValid($form_data['comments'][0])) $GLOBALS['formErrors'][] = commentsValid($form_data['comments'][0]) ;
+	if (otherValid($form_data['other'][0])) $GLOBALS['formErrors'][] = otherValid($form_data['other'][0]) ;
 
 	if(sizeof($GLOBALS['formErrors']) == 0) {
 
@@ -57,7 +57,7 @@ error_log($form_data['Last_Name'][0]);
 		if (strcmp(strtoupper(trim($form_data['how_did_you_hear_about_us'][0])), strtoupper(trim('Other'))) != 0) {
 			$formValues['How_did_you_hear_about_us__c'] = $form_data['how_did_you_hear_about_us'][0];
 		} else {
-			$formValues['How_did_you_hear_about_us__c'] = $form_data['other'];
+			$formValues['How_did_you_hear_about_us__c'] = $form_data['other'][0];
 		}
 		$formValues['RecordTypeid'] = '012320000009eyu'; 
 		$formValues['LeadSource'] = 'Form Widget'; // "Pictorial Widget" for Pictorial form
