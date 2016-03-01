@@ -6,8 +6,7 @@ include_once 'form_validate.php';
 $formErrors = array();
 $post_data = $_POST['data_json'];
 $form_data = json_decode($post_data,true);
-//error_log( print_R($post_data,TRUE) );
-error_log($_POST);
+error_log(print_R($_POST,TRUE) );
 error_log($post_data);
 	
 
