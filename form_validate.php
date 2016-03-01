@@ -208,6 +208,34 @@ function yearmakemodelValid($value) {
 		return '';
 	}
 }
+
+
+function yearValid($value) {
+	trim($value);
+	if (strlen((string)$value) != 0 && !preg_match('/^[a-z0-9A-Z\s\~\!\@\#\$\%\^\&\*\(\)\-\_\+\=\[\]\{\}\;\'\:\"\,\.\/\\\<\>\?\|]+$/i', $value)) {
+		return 'Year text field can contain characters, numeric and special characters up to 255 characters';
+	}else{
+		return '';
+	}
+}
+
+function makeValid($value) {
+	trim($value);
+	if (strlen((string)$value) != 0 && !preg_match('/^[a-z0-9A-Z\s\~\!\@\#\$\%\^\&\*\(\)\-\_\+\=\[\]\{\}\;\'\:\"\,\.\/\\\<\>\?\|]+$/i', $value)) {
+		return 'Make text field can contain characters, numeric and special characters up to 255 characters';
+	}else{
+		return '';
+	}
+}
+
+function modelValid($value) {
+	trim($value);
+	if (strlen((string)$value) != 0 && !preg_match('/^[a-z0-9A-Z\s\~\!\@\#\$\%\^\&\*\(\)\-\_\+\=\[\]\{\}\;\'\:\"\,\.\/\\\<\>\?\|]+$/i', $value)) {
+		return 'Model text field can contain characters, numeric and special characters up to 255 characters';
+	}else{
+		return '';
+	}
+}
 function mileageValid($value) {
 	trim($value);
 	if (strlen((string)$value) != 0 && !preg_match('/^\d{0,7}$/', $value)) {
