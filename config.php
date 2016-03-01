@@ -20,9 +20,13 @@ error_log($form_data['is_car_drivable'][0]);
 	if (cityValid($form_data['city'][0])) $GLOBALS['formErrors'][] = cityValid($form_data['city'][0]) ;
 	if (stateValid($form_data['state'][0])) $GLOBALS['formErrors'][] = stateValid($form_data['state'][0]) ;
 	if (zipValid($form_data['zip'][0])) $GLOBALS['formErrors'][] = zipValid($form_data['zip'][0]) ;
+	if (yearValid($form_data['year'][0])) $GLOBALS['formErrors'][] = mileageValid($form_data['yesr'][0]) ;
+	if (makeValid($form_data['make'][0])) $GLOBALS['formErrors'][] = mileageValid($form_data['make'][0]) ;
+	if (modelValid($form_data['model'][0])) $GLOBALS['formErrors'][] = mileageValid($form_data['model'][0]) ;
 	if (mileageValid($form_data['mileage'][0])) $GLOBALS['formErrors'][] = mileageValid($form_data['mileage'][0]) ;
 	if (commentsValid($form_data['comments'][0])) $GLOBALS['formErrors'][] = commentsValid($form_data['comments'][0]) ;
 	if (otherValid($form_data['other'][0])) $GLOBALS['formErrors'][] = otherValid($form_data['other'][0]) ;
+	
 
 	if(sizeof($GLOBALS['formErrors']) == 0) {
 
@@ -75,7 +79,8 @@ error_log($form_data['is_car_drivable'][0]);
 	else{
 		//print the validation error
 		
-		error_log($GLOBALS['formErrors'][0]);	
+		error_log(print_r($GLOBALS['formErrors']));	
+		
 	}
 	
 		
