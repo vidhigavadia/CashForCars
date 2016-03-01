@@ -23,7 +23,7 @@ error_log($form_data['is_car_drivable'][0]);
 	if (mileageValid($form_data['mileage'][0])) $GLOBALS['formErrors'][] = mileageValid($form_data['mileage'][0]) ;
 	if (commentsValid($form_data['comments'][0])) $GLOBALS['formErrors'][] = commentsValid($form_data['comments'][0]) ;
 	if (otherValid($form_data['other'][0])) $GLOBALS['formErrors'][] = otherValid($form_data['other'][0]) ;
-
+	error_log(print_r($GLOBALS['formErrors']));
 	if(sizeof($GLOBALS['formErrors']) == 0) {
 
 		include_once 'lead.php';
