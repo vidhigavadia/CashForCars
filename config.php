@@ -25,7 +25,13 @@ error_log( print_R($form_data,TRUE) );
 	if (mileageValid($form_data['mileage'][0])) $GLOBALS['formErrors'][] = mileageValid($form_data['mileage'][0]) ;
 	if (commentsValid($form_data['comments'][0])) $GLOBALS['formErrors'][] = commentsValid($form_data['comments'][0]) ;
 	if (otherValid($form_data['other'][0])) $GLOBALS['formErrors'][] = otherValid($form_data['other'][0]) ;
+	if (pickupDateValid($form_data['pick_up_date'][0])) $GLOBALS['formErrors'][] = pickupDateValid($form_data['pick_up_date'][0]) ;
 	
+	if (caraddress1Valid($form_data['caraddress1'][0])) $GLOBALS['formErrors'][] = caraddress1Valid($form_data['caraddress1'][0]) ;
+	if (caraddress2Valid($form_data['caraddress2'][0])) $GLOBALS['formErrors'][] = caraddress2Valid($form_data['caraddress2'][0]) ;
+	if (carcityValid($form_data['vehicle_city'][0])) $GLOBALS['formErrors'][] = carcityValid($form_data['vehicle_city'][0]) ;
+	if (carzipValid($form_data['vehicle_zip'][0])) $GLOBALS['formErrors'][] = carzipValid($form_data['vehicle_zip'][0]) ;
+		
 
 	if(sizeof($GLOBALS['formErrors']) == 0) {
 
@@ -49,6 +55,14 @@ error_log( print_R($form_data,TRUE) );
 		if($form_data['city'][0]!='') $formValues['City'] = $form_data['city'][0];
 		if($form_data['state'][0]!='') $formValues['state'] =$form_data['state'][0];
 		if($form_data['zip'][0]!='') $formValues['PostalCode'] = $form_data['zip'][0];
+	
+		if($form_data['caraddress1'][0]!='') $formValues['Pickup_Address1__c'] = $form_data['caraddress1'][0];
+		if($form_data['caraddress2'][0]!='') $formValues['Pickup_Address2__c'] = $form_data['caraddress2'][0];
+		if($form_data['vehicle_city'][0]!='') $formValues['Pickup_City__c'] = $form_data['vehicle_city'][0];
+		if($form_data['vehicle_state'][0]!='') $formValues['Pickup_Location_State__c'] =$form_data['vehicle_state'][0];
+		if($form_data['vehicle_zip'][0]!='') $formValues['Pickup_Postal_Code__c'] = $form_data['vehicle_zip'][0];
+		
+		if($form_data['pick_up_date'][0]!='') $formValues['Pickup_date__c'] = $form_data['pick_up_date'][0];
 		if($form_data['select_a_pickuptime'][0]!='') $formValues['Pickup_Time__c'] = $form_data['select_a_pickuptime'][0];
 		if($form_data['best_time'][0]!='') $formValues['BestTimetoCall__c'] =$form_data['best_time'][0];
 		if($form_data['mileage'][0]!='') $formValues['Veh_Miles__c'] = $form_data['mileage'][0];
