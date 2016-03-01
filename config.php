@@ -66,8 +66,30 @@ error_log( print_R($form_data,TRUE) );
 		if($form_data['select_a_pickuptime'][0]!='') $formValues['Pickup_Time__c'] = $form_data['select_a_pickuptime'][0];
 		if($form_data['best_time'][0]!='') $formValues['BestTimetoCall__c'] =$form_data['best_time'][0];
 		if($form_data['mileage'][0]!='') $formValues['Veh_Miles__c'] = $form_data['mileage'][0];
-		if($form_data['is_car_drivable'][0]=='Yes'){$formValues['Is_Car_Drivable__c'] ='Yes';} else{ $formValues['Is_Car_Drivable__c'] ='No';}
-		if($form_data['is_car_paid_for_entirely'][0]!='Yes') {$formValues['Lien__c'] ='Yes';} else{ $formValues['Lien__c'] ='No';}
+		
+		if(!empty($form_data['is_car_drivable'])){
+			if($form_data['is_car_drivable'][0]=='Yes'){
+				$formValues['Is_Car_Drivable__c'] ='Yes';
+				
+			} 
+			else{
+				$formValues['Is_Car_Drivable__c'] ='No';
+				
+			}
+		}
+		
+		if(!empty($form_data['is_car_paid_for_entirely'])){
+			
+			if($form_data['is_car_paid_for_entirely'][0]!='Yes')
+			{
+				$formValues['Lien__c'] ='Yes';
+				
+			}
+			else{ 
+				$formValues['Lien__c'] ='No';
+				
+			}
+		}
 		if($form_data['comments'][0]!='') $formValues['Web_Lead_Comments__c'] =$form_data['comments'][0];
 		if($form_data['mileage'][0]!='') $formValues['How_did_you_hear_about_us__c'] = $form_data['mileage'][0];
 		
