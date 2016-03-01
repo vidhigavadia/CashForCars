@@ -114,7 +114,8 @@ error_log( print_R($form_data,TRUE) );
 	else{
 		//print the validation error
 	
-		error_log(print_r($GLOBALS['formErrors'],TRUE));	
+		error_log(print_r($GLOBALS['formErrors'],TRUE));
+		http_response_code(500);
 		
 	}
 	
