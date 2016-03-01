@@ -113,9 +113,9 @@ error_log( print_R($form_data,TRUE) );
 	}
 	else{
 		//print the validation error
-	
+	header("HTTP/1.0 500 Internal Server Error");
 		error_log(print_r($GLOBALS['formErrors'],TRUE));
-		http_response_code(500);
+	exit(0);
 		
 	}
 	
