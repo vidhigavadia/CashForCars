@@ -7,7 +7,6 @@ $formErrors = array();
 $post_data = $_POST['data_json'];
 $form_data = json_decode($post_data,true);
 error_log( print_R($form_data,TRUE) );
-error_log($form_data['is_car_drivable'][0]);
 	
 
 //	if($form_data->Last_Name[0]!='') echo "<p>json last</p>";
@@ -78,7 +77,7 @@ error_log($form_data['is_car_drivable'][0]);
 	}
 	else{
 		//print the validation error
-		error_log('errors');
+	
 		error_log(print_r($GLOBALS['formErrors'],TRUE));	
 		
 	}
