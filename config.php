@@ -78,8 +78,8 @@ error_log($form_data['is_car_drivable'][0]);
 	}
 	else{
 		//print the validation error
-		
-		error_log(print_r($GLOBALS['formErrors']));	
+		error_log('errors');
+		error_log(print_r($GLOBALS['formErrors'],TRUE));	
 		
 	}
 	
