@@ -1,5 +1,6 @@
 <?php
 
+function getSFData() {
 require_once 'vendor/autoload.php';
 $app = new Silex\Application();
 $app['debug'] = true;
@@ -12,9 +13,6 @@ $dsn = 'pgsql:'
     . 'port=' . $dbopts["port"].';'
     . 'sslmode=require;'
     . 'password='. $dbopts["pass"];
-    
-function getSFData() {
-
 try
 {
 	$db = new PDO($dsn);
