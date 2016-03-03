@@ -1,8 +1,5 @@
 <?php
-require_once 'vendor/autoload.php';
-include_once 'data_connection.php';
-$SFData = getSFData();
-var_dump($SFData);
+
 function checkVar($var) {
 	if(strcmp(gettype($var), 'string') == 0) {
 		if((strlen(trim($var)) > 0 )) {
@@ -22,15 +19,16 @@ function checkVar($var) {
 }
 
 function create_lead($formvalues) {
+require_once 'vendor/autoload.php';
 include_once 'data_connection.php';
-	$SFData = getSFData();
+$SFData = getSFData();
 
 	$params = array(
 		"grant_type" => "password",
-		"client_id" => "3MVG93MGy9V8hF9OvSukhaaKeTLsvrXwKAttYW8AT5vD6ZOe5Y4hjepm1gJLaRxIrkztbKFlflN6gdtuuhftQ",
-		"client_secret" => "2174335346123706887",
-		"username" =>"vidhi.gavadia@copart.com.full",
-		"password" => "Test@123");
+		"client_id" => $SFData['client_id'],
+		"client_secret" => $SFData['client_secret'],
+		"username" =>$SFData['username'],
+		"password" => $SFData['password']);
 $curl = curl_init("https://test.salesforce.com/services/oauth2/token");
 curl_setopt($curl, CURLOPT_HEADER, false);
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
