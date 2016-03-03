@@ -26,7 +26,7 @@ $app->get('/db/', function() use($app) {
 
 
 });
-error_log("values". $name[0]);
+error_log("values". $names[0]);
 error_log(print_r($names));
 
 
