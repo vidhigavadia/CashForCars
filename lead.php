@@ -19,7 +19,7 @@ function checkVar($var) {
 }
 
 function create_lead($formvalues) {
-require( __DIR__.'../../vendor.autoload.php');	
+require('../vendor/autoload.php');	
 $app = new Silex\Application();
 $app['debug'] = true;
 
