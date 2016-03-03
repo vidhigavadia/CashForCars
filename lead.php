@@ -1,25 +1,7 @@
 <?php
 require_once 'vendor/autoload.php';
-function checkVar($var) {
-	if(strcmp(gettype($var), 'string') == 0) {
-		if((strlen(trim($var)) > 0 )) {
-			return trim($var);
-		} else {
-		return '';
-		}
-	}
-	
-	if(strcmp(gettype($var), 'integer') == 0) {
-		if((strlen(string(trim($var))) > 0 )) {
-			return trim($var);
-		} else {
-			return '';
-		}
-	}
-}
 
-function create_lead($formvalues) {
-require_once 'vendor/autoload.php';
+
 $app = new Silex\Application();
 $app['debug'] = true;
 
@@ -44,7 +26,31 @@ $app->get('/db/', function() use($app) {
 
 
 });
-error_log(print_r($names));	
+error_log("values". $name[0]);
+error_log(print_r($names));
+
+
+function checkVar($var) {
+	if(strcmp(gettype($var), 'string') == 0) {
+		if((strlen(trim($var)) > 0 )) {
+			return trim($var);
+		} else {
+		return '';
+		}
+	}
+	
+	if(strcmp(gettype($var), 'integer') == 0) {
+		if((strlen(string(trim($var))) > 0 )) {
+			return trim($var);
+		} else {
+			return '';
+		}
+	}
+}
+
+function create_lead($formvalues) {
+
+	
 	$params = array(
 		"grant_type" => "password",
 		"client_id" => "3MVG93MGy9V8hF9OvSukhaaKeTLsvrXwKAttYW8AT5vD6ZOe5Y4hjepm1gJLaRxIrkztbKFlflN6gdtuuhftQ",
