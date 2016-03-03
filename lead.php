@@ -1,5 +1,5 @@
 <?php
-
+require_once 'vendor/autoload.php'
 function checkVar($var) {
 	if(strcmp(gettype($var), 'string') == 0) {
 		if((strlen(trim($var)) > 0 )) {
@@ -19,7 +19,7 @@ function checkVar($var) {
 }
 
 function create_lead($formvalues) {
-require('../vendor/autoload.php');
+require_once 'vendor/autoload.php';
 $app = new Silex\Application();
 $app['debug'] = true;
 
