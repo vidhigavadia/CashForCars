@@ -4,7 +4,7 @@ require_once 'vendor/autoload.php';
 
 $app = new Silex\Application();
 $app['debug'] = true;
-
+$credentials = array();
 $dbopts = parse_url(getenv('DATABASE_URL'));
 /*$app->register(new Herrera\Pdo\PdoServiceProvider(),
                array(
@@ -29,10 +29,11 @@ try
 	$query = 'SELECT * FROM credentials;';
 $result = $db->query($query);
 while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-	var_dump($row);
+	$credentials[0]= $row['username'];
+	$credentials[1] =$row['password'];
 }
 $result->closeCursor();
-
+var_dump($credentials);
 	
 }
 catch(PDOException $pe)
@@ -41,7 +42,7 @@ catch(PDOException $pe)
 }
  
 
-$names = array();
+
 /*$app->get('/db/', function() use($app) {
   $st = $app['pdo']->prepare('SELECT username, password FROM credentials');
   $result = $st->execute();
