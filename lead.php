@@ -1,66 +1,8 @@
 <?php
 require_once 'vendor/autoload.php';
-
-
-$app = new Silex\Application();
-$app['debug'] = true;
-$credentials = array();
-$dbopts = parse_url(getenv('DATABASE_URL'));
-/*$app->register(new Herrera\Pdo\PdoServiceProvider(),
-               array(
-                   'pdo.dsn' => 'pgsql:dbname='.ltrim($dbopts["path"],'/').';host='.$dbopts["host"] . ';port=' . $dbopts["port"],
-                   'pdo.username' => $dbopts["user"],
-                   'pdo.password' => $dbopts["pass"]
-               )
-);*/
-
-
-$dsn = 'pgsql:'
-    . 'host='.$dbopts["host"]. ';'
-    . 'dbname='.ltrim($dbopts["path"],'/').';'
-    . 'user='.$dbopts["user"].';'
-    . 'port=' . $dbopts["port"].';'
-    . 'sslmode=require;'
-    . 'password='. $dbopts["pass"];
-error_log($dsn);
-try
-{
-	$db = new PDO($dsn);
-	$query = "select username , convert_from(decrypt(password,'d0a7e7997b6d5fcd55f4b5c32611b87cd923e88837b63bf2941ef819dc8ca282','aes'),'utf-8') as pass from credentials;";
-$result = $db->query($query);
-while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-	$credentials[0]= $row['username'];
-	$credentials[1] =$row['pass'];
-}
-$result->closeCursor();
-var_dump($credentials);
-	
-}
-catch(PDOException $pe)
-{
-	die('Connection error, because: ' .$pe->getMessage());
-}
- 
-
-
-/*$app->get('/db/', function() use($app) {
-  $st = $app['pdo']->prepare('SELECT username, password FROM credentials');
-  $result = $st->execute();
-
-  
-  while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-   // $app['monolog']->addDebug('Row ' . $row['username']);
-   var_dump($row);
-    $names[0] = $row[0];
-     $names[1] = $row[1];
-  }
-
-
-});
-error_log("values-". $names[0]);
-error_log(print_r($names));
-
-*/
+include_once 'data_connection.php';
+$SFData = getSFData();
+var_dump($SFData);
 function checkVar($var) {
 	if(strcmp(gettype($var), 'string') == 0) {
 		if((strlen(trim($var)) > 0 )) {
@@ -80,8 +22,9 @@ function checkVar($var) {
 }
 
 function create_lead($formvalues) {
+include_once 'data_connection.php';
+	$SFData = getSFData();
 
-	
 	$params = array(
 		"grant_type" => "password",
 		"client_id" => "3MVG93MGy9V8hF9OvSukhaaKeTLsvrXwKAttYW8AT5vD6ZOe5Y4hjepm1gJLaRxIrkztbKFlflN6gdtuuhftQ",
