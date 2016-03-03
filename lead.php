@@ -6,15 +6,43 @@ $app = new Silex\Application();
 $app['debug'] = true;
 
 $dbopts = parse_url(getenv('DATABASE_URL'));
-$app->register(new Herrera\Pdo\PdoServiceProvider(),
+/*$app->register(new Herrera\Pdo\PdoServiceProvider(),
                array(
                    'pdo.dsn' => 'pgsql:dbname='.ltrim($dbopts["path"],'/').';host='.$dbopts["host"] . ';port=' . $dbopts["port"],
                    'pdo.username' => $dbopts["user"],
                    'pdo.password' => $dbopts["pass"]
                )
-);
+);*/
+
+
+$dsn = 'pgsql:'
+    . 'host='.$dbopts["host"]. ';'
+    . 'dbname='.ltrim($dbopts["path"],'/').';'
+    . 'user='.$dbopts["user"].';'
+    . 'port=' . $dbopts["port"].';'
+    . 'sslmode=require;'
+    . 'password='. $dbopts["pass"];
+error_log($dsn);
+try
+{
+	$db = new PDO($dsn);
+	$query = 'SELECT * FROM credentials;';
+$result = $db->query($query);
+while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+	var_dump($row);
+}
+$result->closeCursor();
+
+	
+}
+catch(PDOException $pe)
+{
+	die('Connection error, because: ' .$pe->getMessage());
+}
+ 
+
 $names = array();
-$app->get('/db/', function() use($app) {
+/*$app->get('/db/', function() use($app) {
   $st = $app['pdo']->prepare('SELECT username, password FROM credentials');
   $result = $st->execute();
 
@@ -31,7 +59,7 @@ $app->get('/db/', function() use($app) {
 error_log("values-". $names[0]);
 error_log(print_r($names));
 
-
+*/
 function checkVar($var) {
 	if(strcmp(gettype($var), 'string') == 0) {
 		if((strlen(trim($var)) > 0 )) {
