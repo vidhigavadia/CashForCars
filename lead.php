@@ -16,18 +16,19 @@ $app->register(new Herrera\Pdo\PdoServiceProvider(),
 $names = array();
 $app->get('/db/', function() use($app) {
   $st = $app['pdo']->prepare('SELECT username, password FROM credentials');
-  $st->execute();
+  $result = $st->execute();
 
   
-  while ($row = $st->fetch(PDO::FETCH_ASSOC)) {
-    $app['monolog']->addDebug('Row ' . $row['username']);
+  while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+   // $app['monolog']->addDebug('Row ' . $row['username']);
+   var_dump($row);
     $names[0] = $row[0];
-      $names[1] = $row[1];
+     $names[1] = $row[1];
   }
 
 
 });
-error_log("values". $names[0]);
+error_log("values-". $names[0]);
 error_log(print_r($names));
 
 
