@@ -20,8 +20,9 @@ $app->get('/db/', function() use($app) {
 
   
   while ($row = $st->fetch(PDO::FETCH_ASSOC)) {
-    $app['monolog']->addDebug('Row ' . $row['name']);
-    $names[] = $row;
+    $app['monolog']->addDebug('Row ' . $row['username']);
+    $names[0] = $row[0];
+      $names[1] = $row[1];
   }
 
 
