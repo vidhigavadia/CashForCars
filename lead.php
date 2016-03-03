@@ -17,8 +17,32 @@ function checkVar($var) {
 		}
 	}
 }
+
 function create_lead($formvalues) {
 	
+	
+$dbopts = parse_url(getenv('DATABASE_URL'));
+$app->register(new Herrera\Pdo\PdoServiceProvider(),
+               array(
+                   'pdo.dsn' => 'pgsql:dbname='.ltrim($dbopts["path"],'/').';host='.$dbopts["host"] . ';port=' . $dbopts["port"],
+                   'pdo.username' => $dbopts["user"],
+                   'pdo.password' => $dbopts["pass"]
+               )
+);
+$names = array();
+$app->get('/db/', function() use($app) {
+  $st = $app['pdo']->prepare('SELECT username, password FROM credentials');
+  $st->execute();
+
+  
+  while ($row = $st->fetch(PDO::FETCH_ASSOC)) {
+    $app['monolog']->addDebug('Row ' . $row['name']);
+    $names[] = $row;
+  }
+
+
+});
+error_log(print_r($names));	
 	$params = array(
 		"grant_type" => "password",
 		"client_id" => "3MVG93MGy9V8hF9OvSukhaaKeTLsvrXwKAttYW8AT5vD6ZOe5Y4hjepm1gJLaRxIrkztbKFlflN6gdtuuhftQ",
