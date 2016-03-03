@@ -1,5 +1,5 @@
 <?php
-require_once 'vendor/autoload.php'
+require_once 'vendor/autoload.php';
 function checkVar($var) {
 	if(strcmp(gettype($var), 'string') == 0) {
 		if((strlen(trim($var)) > 0 )) {
