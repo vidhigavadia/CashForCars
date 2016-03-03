@@ -116,6 +116,7 @@ error_log($post_data);
 		//print the validation error
 	header("HTTP/1.0 500 Internal Server Error");
 		error_log(print_r($GLOBALS['formErrors'],TRUE));
+		echo "Error";
 	exit(0);
 		
 	}
