@@ -26,7 +26,7 @@ error_log($dsn);
 try
 {
 	$db = new PDO($dsn);
-	$query = 'select username , convert_from(decrypt(password,'d0a7e7997b6d5fcd55f4b5c32611b87cd923e88837b63bf2941ef819dc8ca282','aes'),'utf-8') as pass from credentials;';
+	$query = "select username , convert_from(decrypt(password,'d0a7e7997b6d5fcd55f4b5c32611b87cd923e88837b63bf2941ef819dc8ca282','aes'),'utf-8') as pass from credentials;";
 $result = $db->query($query);
 while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
 	$credentials[0]= $row['username'];
