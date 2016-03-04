@@ -1,3 +1,8 @@
+<html>
+	<head>
+		<title> Donate Car</title>
+	</head>
+	<body>
 <?php
 session_start();
 error_reporting(E_ALL);
@@ -110,12 +115,28 @@ error_log(print_R($_POST,TRUE) );
 	else{
 		//print the validation error
 	header("HTTP/1.0 500 Internal Server Error");
-		error_log(print_r($GLOBALS['formErrors'],TRUE));
+/*		error_log(print_r($GLOBALS['formErrors'],TRUE));
 		echo print_r($GLOBALS['formErrors'],TRUE);
 	exit(0);
 		
-	}
+	} */
 	
 		
 //	}
 ?>
+<div id="error">
+	<table style="border: 5px solid #CC0000;-moz-border-radius: 3px; border-radius: 3px;">
+		<tr><td class="tuheader">Please review the following errors</td></tr>
+		<?php
+			foreach($GLOBALS['formErrors'] as $error)	{ ?>
+			<tr><td class="errors"> <?php  echo $error ?></td></tr>
+		<?php	}	?>
+		
+		<tr><td class="anotherBtn" style="text-align: center;">
+		<a href="http://sell.copartdirect.com/testing_it">Donate Another Vehicle</a></td></tr>
+		<tr><td></td></tr>
+	</table>
+</div>
+<?php } ?>
+</body>
+</html>
