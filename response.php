@@ -10,7 +10,7 @@ error_log(print_R($_POST,TRUE) );
 	
 //	if($form_data->Last_Name[0]!='') echo "<p>json last</p>";
 	if (firstnameValid($form_data['first_name'])) $GLOBALS['formErrors'][] = lastnameValid($form_data['first_name']) ;
-	if (lastnameValid($form_data['last_name'])) $GLOBALS['formErrors'][] = lastnameValid($form_data['last_Name']) ;
+	if (lastnameValid($form_data['last_name'])) $GLOBALS['formErrors'][] = lastnameValid($form_data['last_name']) ;
 	if (emailValid($form_data['email'])) $GLOBALS['formErrors'][] = emailValid($form_data['email']) ;
 	if (phoneValid($form_data['phone_number'])) $GLOBALS['formErrors'][] = phoneValid($form_data['phone_number']);
 	if (address1Valid($form_data['address_line_1'])) $GLOBALS['formErrors'][] = address1Valid($form_data['address_line_1']) ;
@@ -37,7 +37,7 @@ error_log(print_R($_POST,TRUE) );
 		$formValues = array();
 		
 		
-		if($form_data['last_Name']!='') $formValues['LastName'] =$form_data['last_Name'];
+		if($form_data['last_Name']!='') $formValues['LastName'] =$form_data['last_name'];
 		if($form_data['phone_number']!='') $formValues['Phone'] = $form_data['phone_number'];
 		if($form_data['email']!='') $formValues['email'] = $form_data['email'];
 		if($form_data['year']!='') $formValues['year__c'] = $form_data['year'];
