@@ -101,7 +101,7 @@ error_log(print_R($_POST,TRUE) );
 		if($leadResponse == 1) { 
 		
 				header("location: thank_you.php");
-				echo "<p>Ok</p>";
+				
 			
  		} 
 	
@@ -111,7 +111,7 @@ error_log(print_R($_POST,TRUE) );
 		//print the validation error
 	header("HTTP/1.0 500 Internal Server Error");
 		error_log(print_r($GLOBALS['formErrors'],TRUE));
-		echo "Error";
+		echo print_r($GLOBALS['formErrors'],TRUE);
 	exit(0);
 		
 	}
