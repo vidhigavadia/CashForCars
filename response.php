@@ -129,11 +129,11 @@ error_log(print_R($_POST,TRUE) );
 		<tr><td class="tuheader">Please review the following errors</td></tr>
 		<?php
 			foreach($GLOBALS['formErrors'] as $error)	{ ?>
-			<tr><td class="errors"> <?php  echo $error ?></td></tr>
+			<tr><td class="errors" style="text-align: center;"> <?php  echo $error ?></td></tr>
 		<?php	}	?>
 		
 		<tr><td class="anotherBtn" style="text-align: center;">
-		<a href="http://sell.copartdirect.com/testing_it">Donate Another Vehicle</a></td></tr>
+		<a href="http://sell.copartdirect.com/testing_it">Return Back</a></td></tr>
 		<tr><td></td></tr>
 	</table>
 </div>
