@@ -17,7 +17,7 @@ error_log(print_R($_POST,TRUE) );
 	if (address2Valid($form_data['address_line_2'])) $GLOBALS['formErrors'][] = address2Valid($form_data['address_line_2']) ;
 	if (cityValid($form_data['city'])) $GLOBALS['formErrors'][] = cityValid($form_data['city']) ;
 	if (stateValid($form_data['state'])) $GLOBALS['formErrors'][] = stateValid($form_data['state']) ;
-	if (zipValid($form_data['zip'])) $GLOBALS['formErrors'][] = zipValid($form_data['zip'][0]) ;
+	if (zipValid($form_data['zip'])) $GLOBALS['formErrors'][] = zipValid($form_data['zip']) ;
 	if (yearValid($form_data['year'])) $GLOBALS['formErrors'][] = mileageValid($form_data['year']) ;
 	if (makeValid($form_data['make'])) $GLOBALS['formErrors'][] = mileageValid($form_data['make']) ;
 	if (modelValid($form_data['model'])) $GLOBALS['formErrors'][] = mileageValid($form_data['model']) ;
