@@ -100,7 +100,7 @@ error_log(print_R($_POST,TRUE) );
 		$leadResponse = create_lead($formValues);
 		if($leadResponse == 1) { 
 		
-				header("location: thankyou.php");
+				header("location: thank_you.php");
 				echo "<p>Ok</p>";
 			
  		} 
