@@ -53,15 +53,18 @@ try
 {
 	$db = new PDO($dsn);
 	$time = date('Y-m-d H:i:s');
-	$query ="insert into access values($access,$url,$time))";
- $result = pg_query($db,$query); 
-        if (!$result) { 
-            $errormessage = pg_last_error(); 
-            echo "Error with query: " . $errormessage; 
-            exit(); 
-        } 
 
-pg_close(); 
+	
+	 $stmt = $db->prepare("INSERT INTO access VALUES (:access, :url, :time)");
+	
+	$stmt->bindParam(':access', $access, PDO::PARAM_STR, 100);
+    	$stmt->bindParam(':url', $url, PDO::PARAM_STR, 100);
+	 $stmt->bindParam(':time', $time, PDO::PARAM_STR, 100);
+  if($stmt->execute()) {
+      echo '1 row has been inserted';  
+    }
+  $db = null;
+
 //var_dump($credentials);
 	
 }
