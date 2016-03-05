@@ -54,7 +54,7 @@ try
 	$db = new PDO($dsn);
 	$time = date('Y-m-d H:i:s');
 	$query ="insert into access values($access,$url,$time))";
- $result = pg_query($query); 
+ $result = pg_query($db,$query); 
         if (!$result) { 
             $errormessage = pg_last_error(); 
             echo "Error with query: " . $errormessage; 
