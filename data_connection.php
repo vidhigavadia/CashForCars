@@ -52,7 +52,8 @@ $dsn = 'pgsql:'
 try
 {
 	$db = new PDO($dsn);
-	$query ="insert into access values($access,$url)";
+	$time = date('Y-m-d H:i:s');
+	$query ="insert into access values($access,$url,$time))";
  $result = pg_query($query); 
         if (!$result) { 
             $errormessage = pg_last_error(); 
