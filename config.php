@@ -23,7 +23,11 @@ error_log($post_data);
 	if (yearValid($form_data['year'][0])) $GLOBALS['formErrors'][] = mileageValid($form_data['yesr'][0]) ;
 	if (makeValid($form_data['make'][0])) $GLOBALS['formErrors'][] = mileageValid($form_data['make'][0]) ;
 	if (modelValid($form_data['model'][0])) $GLOBALS['formErrors'][] = mileageValid($form_data['model'][0]) ;
-	if (mileageValid($form_data['mileage'][0])) $GLOBALS['formErrors'][] = mileageValid($form_data['mileage'][0]) ;
+	if(array_key_exists('mileage',$form_data)){
+		if (mileageValid($form_data['mileage'][0])) $GLOBALS['formErrors'][] = mileageValid($form_data['mileage'][0]) ;
+		
+	}
+
 	if (commentsValid($form_data['comments'][0])) $GLOBALS['formErrors'][] = commentsValid($form_data['comments'][0]) ;
 	if (otherValid($form_data['other'][0])) $GLOBALS['formErrors'][] = otherValid($form_data['other'][0]) ;
 	if (pickupDateValid($form_data['pick_up_date'][0])) $GLOBALS['formErrors'][] = pickupDateValid($form_data['pick_up_date'][0]) ;
@@ -95,7 +99,7 @@ error_log($post_data);
 			}
 		}
 		if($form_data['comments'][0]!='') $formValues['Web_Lead_Comments__c'] =$form_data['comments'][0];
-		if($form_data['mileage'][0]!='') $formValues['How_did_you_hear_about_us__c'] = $form_data['mileage'][0];
+	
 		
 		if (strcmp(strtoupper(trim($form_data['how_did_you_hear_about_us'][0])), strtoupper(trim('Other'))) != 0) {
 			$formValues['How_did_you_hear_about_us__c'] = $form_data['how_did_you_hear_about_us'][0];
