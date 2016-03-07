@@ -2,7 +2,7 @@
 
 require_once 'vendor/autoload.php';
 include_once 'data_connection.php';
-$SFData = getSFData();
+/*$SFData = getSFData();
 
 	$params = array(
 		"grant_type" => "password",
@@ -37,10 +37,10 @@ curl_close($curl);
 $response = json_decode($json_response, true);
 $access_token = $response['access_token'];
 $instance_url = $response['instance_url'];
-insertAccessData($access_token,$instance_url);
+insertAccessData($access_token,$instance_url); */
 $accessData = getAccessData();
 $time = strtotime($accessData['my_time']);
-
+error_log($time);
 $curtime = time();
 
 if(($curtime-$time) > 300) {   
