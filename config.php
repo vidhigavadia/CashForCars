@@ -10,32 +10,88 @@ $form_data = json_decode($post_data,true);
 error_log($post_data);
 	
 
-//	if($form_data->Last_Name[0]!='') echo "<p>json last</p>";
-	if (firstnameValid($form_data['first_name'][0])) $GLOBALS['formErrors'][] = lastnameValid($form_data['first_name'][0]) ;
-	if (lastnameValid($form_data['Last_Name'][0])) $GLOBALS['formErrors'][] = lastnameValid($form_data['Last_Name'][0]) ;
-	if (emailValid($form_data['email'][0])) $GLOBALS['formErrors'][] = emailValid($form_data['email'][0]) ;
-	if (phoneValid($form_data['phone_number'][0])) $GLOBALS['formErrors'][] = phoneValid($form_data['phone_number'][0]);
-	if (address1Valid($form_data['address_line_1'][0])) $GLOBALS['formErrors'][] = address1Valid($form_data['address_line_1'][0]) ;
-	if (address2Valid($form_data['address_line_2'][0])) $GLOBALS['formErrors'][] = address2Valid($form_data['address_line_2'][0]) ;
-	if (cityValid($form_data['city'][0])) $GLOBALS['formErrors'][] = cityValid($form_data['city'][0]) ;
-	if (stateValid($form_data['state'][0])) $GLOBALS['formErrors'][] = stateValid($form_data['state'][0]) ;
-	if (zipValid($form_data['zip'][0])) $GLOBALS['formErrors'][] = zipValid($form_data['zip'][0]) ;
-	if (yearValid($form_data['year'][0])) $GLOBALS['formErrors'][] = mileageValid($form_data['yesr'][0]) ;
-	if (makeValid($form_data['make'][0])) $GLOBALS['formErrors'][] = mileageValid($form_data['make'][0]) ;
-	if (modelValid($form_data['model'][0])) $GLOBALS['formErrors'][] = mileageValid($form_data['model'][0]) ;
+	if(array_key_exists('first_name',$form_data)){
+		if (firstnameValid($form_data['first_name'][0])) $GLOBALS['formErrors'][] = lastnameValid($form_data['first_name'][0]) ;
+		
+	}
+	if(array_key_exists('Last_Name',$form_data)){
+		if (lastnameValid($form_data['Last_Name'][0])) $GLOBALS['formErrors'][] = lastnameValid($form_data['Last_Name'][0]) ;
+		
+	}
+	if(array_key_exists('email',$form_data)){
+		if (emailValid($form_data['email'][0])) $GLOBALS['formErrors'][] = emailValid($form_data['email'][0]) ;
+		
+	}
+	if(array_key_exists('phone_number',$form_data)){
+		if (phoneValid($form_data['phone_number'][0])) $GLOBALS['formErrors'][] = phoneValid($form_data['phone_number'][0]);
+		
+	}
+	if(array_key_exists('address_line_1',$form_data)){
+		if (address1Valid($form_data['address_line_1'][0])) $GLOBALS['formErrors'][] = address1Valid($form_data['address_line_1'][0]) ;
+		
+	}
+	if(array_key_exists('address_line_2',$form_data)){
+		if (address2Valid($form_data['address_line_2'][0])) $GLOBALS['formErrors'][] = address2Valid($form_data['address_line_2'][0]) ;
+		
+	}
+	if(array_key_exists('city',$form_data)){
+		if (cityValid($form_data['city'][0])) $GLOBALS['formErrors'][] = cityValid($form_data['city'][0]) ;
+		
+	}
+	if(array_key_exists('state',$form_data)){
+		if (stateValid($form_data['state'][0])) $GLOBALS['formErrors'][] = stateValid($form_data['state'][0]) ;
+	}
+
+	if(array_key_exists('zip',$form_data)){
+		if (zipValid($form_data['zip'][0])) $GLOBALS['formErrors'][] = zipValid($form_data['zip'][0]) ;
+	}	
+
+	if(array_key_exists('year',$form_data)){
+		if (yearValid($form_data['year'][0])) $GLOBALS['formErrors'][] = mileageValid($form_data['year'][0]) ;
+	}
+	
+	if(array_key_exists('make',$form_data)){
+		if (makeValid($form_data['make'][0])) $GLOBALS['formErrors'][] = mileageValid($form_data['make'][0]) ;
+		
+	}
+	if(array_key_exists('model',$form_data)){
+		if (modelValid($form_data['model'][0])) $GLOBALS['formErrors'][] = mileageValid($form_data['model'][0]) ;
+	}
+	
 	if(array_key_exists('mileage',$form_data)){
 		if (mileageValid($form_data['mileage'][0])) $GLOBALS['formErrors'][] = mileageValid($form_data['mileage'][0]) ;
 		
 	}
-
-	if (commentsValid($form_data['comments'][0])) $GLOBALS['formErrors'][] = commentsValid($form_data['comments'][0]) ;
-	if (otherValid($form_data['other'][0])) $GLOBALS['formErrors'][] = otherValid($form_data['other'][0]) ;
-	if (pickupDateValid($form_data['pick_up_date'][0])) $GLOBALS['formErrors'][] = pickupDateValid($form_data['pick_up_date'][0]) ;
+	if(array_key_exists('comments',$form_data)){
 	
-	if (caraddress1Valid($form_data['caraddress1'][0])) $GLOBALS['formErrors'][] = caraddress1Valid($form_data['caraddress1'][0]) ;
+		if (commentsValid($form_data['comments'][0])) $GLOBALS['formErrors'][] = commentsValid($form_data['comments'][0]) ;
+	}
+	if(array_key_exists('other',$form_data)){
+		if (otherValid($form_data['other'][0])) $GLOBALS['formErrors'][] = otherValid($form_data['other'][0]) ;
+		
+	}
+	if(array_key_exists('pick_up_date',$form_data)){
+		if (pickupDateValid($form_data['pick_up_date'][0])) $GLOBALS['formErrors'][] = pickupDateValid($form_data['pick_up_date'][0]) ;
+	}
+	
+	if(array_key_exists('caraddress1',$form_data)){
+		if (caraddress1Valid($form_data['caraddress1'][0])) $GLOBALS['formErrors'][] = caraddress1Valid($form_data['caraddress1'][0]) ;
+		
+	}
+	if(array_key_exists('caraddress2',$form_data)){
 	if (caraddress2Valid($form_data['caraddress2'][0])) $GLOBALS['formErrors'][] = caraddress2Valid($form_data['caraddress2'][0]) ;
-	if (carcityValid($form_data['vehicle_city'][0])) $GLOBALS['formErrors'][] = carcityValid($form_data['vehicle_city'][0]) ;
+		
+	}
+	if(array_key_exists('vehicle_city',$form_data)){
+	
+		if (carcityValid($form_data['vehicle_city'][0])) $GLOBALS['formErrors'][] = carcityValid($form_data['vehicle_city'][0]) ;
+	}
+	
+	if(array_key_exists('vehicle_zip',$form_data)){
 	if (carzipValid($form_data['vehicle_zip'][0])) $GLOBALS['formErrors'][] = carzipValid($form_data['vehicle_zip'][0]) ;
+		
+	}
+	
 		
 
 	if(sizeof($GLOBALS['formErrors']) == 0) {
