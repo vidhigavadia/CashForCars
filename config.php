@@ -66,7 +66,10 @@ error_log($post_data);
 		if($form_data['pick_up_date'][0]!='') $formValues['Pickup_date__c'] = $form_data['pick_up_date'][0];
 		if($form_data['select_a_pickuptime'][0]!='') $formValues['Pickup_Time__c'] = $form_data['select_a_pickuptime'][0];
 		if($form_data['best_time'][0]!='') $formValues['BestTimetoCall__c'] =$form_data['best_time'][0];
-		if($form_data['mileage'][0]!='') $formValues['Veh_Miles__c'] = $form_data['mileage'][0];
+		if(array_key_exists('mileage',$form_data)){
+			if($form_data['mileage'][0]!='') $formValues['Veh_Miles__c'] = $form_data['mileage'][0];	
+		}
+		
 		
 		if(!empty($form_data['is_car_drivable'])){
 			if($form_data['is_car_drivable'][0]=='Yes'){
