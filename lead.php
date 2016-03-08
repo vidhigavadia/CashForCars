@@ -39,6 +39,9 @@ $access_token = $response['access_token'];
 $instance_url = $response['instance_url'];
 insertAccessData($access_token,$instance_url); */
 $accessData = getAccessData();
+if($acessData=null) {   
+	error_log('null');
+}
 $time = strtotime($accessData['my_time']);
 error_log($time);
 $curtime = time();
