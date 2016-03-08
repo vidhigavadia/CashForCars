@@ -37,12 +37,9 @@ curl_close($curl);
 $response = json_decode($json_response, true);
 $access_token = $response['access_token'];
 $instance_url = $response['instance_url'];
-insertAccessData($access_token,$instance_url); */
+insertAccessData($access_token,$instance_url); 
 $accessData = getAccessData();
-error_log(print_r($accessData));
-if($acessData['token']=null) {   
-	error_log('null');
-}
+
 $time = strtotime($accessData['my_time']);
 error_log($time);
 $curtime = time();
@@ -52,7 +49,7 @@ if(($curtime-$time) > 300) {
 }
 else{
 	echo "valid";
-}
+} */
 
 function checkVar($var) {
 	if(strcmp(gettype($var), 'string') == 0) {
