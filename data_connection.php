@@ -111,5 +111,42 @@ catch(PDOException $pe)
 
 }
 
+function updateAccessData($access,$new_access) {
+require_once 'vendor/autoload.php';
+$app = new Silex\Application();
+$app['debug'] = true;
+$dbopts = parse_url(getenv('DATABASE_URL'));
+
+$dsn = 'pgsql:'
+    . 'host='.$dbopts["host"]. ';'
+    . 'dbname='.ltrim($dbopts["path"],'/').';'
+    . 'user='.$dbopts["user"].';'
+    . 'port=' . $dbopts["port"].';'
+    . 'sslmode=require;'
+    . 'password='. $dbopts["pass"];
+try
+{
+	$db = new PDO($dsn);
+	$time = date('Y-m-d H:i:s');
+
+	
+	 $stmt = $db->prepare("UPDATE access SET token=".$new_access." where token=".$access);
+	
+  if($stmt->execute()) {
+      echo '1 row has been inserted';  
+    }
+  $db = null;
+
+//var_dump($credentials);
+	
+}
+catch(PDOException $pe)
+{
+	die('Connection error, because: ' .$pe->getMessage());
+}
+ 
+
+}
+
 
 ?>
