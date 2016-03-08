@@ -39,7 +39,7 @@ $access_token = $response['access_token'];
 $instance_url = $response['instance_url'];
 insertAccessData($access_token,$instance_url); */
 $accessData = getAccessData();
-if($acessData=null) {   
+if($acessData['token']='') {   
 	error_log('null');
 }
 $time = strtotime($accessData['my_time']);
