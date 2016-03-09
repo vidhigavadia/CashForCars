@@ -24,7 +24,20 @@ catch (PDOException $e){error_log('Something went wrong. Grab a cup of tea and c
 
 function getSFData() {
 
+define('DB_HOST','localhost:3306');
+define('DB_USER', 'root');
+define('DB_PASSWORD','root');
+define('DB_DATABASE','cwh');
 
+if(!isset($dbConnection)){
+$db = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE);
+	
+}
+if ($db === false){
+		error_log("Common.php: MYSQL connect error: " . mysqli_connect_error());
+}
+
+ $key = '!@VWfekj5bwe^4db@M0pAkDk;ccnwd!``~][asdBm;<p';
 
 $query ="select CONVERT(AES_DECRYPT(username,'$key') using utf8) as username , CONVERT(AES_DECRYPT(password,'$key') using utf8) as password, CONVERT(AES_DECRYPT(id,'$key') using utf8) as client_id , CONVERT(AES_DECRYPT(secret,'$key') using utf8) as client_secret from sf_data;"; 
 $result = mysqli_query($db,$query);
