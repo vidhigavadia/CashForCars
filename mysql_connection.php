@@ -1,133 +1,77 @@
 <?php
+
+define('DB_HOST','localhost:3306');
+define('DB_USER', 'root');
+define('DB_PASSWORD','root');
+define('DB_DATABASE','cwh');
+$db = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE);
+if ($db === false){
+		error_log("Common.php: MYSQL connect error: " . mysqli_connect_error());
+}
+
+/*try {
+	global $db;
+	$host = DB_HOST;  $dbname = DB_DATABASE;
+	$db = new PDO("mysql:host=$host;dbname=$dbname", DB_USER,DB_PASSWORD);
+	$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+}
+catch (PDOException $e){error_log('Something went wrong. Grab a cup of tea and contact the system admin.');} */
+
 function getSFData() {
-require_once 'vendor/autoload.php';
-$app = new Silex\Application();
-$app['debug'] = true;
-$dbopts = parse_url(getenv('DATABASE_URL'));
-$dsn = 'pgsql:'
-    . 'host='.$dbopts["host"]. ';'
-    . 'dbname='.ltrim($dbopts["path"],'/').';'
-    . 'user='.$dbopts["user"].';'
-    . 'port=' . $dbopts["port"].';'
-    . 'sslmode=require;'
-    . 'password='. $dbopts["pass"];
-try
-{
-	$db = new PDO($dsn);
+
+
+
 	$query ="select convert_from(decrypt(username,'iu8758SB*&%EGE$)kjkb7666klS472.?/:2Fr4DFJ2324saf&*(*%#@!^','aes'),'utf-8') as username , convert_from(decrypt(password,'iu8758SB*&%EGE$)kjkb7666klS472.?/:2Fr4DFJ2324saf&*(*%#@!^','aes'),'utf-8') as password, convert_from(decrypt(id,'iu8758SB*&%EGE$)kjkb7666klS472.?/:2Fr4DFJ2324saf&*(*%#@!^','aes'),'utf-8') as client_id , convert_from(decrypt(secret,'iu8758SB*&%EGE$)kjkb7666klS472.?/:2Fr4DFJ2324saf&*(*%#@!^','aes'),'utf-8') as client_secret from sf_data;"; 
 $result = $db->query($query);
-while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+while ($row = $result->fetch_assoc()) {
 //	$credentials[0]= $row['username'];
 	//$credentials[1] =$row['pass'];
 	return $row;
 }
-$result->closeCursor();
-//var_dump($credentials);
+
 	
-}
-catch(PDOException $pe)
-{
-	die('Connection error, because: ' .$pe->getMessage());
-}
  
 }
 function insertAccessData($access,$url) {
-require_once 'vendor/autoload.php';
-$app = new Silex\Application();
-$app['debug'] = true;
-$dbopts = parse_url(getenv('DATABASE_URL'));
-$dsn = 'pgsql:'
-    . 'host='.$dbopts["host"]. ';'
-    . 'dbname='.ltrim($dbopts["path"],'/').';'
-    . 'user='.$dbopts["user"].';'
-    . 'port=' . $dbopts["port"].';'
-    . 'sslmode=require;'
-    . 'password='. $dbopts["pass"];
-try
-{
-	$db = new PDO($dsn);
+
+
+
 	$time = date('Y-m-d H:i:s');
 	
-	 $stmt = $db->prepare("INSERT INTO access VALUES (:access, :url, :time)");
-	
-	$stmt->bindParam(':access', $access, PDO::PARAM_STR, 100);
-    	$stmt->bindParam(':url', $url, PDO::PARAM_STR, 100);
-	 $stmt->bindParam(':time', $time, PDO::PARAM_STR, 100);
-  if($stmt->execute()) {
+	 $stmt = "INSERT INTO access VALUES ('$access','$url','$time')";
+	 $retval = mysql_query( $stmt, $db );
+  if($retval) {
       echo '1 row has been inserted';  
     }
-  $db = null;
-//var_dump($credentials);
+
+
 	
-}
-catch(PDOException $pe)
-{
-	die('Connection error, because: ' .$pe->getMessage());
-}
  
 }
 function getAccessData() {
-require_once 'vendor/autoload.php';
-$app = new Silex\Application();
-$app['debug'] = true;
-$dbopts = parse_url(getenv('DATABASE_URL'));
-$dsn = 'pgsql:'
-    . 'host='.$dbopts["host"]. ';'
-    . 'dbname='.ltrim($dbopts["path"],'/').';'
-    . 'user='.$dbopts["user"].';'
-    . 'port=' . $dbopts["port"].';'
-    . 'sslmode=require;'
-    . 'password='. $dbopts["pass"];
-try
-{
-	$db = new PDO($dsn);
+
 	$query ="select * from access";
 $result = $db->query($query);
-while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+while ($row = $result->fetch_assoc()) {
 //	$credentials[0]= $row['username'];
 	//$credentials[1] =$row['pass'];
 	return $row;
 }
-$result->closeCursor();
-//var_dump($credentials);
-	
-}
-catch(PDOException $pe)
-{
-	die('Connection error, because: ' .$pe->getMessage());
-}
- 
+
 }
 function updateAccessData($access,$new_access) {
-require_once 'vendor/autoload.php';
-$app = new Silex\Application();
-$app['debug'] = true;
-$dbopts = parse_url(getenv('DATABASE_URL'));
-$dsn = 'pgsql:'
-    . 'host='.$dbopts["host"]. ';'
-    . 'dbname='.ltrim($dbopts["path"],'/').';'
-    . 'user='.$dbopts["user"].';'
-    . 'port=' . $dbopts["port"].';'
-    . 'sslmode=require;'
-    . 'password='. $dbopts["pass"];
-try
-{
-	$db = new PDO($dsn);
+
 	$time = date('Y-m-d H:i:s');
 	
-	 $stmt = $db->prepare("UPDATE access SET token=".$new_access." where token=".$access);
+	 $stmt = "UPDATE access SET token='$new_access' where token='$access'";
 	
-  if($stmt->execute()) {
-      echo '1 row has been inserted';  
-    }
-  $db = null;
-//var_dump($credentials);
-	
+  if ($db->query($stmt) === TRUE) {
+    echo "Record updated successfully";
+} else {
+    echo "Error updating record: " . $db->error;
 }
-catch(PDOException $pe)
-{
-	die('Connection error, because: ' .$pe->getMessage());
-}
+
+
  
 }
 ?>
