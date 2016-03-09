@@ -1,7 +1,7 @@
 <?php
 
 require_once 'vendor/autoload.php';
-include_once 'data_connection.php';
+//include_once 'data_connection.php';
 /*$SFData = getSFData();
 
 	$params = array(
