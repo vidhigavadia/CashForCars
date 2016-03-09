@@ -27,8 +27,8 @@ function getSFData() {
 
 
 $query ="select CONVERT(AES_DECRYPT(username,'$key') using utf8) as username , CONVERT(AES_DECRYPT(password,'$key') using utf8) as password, CONVERT(AES_DECRYPT(id,'$key') using utf8) as client_id , CONVERT(AES_DECRYPT(secret,'$key') using utf8) as client_secret from sf_data;"; 
-$result = $db->query($query);
-while ($row = $result->fetch_assoc()) {
+$result = mysqli_query($db,$query);
+while ($row = mysqli_fetch_array($result)) {
 //	$credentials[0]= $row['username'];
 	//$credentials[1] =$row['pass'];
 	return $row;
@@ -44,7 +44,7 @@ function insertAccessData($access,$url) {
 	$time = date('Y-m-d H:i:s');
 	
 	 $stmt = "INSERT INTO access VALUES (AES_ENCRYPT('$access','$key'),AES_ENCRYPT('$url','$key'),AES_ENCRYPT('$time','$key'))";
-	 $retval = mysql_query( $stmt, $db );
+	 $retval = mysqli_query( $db,$stmt);
   if($retval) {
       echo '1 row has been inserted';  
     }
@@ -56,8 +56,8 @@ function insertAccessData($access,$url) {
 function getAccessData() {
 
 	$query ="select * from access";
-$result = $db->query($query);
-while ($row = $result->fetch_assoc()) {
+	$result = mysqli_query($db,$query);
+while ($row = mysqli_fetch_array($result)) {
 //	$credentials[0]= $row['username'];
 	//$credentials[1] =$row['pass'];
 	return $row;
@@ -70,7 +70,7 @@ function updateAccessData($access,$new_access) {
 	
 	 $stmt = "UPDATE access SET token=AES_ENCRYPT('$new_access','$key') where token=AES_ENCRYPT('$access','$key')";
 	
-  if ($db->query($stmt) === TRUE) {
+  if (mysqli_query($db,$stmt) === TRUE) {
     echo "Record updated successfully";
 } else {
     echo "Error updating record: " . $db->error;
