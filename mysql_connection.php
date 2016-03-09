@@ -4,10 +4,15 @@ define('DB_HOST','localhost:3306');
 define('DB_USER', 'root');
 define('DB_PASSWORD','root');
 define('DB_DATABASE','cwh');
+
+if(!isset($dbConnection)){
 $db = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE);
+	
+}
 if ($db === false){
 		error_log("Common.php: MYSQL connect error: " . mysqli_connect_error());
 }
+
  $key = '!@VWfekj5bwe^4db@M0pAkDk;ccnwd!``~][asdBm;<p';
 /*try {
 	global $db;
