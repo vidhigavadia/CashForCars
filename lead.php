@@ -2,6 +2,17 @@
 
 require_once 'vendor/autoload.php';
 //include_once 'data_connection.php';
+define('DB_HOST','localhost:3306');
+define('DB_USER', 'root');
+define('DB_PASSWORD','root');
+define('DB_DATABASE','cwh');
+if(!isset($db)){
+$db = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE);
+	
+}
+if ($db === false){
+		error_log("Common.php: MYSQL connect error: " . mysqli_connect_error());
+}
 /*$SFData = getSFData();
 
 	$params = array(
