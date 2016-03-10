@@ -123,8 +123,8 @@ $state_list = array('AL'=>"Alabama",
 		$workPhone = $_POST['Work_Telephone_Ac'].$_POST['workphonea'].$_POST['workphoneb'];
 		if (workPhoneValid($workPhone)) $GLOBALS['formErrors'][] = workPhoneValid($workPhone);
 		if (workphoneextValid($_POST['Work_Telephone_Ext'])) $GLOBALS['formErrors'][] = workphoneextValid($_POST['Work_Telephone_Ext']) ;
+		if (vehicleTypeValid($_POST['VehicleType'])) $GLOBALS['formErrors'][] = vehicleTypeValid($_POST['VehicleType']) ;
 		
-		if (memberIDValid($_POST['MemberIDNumber'])) $GLOBALS['formErrors'][] = memberIDValid($_POST['MemberIDNumber']) ;
 		if (yearmakemodelValid($_POST['YearMakeModel'])) $GLOBALS['formErrors'][] = yearmakemodelValid($_POST['YearMakeModel']) ;
 		if (mileageValid($_POST['Mileage'])) $GLOBALS['formErrors'][] = mileageValid($_POST['Mileage']) ;
 		if (commentsValid($_POST['Comments'])) $GLOBALS['formErrors'][] = commentsValid($_POST['Comments']) ;
@@ -161,7 +161,7 @@ $state_list = array('AL'=>"Alabama",
 		if(isset($wphone) && $wphone != '') $formValues['Work_Phone__c'] = $wphone;
 		if(isset($_POST['Work_Telephone_Ext']) && $_POST['Work_Telephone_Ext'] != '') $formValues['Work_Phone_Extension__c'] = $_POST['Work_Telephone_Ext'];
 		
-		if(isset($_POST['MemberIDNumber']) && $_POST['MemberIDNumber'] != '') $formValues['NPOMemberNumber__c'] = $_POST['MemberIDNumber'];
+		if(isset($_POST['VehicleType']) && $_POST['VehicleType'] != '') $formValues['Type_of_Vehicle__c'] = $_POST['VehicleType'];
 		if(isset($_POST['Year1']) && $_POST['Year1'] != '') $formValues['year__c'] = $_POST['Year1'];
 		if(isset($_POST['Make']) && $_POST['Make'] != '') $formValues['make__c'] = $_POST['Make'];
 		if(isset($_POST['Model']) && $_POST['Model'] != '') $formValues['model__c'] = $_POST['Model'];
