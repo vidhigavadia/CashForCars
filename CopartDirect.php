@@ -429,7 +429,7 @@ $state_list = array('AL'=>"Alabama",
 <?php echo "<br><br>"; ?>
 <table style="width:550px; margin: 0;">
 	<tr>
-		<td class="aleftBold" rowspan="7">Vehicle</td>
+		<td class="aleftBold" rowspan="9">Vehicle</td>
 		
 		<td colspan="2"><input id="VehicleType" name="VehicleType"/></td>
 	</tr>
