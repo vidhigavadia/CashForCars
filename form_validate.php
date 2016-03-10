@@ -200,6 +200,16 @@ function memberIDValid($value) {
 		return '';
 	}
 }
+
+function vehicleTypeValid($value) {
+	trim($value);
+	if (strlen($value) != 0 && !preg_match('/^[a-z0-9A-Z\s\~\!\@\#\$\%\^\&\*\(\)\-\_\+\=\[\]\{\}\;\'\:\"\,\.\/\\\<\>\?\|]+$/i', $value)) {
+		return 'Vehicle Type can contain characters, numeric and special characters up to 40 characters';
+	}else{
+		return '';
+	}
+}
+
 function yearmakemodelValid($value) {
 	trim($value);
 	if (strlen((string)$value) != 0 && !preg_match('/^[a-z0-9A-Z\s\~\!\@\#\$\%\^\&\*\(\)\-\_\+\=\[\]\{\}\;\'\:\"\,\.\/\\\<\>\?\|]+$/i', $value)) {
