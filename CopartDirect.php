@@ -430,6 +430,12 @@ $state_list = array('AL'=>"Alabama",
 <table style="width:550px; margin: 0;">
 	<tr>
 		<td class="aleftBold" rowspan="7">Vehicle</td>
+		
+		<td colspan="2"><input id="VehicleType" name="VehicleType"/></td>
+	</tr>
+		<tr><td class="statictext">Vehicle Type</td></tr>
+		<tr><td class="acenter" colspan="2"><label id="mileagefail" style="display: none;"></label></td></tr>
+		<tr>
 		<td colspan="2">
 			<table>
 				<tr>
