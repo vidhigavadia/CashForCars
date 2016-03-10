@@ -82,8 +82,8 @@ function checkVar($var) {
 
 function create_lead($formvalues) {
 require_once 'vendor/autoload.php';
-//include_once 'data_connection.php';
-include_once 'mysql_connection.php';
+include_once 'data_connection.php';
+//include_once 'mysql_connection.php';
 $SFData = getSFData();
 
 	$params = array(
