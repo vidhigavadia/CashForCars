@@ -185,7 +185,7 @@ $state_list = array('AL'=>"Alabama",
 		$formValues['RecordTypeid'] = '012600000009TX7'; 
 	//	$formValues['Non_Profit_Organization__c'] = $_POST['NPOQAAccID'];
 		$formValues['LeadSource'] = 'Form Widget'; // "Pictorial Widget" for Pictorial form
-		$formValues['ownerId'] = '00G320000030A70';
+	//	$formValues['ownerId'] = '00G320000030A70';
 		
 		$leadResponse = create_lead($formValues);
 		if($leadResponse == 1) { 
