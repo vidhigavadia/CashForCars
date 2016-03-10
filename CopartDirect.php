@@ -179,7 +179,7 @@ $state_list = array('AL'=>"Alabama",
 		}
 		
 		if(isset($_POST['YearMakeModel']) && $_POST['YearMakeModel'] != '') $formValues['VehicleDescription__c'] = $_POST['YearMakeModel'];
-		$formValues['RecordTypeid'] = '012320000009eyu'; 
+		$formValues['RecordTypeid'] = '012600000009TX7'; 
 	//	$formValues['Non_Profit_Organization__c'] = $_POST['NPOQAAccID'];
 		$formValues['LeadSource'] = 'Form Widget'; // "Pictorial Widget" for Pictorial form
 		$formValues['ownerId'] = '00G320000030A70';
