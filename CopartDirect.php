@@ -99,8 +99,9 @@ $state_list = array('AL'=>"Alabama",
 		'WV'=>"West Virginia",
 		'WI'=>"Wisconsin",
 		'WY'=>"Wyoming");	
-
-		$formErrors = array();
+		if(isset($_POST['OrgID'])) {
+		
+			$formErrors = array();
 		if (firstnameValid($_POST['First_Name'])) $GLOBALS['formErrors'][] = firstnameValid($_POST['First_Name']);
 		if (lastnameValid($_POST['Last_Name'])) $GLOBALS['formErrors'][] = lastnameValid($_POST['Last_Name']) ;
 		if (emailValid($_POST['Email'])) $GLOBALS['formErrors'][] = emailValid($_POST['Email']) ;
@@ -130,9 +131,11 @@ $state_list = array('AL'=>"Alabama",
 		if (commentsValid($_POST['Comments'])) $GLOBALS['formErrors'][] = commentsValid($_POST['Comments']) ;
 		if (otherValid($_POST['other'])) $GLOBALS['formErrors'][] = otherValid($_POST['other']) ;
 		
-		if (captchaValid($_POST['txtCaptcha'])) $GLOBALS['formErrors'][] = captchaValid($_POST['txtCaptcha']) ;
+		if (captchaValid($_POST['txtCaptcha'])) $GLOBALS['formErrors'][] = captchaValid($_POST['txtCaptcha']) ;	
+		}
+		
 	
-	if(sizeof($GLOBALS['formErrors']) == 0) {
+	if(isset($_POST['OrgID']) && sizeof($GLOBALS['formErrors']) == 0) {
 		include_once 'lead.php';
 		
 		$formValues = array();
@@ -214,7 +217,7 @@ $state_list = array('AL'=>"Alabama",
 <p>
 
 
-	<input id="NewOrg" name="NewOrg" type='hidden'   value=''/>
+	<input id="NewOrg" name="OrgID" type='hidden'   value='posted'/>
 </p>
 
 
