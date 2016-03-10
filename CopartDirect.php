@@ -99,12 +99,12 @@ $state_list = array('AL'=>"Alabama",
 		'WV'=>"West Virginia",
 		'WI'=>"Wisconsin",
 		'WY'=>"Wyoming");	
-	if(isset($_POST['OrgID'])) {
+
 		$formErrors = array();
 		if (firstnameValid($_POST['First_Name'])) $GLOBALS['formErrors'][] = firstnameValid($_POST['First_Name']);
 		if (lastnameValid($_POST['Last_Name'])) $GLOBALS['formErrors'][] = lastnameValid($_POST['Last_Name']) ;
 		if (emailValid($_POST['Email'])) $GLOBALS['formErrors'][] = emailValid($_POST['Email']) ;
-		if (pickupDateValid($_POST['VehPickupDate'])) $GLOBALS['formErrors'][] = pickupDateValid($_POST['VehPickupDate']) ;
+	
 		
 		if (address1Valid($_POST['Mailing_Address1'])) $GLOBALS['formErrors'][] = address1Valid($_POST['Mailing_Address1']) ;
 		if (address2Valid($_POST['Mailing_Address2'])) $GLOBALS['formErrors'][] = address2Valid($_POST['Mailing_Address2']) ;
@@ -131,16 +131,15 @@ $state_list = array('AL'=>"Alabama",
 		if (otherValid($_POST['other'])) $GLOBALS['formErrors'][] = otherValid($_POST['other']) ;
 		
 		if (captchaValid($_POST['txtCaptcha'])) $GLOBALS['formErrors'][] = captchaValid($_POST['txtCaptcha']) ;
-	} 
-	if(isset($_POST['OrgID']) && sizeof($GLOBALS['formErrors']) == 0) {
+	
+	if(sizeof($GLOBALS['formErrors']) == 0) {
 		include_once 'lead.php';
 		
 		$formValues = array();
 		if(isset($_POST['First_Name']) && $_POST['First_Name'] != '') $formValues['FirstName'] = $_POST['First_Name'];
 		if(isset($_POST['Last_Name']) && $_POST['Last_Name'] != '') $formValues['LastName'] = $_POST['Last_Name'];
 		if(isset($_POST['Email']) && $_POST['Email'] != '') $formValues['email'] = $_POST['Email'];
-		if(isset($_POST['VehPickupDate']) && $_POST['VehPickupDate'] != '') $formValues['Pickup_date__c'] = $_POST['VehPickupDate'];
-		if(isset($_POST['time']) && $_POST['time'] != '') $formValues['Pickup_Time__c'] = $_POST['time'];
+		
 		
 		$address = $_POST['Mailing_Address1'].", ".$_POST['Mailing_Address2'];
 		if(isset($address)) $formValues['Street'] = $address;
@@ -214,7 +213,7 @@ $state_list = array('AL'=>"Alabama",
 	
 <p>
 
-	<input type='hidden' name='OrgID' id='OrgID' value='2503'>
+
 	<input id="NewOrg" name="NewOrg" type='hidden'   value=''/>
 </p>
 
@@ -235,12 +234,6 @@ $state_list = array('AL'=>"Alabama",
 <?php echo "<br><br>"; ?>
 <div class="reducedOpacity">
   <table style="width:550px; margin: 0;">
-		<tr><td class="aleftBold" rowspan="5">Organization</td></tr>
-		<tr><td class="customText" class="aleft" colspan="2">The NRA Foundation</td></tr>
-		<tr><td class="customText" class="aleft" colspan="2">11250 Waples Mill Road</td></tr>
-		<tr><td class="customText" class="aleft" colspan="2">Fairfax, VA, 22030</td></tr>
-		<tr><td class="customText" class="aleft" colspan="2">https://www.nrafoundation.org/ways-of-giving/car-donation/</td></tr>
-		<tr class="blank_row"><td colspan="3"></td></tr>
 		
 		<tr><td class="aleftBold" rowspan="9">Contact</td></tr>
 		<tr>
@@ -258,18 +251,6 @@ $state_list = array('AL'=>"Alabama",
 		<tr><td colspan="2" class="statictext">Email</td></tr>
 		<tr><td class="acenter" colspan="2"><label id="emailfail" style="display: none;"></label></td></tr>
 		
-		<tr class="blank_row"><td colspan="3"></td></tr>
-		<tr><td class="aleftBold" rowspan="2">Pick-up Time</td>
-			<td><input id="datepicker" name="VehPickupDate" type="text" AUTOCOMPLETE=OFF value="<?php if(isset($_POST['VehPickupDate'])) echo $_POST['VehPickupDate']; ?>"/></td> 
-			<td><select id="datetime" name="time">
-														<option value="" <?php if(isset($_POST['time']) && $_POST['time'] == '') { echo ' selected="selected"';} ?> >Select a pick-up time</option>
-														<option value="8am-12pm" <?php if(isset($_POST['time']) && $_POST['time'] == '8am-12pm') { echo ' selected="selected"';} ?> >8am-12pm</option>
-														<option value="12pm-4pm" <?php if(isset($_POST['time']) && $_POST['time'] == '12pm-4pm') { echo ' selected="selected"';} ?> >12pm-4pm</option>                        		
-										</select></td> 
-	    </tr>
-	    <tr>
-			<td class="statictext">Date</td>
-		</tr>
 </table>    
 <!-- </fieldset> -->
 </div>
@@ -430,14 +411,6 @@ $state_list = array('AL'=>"Alabama",
 	</tr>
 	
 	<tr><td class="acenter" colspan="2"><label id="workphonefail" style="display: none;"></label></td></tr>
-	
-	<tr class="blank_row"><td colspan="3"></td></tr>
-	<tr>
-		<td class="aleftBold" rowspan="3">Member ID number</td>
-		<td colspan="2"><input id="MemberIDNumber" name="MemberIDNumber" maxlength="100" value="<?php if(isset($_POST['MemberIDNumber'])) echo $_POST['MemberIDNumber']; ?>"/></td>
-	</tr>
-	<tr><td class="statictext">Member ID</td></tr>
-	<tr><td class="acenter" colspan="2"><label id="memberIDfail" style="display: none;"></label></td></tr>
 	  
 </table>	  
 
