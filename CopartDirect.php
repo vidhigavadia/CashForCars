@@ -434,7 +434,7 @@ $state_list = array('AL'=>"Alabama",
 		<td colspan="2"><input id="VehicleType" name="VehicleType"/></td>
 	</tr>
 		<tr><td class="statictext">Vehicle Type</td></tr>
-		<tr><td class="acenter" colspan="2"><label id="mileagefail" style="display: none;"></label></td></tr>
+		<tr><td class="acenter" colspan="2"><label id="typefail" style="display: none;"></label></td></tr>
 		<tr>
 		<td colspan="2">
 			<table>
@@ -476,7 +476,7 @@ $state_list = array('AL'=>"Alabama",
 	<tr><td class="acenter" colspan="2"><input id="YearMakeModel" name="YearMakeModel" maxlength="255" value="<?php if(isset($_POST['YearMakeModel'])) echo $_POST['YearMakeModel']; ?>"/></td> </tr>
 	<tr><td class="acenter" colspan="2"><label id="yearmakemodelfail" style="display: none;"></label></td></tr> 
        
-	<tr><td><input id="Mileage" name="Mileage" maxlength="7" value="<?php if(isset($_POST['Mileage'])) echo $_POST['Mileage']; ?>"/></td></tr>
+	<tr><td class="acenter"><input id="Mileage" name="Mileage" maxlength="7" value="<?php if(isset($_POST['Mileage'])) echo $_POST['Mileage']; ?>"/></td></tr>
 	<tr><td class="statictext">Mileage</td></tr>
 	<tr><td class="acenter" colspan="2"><label id="mileagefail" style="display: none;"></label></td></tr>
 	
