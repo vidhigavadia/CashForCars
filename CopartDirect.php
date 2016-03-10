@@ -436,7 +436,7 @@ $state_list = array('AL'=>"Alabama",
 		<tr><td class="statictext">Vehicle Type</td></tr>
 		<tr><td class="acenter" colspan="2"><label id="typefail" style="display: none;"></label></td></tr>
 		<tr>
-		<td colspan="2">
+		<td class="acenter" colspan="2">
 			<table>
 				<tr>
 					<td><select id="Year1" name="Year1" >
