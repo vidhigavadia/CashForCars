@@ -35,11 +35,8 @@ include_once 'form_validate.php';
 </script>
 
 <style type="text/css">
-table {
-      	border: 1px solid black;      
-}
-td, th, tr {
-      /*	border: 1px solid black;      */
+table , td, th, tr {
+/*         	border: 1px solid black;      */
 }
 </style>
 
@@ -112,8 +109,8 @@ $state_list = array('AL'=>"Alabama",
 		if (zipValid($_POST['Zip'])) $GLOBALS['formErrors'][] = zipValid($_POST['Zip']) ;
 	
 		
-	//	$homePhone = $_POST['Home_Telephone_Ac'].$_POST['homephonea'].$_POST['homephoneb'];
-	//	if (phoneValid($homePhone)) $GLOBALS['formErrors'][] = phoneValid($homePhone);
+		$homePhone = $_POST['Home_Telephone_Ac'].$_POST['homephonea'].$_POST['homephoneb'];
+		if (phoneValid($homePhone)) $GLOBALS['formErrors'][] = phoneValid($homePhone);
 		
 	
 		if (vehicleTypeValid($_POST['VehicleType'])) $GLOBALS['formErrors'][] = vehicleTypeValid($_POST['VehicleType']) ;
@@ -141,9 +138,9 @@ $state_list = array('AL'=>"Alabama",
 		
 		
 		
-	//	if(isset($_POST['besttime']) && $_POST['besttime'] != '') $formValues['BestTimetoCall__c'] = $_POST['besttime'];
-	/*	$phone = $_POST['Home_Telephone_Ac'].$_POST['homephonea'].$_POST['homephoneb'];
-		if(isset($phone) && $phone != '') $formValues['Phone'] = $phone;*/
+		if(isset($_POST['besttime']) && $_POST['besttime'] != '') $formValues['BestTimetoCall__c'] = $_POST['besttime'];
+		$phone = $_POST['Home_Telephone_Ac'].$_POST['homephonea'].$_POST['homephoneb'];
+		if(isset($phone) && $phone != '') $formValues['Phone'] = $phone;
 		
 		
 		
@@ -219,7 +216,7 @@ $state_list = array('AL'=>"Alabama",
 ?>
 <?php echo "<br><br>"; ?>
 <div class="reducedOpacity">
-  <table style="border: 1px solid red; width:550px; margin: 0;">
+  <table border="1" style="width:550px; margin: 0;">
 		
 		<tr><td class="aleftBold" rowspan="11">Contact</td></tr>
 		<tr>
@@ -258,7 +255,140 @@ $state_list = array('AL'=>"Alabama",
 ?>
 <?php echo "<br><br>"; ?>
 
+<table style="width:550px; margin: 0;">
+  
+  <tr><td colspan="2">
+  
+	<td><input style="border: 1px solid #C40A20 !important;" id="Zip" name="Zip" maxlength="5" value="<?php if(isset($_POST['Zip'])) echo $_POST['Zip']; 
+	  <table>
+		  <tr>
+		    <td><input style="border: 1px solid #C40A20 !important;" id="City" name="City" maxlength="40" value="<?php if(isset($_POST['City'])) echo $_POST['City']; ?>"/></td>
+		    <td><select style="border: 1px solid #C40A20 !important;" id="State" name="State">
+		                        		<option value=""></option>
+		                            	<?php foreach ($state_list as $key => $value) {
+		                     
+		                            			echo '<option value="'.$key.'" '.'>'.$key.' - '.$value.'</option>';
+		                            	}
+		                            		?>
+		                            </select></td> 
+		        <td><input style="border: 1px solid #C40A20 !important;" id="Zip" name="Zip" maxlength="5" value="<?php if(isset($_POST['Zip'])) echo $_POST['Zip']; ?>"/></td> 
+			</tr>
+			<tr>
+			  	<td class="statictext">City*</td>
+				<td class="statictext">State*</td>
+				<td class="statictext">Zip*</td>
+			</tr>
+		</table>
+	</td></tr>
+	
+	<tr><td class="acenter" colspan="2"><label id="cityfail" style="display: none;"></label></td></tr>
+  	<tr><td class="acenter" colspan="2"><label id="statefail" style="display: none;"></label></td></tr>
+  	<tr><td class="acenter" colspan="2"><label id="zipfail" style="display: none;"></label></td></tr>
+
+	<tr class="blank_row"><td colspan="3"></td></tr>
+
+  <tr><td class="aleftBold" rowspan="10">Vehicle Location (if not at home)</td></tr>
+  <tr>
+    <td><input id="caraddress1" name="caraddress1" maxlength="255" value="<?php if(isset($_POST['caraddress1'])) echo $_POST['caraddress1']; ?>"/></td> 
+    <td><input id="caraddress2" name="caraddress2" maxlength="255" value="<?php if(isset($_POST['caraddress2'])) echo $_POST['caraddress2']; ?>"/></td> 
+  </tr>
+  <tr>
+		<td class="statictext">Address Line 1</td>
+		<td class="statictext">Address Line 2</td>
+	</tr>
+  <tr><td class="acenter" colspan="2"><label id="caradr1fail" style="display: none;"></label></td></tr>
+  <tr><td class="acenter" colspan="2"><label id="caradr2fail" style="display: none;"></label></td></tr>
+  
+  <tr><td colspan="2">
+  <table>
+	  <tr>
+	    <td><input id="carcity" name="carcity" maxlength="40" value="<?php if(isset($_POST['carcity'])) echo $_POST['carcity']; ?>"/></td>
+	    <td><select id="carstate" name="carstate">
+	                        		<option value=""></option>
+	                            	<?php foreach ($state_list as $key => $value) {
+	                            //	echo '<option value="'.$key.'" '.(($_POST['State'] == ($key.' - '.$value))?'selected="selected"':"").'>'.$key.' - '.$value.'</option>';
+	                            	echo '<option value="'.$key.'" '.'>'.$key.' - '.$value.'</option>';
+	                            	}
+	                            		?>
+	                            </select></td> 
+	        <td><input id="carzip" name="carzip" maxlength="5" value="<?php if(isset($_POST['carzip'])) echo $_POST['carzip']; ?>"/></td> 
+		</tr>
+		<tr>
+		  	<td class="statictext">City</td>
+			<td class="statictext">State</td>
+			<td class="statictext">Zip</td>
+		</tr>
+	</table></td>
+	</tr>
+	<tr><td class="acenter" colspan="2"><label id="carcityfail" style="display: none;"></label></td></tr>
+  	<tr><td class="acenter" colspan="2"><label id="carstatefail" style="display: none;"></label></td></tr>
+  	<tr><td class="acenter" colspan="2"><label id="carzipfail" style="display: none;"></label></td></tr>
+   
+	
+	<tr class="blank_row"><td colspan="3"></td></tr>
+	<tr>
+		<td class="aleftBold" rowspan="3">Home/Cell Phone*</td>
+		<td colspan="2"><table><tr>
+			<td><label>(</label></td>
+			<td><input style="border: 1px solid #C40A20 !important;" id="Home_Telephone_Ac" name="Home_Telephone_Ac" maxlength="3"  value="<?php if(isset($_POST['Home_Telephone_Ac'])) echo $_POST['Home_Telephone_Ac']; ?>"></td>
+			<td><label>)</label></td>
+	    	<td><input style="border: 1px solid #C40A20 !important;" id="homephonea" name="homephonea" maxlength="3" value="<?php if(isset($_POST['homephonea'])) echo $_POST['homephonea']; ?>"></td>
+	    	<td><label>-</label></td>
+	    	<td><input style="border: 1px solid #C40A20 !important;" id="homephoneb" name="homephoneb" maxlength="4" value="<?php if(isset($_POST['homephoneb'])) echo $_POST['homephoneb']; ?>"></td>
+	    	<td><select id="besttime" name="besttime" >
+	                        	<option value="Morning" <?php if(isset($_POST['besttime']) && $_POST['besttime'] == 'Morning') { echo ' selected="selected"';} ?> >Morning</option>
+	                        	<option value="Afternoon" <?php if(isset($_POST['besttime']) && $_POST['besttime'] == 'Afternoon') { echo ' selected="selected"';} ?> >Afternoon</option>
+	                       		<option value="Evening" <?php if(isset($_POST['besttime']) && $_POST['besttime'] == 'Evening') { echo ' selected="selected"';} ?> >Evening</option>
+                        	</select></td> 
+	    	</tr>
+	    	<tr>
+	    		<td></td>
+			  	<td class="statictext">xxx*</td>
+			  	<td></td>
+				<td class="statictext">xxx*</td>
+				<td></td>
+				<td class="statictext">xxxx*</td>
+				<td class="statictext">&nbsp;Best Time</td>
+			</tr>
+	    	</table>
+	    </td>
+	</tr>
+
+	<tr><td class="acenter" colspan="2"><label id="phonefail" style="display: none;"></label></td></tr>
+	<!--  <tr><td class="acenter" colspan="2"><label id="phonefaila" style="display: none;"></label></td></tr>
+	<tr><td class="acenter" colspan="2"><label id="phonefailb" style="display: none;"></label></td></tr>-->
+	
+	
+	<tr class="blank_row"><td colspan="3"></td></tr>
+	<tr>
+		<td class="aleftBold" rowspan="3">Work Phone</td>
+		<td colspan="2"><table><tr>
+			<td><label>(</label></td>
+			<td><input id="Work_Telephone_Ac" name="Work_Telephone_Ac" maxlength="3" value="<?php if(isset($_POST['Work_Telephone_Ac'])) echo $_POST['Work_Telephone_Ac']; ?>"></td>
+			<td><label>)</label></td>
+	    	<td><input id="workphonea" name="workphonea" maxlength="3" value="<?php if(isset($_POST['workphonea'])) echo $_POST['workphonea']; ?>"></td>
+	    	<td><label>-</label></td>
+	    	<td><input id="workphoneb" name="workphoneb" maxlength="4" value="<?php if(isset($_POST['workphoneb'])) echo $_POST['workphoneb']; ?>"></td>
+	    	<td><label class="customText" >x</label></td>
+	    	<td><input id="Work_Telephone_Ext" name="Work_Telephone_Ext" maxlength="10" value="<?php if(isset($_POST['Work_Telephone_Ext'])) echo $_POST['Work_Telephone_Ext']; ?>"/></td>
+	    	</tr>
+	    	<tr>
+			  	<td></td>
+			  	<td class="statictext">xxx</td>
+			  	<td></td>
+				<td class="statictext">xxx</td>
+				<td></td>
+				<td class="statictext">xxxx</td>
+				<td></td>
+				<td class="statictext">Ext.</td>
+			</tr>
+	</table>
+	    </td>
+	</tr>
+	
+	<tr><td class="acenter" colspan="2"><label id="workphonefail" style="display: none;"></label></td></tr>
 	  
+</table>	  
 
 
 <?php echo "<br><br>"; ?>
@@ -273,9 +403,9 @@ $state_list = array('AL'=>"Alabama",
 ?>
 
 <?php echo "<br><br>"; ?>
-<table style="border: 1px solid red; width:550px; margin: 0;">
+<table style="width:550px; margin: 0;">
 	<tr>
-		<td class="aleftBold" rowspan="7">Vehicle</td>
+		<td class="aleftBold" rowspan="9">Vehicle</td>
 		
 		<td colspan="2"><input id="VehicleType" name="VehicleType"/></td>
 	</tr>
@@ -322,10 +452,19 @@ $state_list = array('AL'=>"Alabama",
 	<tr><td class="acenter" colspan="2"><input id="YearMakeModel" name="YearMakeModel" maxlength="255" value="<?php if(isset($_POST['YearMakeModel'])) echo $_POST['YearMakeModel']; ?>"/></td> </tr>
 	<tr><td class="acenter" colspan="2"><label id="yearmakemodelfail" style="display: none;"></label></td></tr> 
        
+	<tr><td class="acenter"><input id="Mileage" name="Mileage" maxlength="7" value="<?php if(isset($_POST['Mileage'])) echo $_POST['Mileage']; ?>"/></td></tr>
+	<tr><td class="statictext">Mileage</td></tr>
+	<tr><td class="acenter" colspan="2"><label id="mileagefail" style="display: none;"></label></td></tr>
 	
+	<tr><td class="aleftBold">Is the car drivable?</td><td><input style="text-align: left;vertical-align: middle;" type="checkbox" id="Drivable" name="Drivable" <?php if(isset($_POST['Drivable'])) echo "checked"; ?>/></td></tr>
+	<tr><td class="aleftBold">Is the car paid for entirely?</td><td><input style="text-align: left;vertical-align: middle;" type="checkbox" id="LienRelease" name="LienRelease" <?php if(isset($_POST['LienRelease'])) echo "checked"; ?>/></td></tr>
 	
 	<tr class="blank_row"><td colspan="3"></td></tr>
+	<tr><td class="aleftBold" rowspan="3">Comments</td></tr>
+	<tr><td colspan="2"><textarea id="Comments" name="Comments"  maxlength="255" cols="30" rows="3" style="resize: none;" value="<?php if(isset($_POST['Comments'])) echo $_POST['Comments']; ?>"></textarea></td></tr>
+	<tr><td class="acenter" colspan="2"><label id="commentsfail" style="display: none;"></label></td></tr>
 	
+	<tr class="blank_row"><td colspan="3"></td></tr>
 	<tr><td class="aleftBold" rowspan="5">How did you hear about us?</td></tr>
 	<tr><td><select name="howHear" id="howHear">
 			<option value="Non Profit Website" <?php if(isset($_POST['howHear']) && $_POST['howHear'] == 'Non Profit Website') { echo ' selected="selected"';} ?> >Non Profit Website</option>
