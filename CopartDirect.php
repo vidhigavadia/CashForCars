@@ -48,57 +48,7 @@ table , td, th, tr {
 <div id="donate" class="left">
 
 <?php 
-$state_list = array('AL'=>"Alabama",
-		'AK'=>"Alaska",
-		'AZ'=>"Arizona",
-		'AR'=>"Arkansas",
-		'CA'=>"California",
-		'CO'=>"Colorado",
-		'CT'=>"Connecticut",
-		'DE'=>"Delaware",
-		'DC'=>"District Of Columbia",
-		'FL'=>"Florida",
-		'GA'=>"Georgia",
-		'HI'=>"Hawaii",
-		'ID'=>"Idaho",
-		'IL'=>"Illinois",
-		'IN'=>"Indiana",
-		'IA'=>"Iowa",
-		'KS'=>"Kansas",
-		'KY'=>"Kentucky",
-		'LA'=>"Louisiana",
-		'ME'=>"Maine",
-		'MD'=>"Maryland",
-		'MA'=>"Massachusetts",
-		'MI'=>"Michigan",
-		'MN'=>"Minnesota",
-		'MS'=>"Mississippi",
-		'MO'=>"Missouri",
-		'MT'=>"Montana",
-		'NE'=>"Nebraska",
-		'NV'=>"Nevada",
-		'NH'=>"New Hampshire",
-		'NJ'=>"New Jersey",
-		'NM'=>"New Mexico",
-		'NY'=>"New York",
-		'NC'=>"North Carolina",
-		'ND'=>"North Dakota",
-		'OH'=>"Ohio",
-		'OK'=>"Oklahoma",
-		'OR'=>"Oregon",
-		'PA'=>"Pennsylvania",
-		'RI'=>"Rhode Island",
-		'SC'=>"South Carolina",
-		'SD'=>"South Dakota",
-		'TN'=>"Tennessee",
-		'TX'=>"Texas",
-		'UT'=>"Utah",
-		'VT'=>"Vermont",
-		'VA'=>"Virginia",
-		'WA'=>"Washington",
-		'WV'=>"West Virginia",
-		'WI'=>"Wisconsin",
-		'WY'=>"Wyoming");	
+	
 		if(isset($_POST['OrgID'])) {
 		
 			$formErrors = array();
@@ -255,6 +205,37 @@ $state_list = array('AL'=>"Alabama",
 		<tr><td class="acenter" colspan="2"><label id="emailfail" style="display: none;"></label></td></tr>
 		
 </table>    
+<table style="width:550px; margin: 0;">
+
+	<tr>
+		<td class="aleftBold" rowspan="3">Home/Cell Phone*</td>
+		<td colspan="2"><table><tr>
+			<td><label>(</label></td>
+			<td><input style="border: 1px solid #C40A20 !important;" id="Home_Telephone_Ac" name="Home_Telephone_Ac" maxlength="3"  value="<?php if(isset($_POST['Home_Telephone_Ac'])) echo $_POST['Home_Telephone_Ac']; ?>"></td>
+			<td><label>)</label></td>
+	    	<td><input style="border: 1px solid #C40A20 !important;" id="homephonea" name="homephonea" maxlength="3" value="<?php if(isset($_POST['homephonea'])) echo $_POST['homephonea']; ?>"></td>
+	    	<td><label>-</label></td>
+	    	<td><input style="border: 1px solid #C40A20 !important;" id="homephoneb" name="homephoneb" maxlength="4" value="<?php if(isset($_POST['homephoneb'])) echo $_POST['homephoneb']; ?>"></td>
+	    	<td><select id="besttime" name="besttime" >
+	                        	<option value="Morning" <?php if(isset($_POST['besttime']) && $_POST['besttime'] == 'Morning') { echo ' selected="selected"';} ?> >Morning</option>
+	                        	<option value="Afternoon" <?php if(isset($_POST['besttime']) && $_POST['besttime'] == 'Afternoon') { echo ' selected="selected"';} ?> >Afternoon</option>
+	                       		<option value="Evening" <?php if(isset($_POST['besttime']) && $_POST['besttime'] == 'Evening') { echo ' selected="selected"';} ?> >Evening</option>
+                        	</select></td> 
+	    	</tr>
+	    	<tr>
+	    		<td></td>
+			  	<td class="statictext">xxx*</td>
+			  	<td></td>
+				<td class="statictext">xxx*</td>
+				<td></td>
+				<td class="statictext">xxxx*</td>
+				<td class="statictext">&nbsp;Best Time</td>
+			</tr>
+	    	</table>
+	    </td>
+	</tr>
+
+	<tr><td class="acenter" colspan="2"><label id="phonefail" style="display: none;"></label></td></tr>
 <!-- </fieldset> -->
 </div>
 
@@ -324,7 +305,7 @@ $state_list = array('AL'=>"Alabama",
 <?php echo "<br><br>"; ?>
 <table style="width:550px; margin: 0;">
 	<tr>
-		<td class="aleftBold" rowspan="9">Vehicle</td>
+		<td class="aleftBold" rowspan="7">Vehicle</td>
 		
 		<td colspan="2"><input id="VehicleType" name="VehicleType"/></td>
 	</tr>
