@@ -199,15 +199,12 @@ $state_list = array('AL'=>"Alabama",
 				exit();
 		//	}
  		} 
-	} else {  ?>
+	} else {  error_log(print_r($GLOBALS['formErrors']))}?>
 
 	
 	<form style="width: 550px;" id="formElem" name="formElem" method="post">
 	
-	<?php 
-	//	$id = (empty($_GET['i'])) ? '' : $_GET['i']; 
-		//extract(orgDetails($id));
-	?>
+
 
 <!-- <noscript> 
 <table style="width:550px; margin: 0;" class="acenter"><tr><td colspan="3">For full functionality of this site it is necessary to enable JavaScript.-->
