@@ -112,8 +112,8 @@ $state_list = array('AL'=>"Alabama",
 		if (zipValid($_POST['Zip'])) $GLOBALS['formErrors'][] = zipValid($_POST['Zip']) ;
 	
 		
-		$homePhone = $_POST['Home_Telephone_Ac'].$_POST['homephonea'].$_POST['homephoneb'];
-		if (phoneValid($homePhone)) $GLOBALS['formErrors'][] = phoneValid($homePhone);
+	//	$homePhone = $_POST['Home_Telephone_Ac'].$_POST['homephonea'].$_POST['homephoneb'];
+	//	if (phoneValid($homePhone)) $GLOBALS['formErrors'][] = phoneValid($homePhone);
 		
 	
 		if (vehicleTypeValid($_POST['VehicleType'])) $GLOBALS['formErrors'][] = vehicleTypeValid($_POST['VehicleType']) ;
@@ -141,9 +141,9 @@ $state_list = array('AL'=>"Alabama",
 		
 		
 		
-		if(isset($_POST['besttime']) && $_POST['besttime'] != '') $formValues['BestTimetoCall__c'] = $_POST['besttime'];
-		$phone = $_POST['Home_Telephone_Ac'].$_POST['homephonea'].$_POST['homephoneb'];
-		if(isset($phone) && $phone != '') $formValues['Phone'] = $phone;
+	//	if(isset($_POST['besttime']) && $_POST['besttime'] != '') $formValues['BestTimetoCall__c'] = $_POST['besttime'];
+	/*	$phone = $_POST['Home_Telephone_Ac'].$_POST['homephonea'].$_POST['homephoneb'];
+		if(isset($phone) && $phone != '') $formValues['Phone'] = $phone;*/
 		
 		
 		
