@@ -226,7 +226,7 @@ table , td, th, tr {
 	
 		
 </table>    
-<table style="width:550px; margin: 0;">
+
 
 
 <!-- </fieldset> -->
