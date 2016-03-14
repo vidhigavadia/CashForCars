@@ -181,7 +181,7 @@ table , td, th, tr {
 		
 		
 			<tr>
-		<td class="aleftBold" rowspan="3">Home/Cell Phone*</td>
+		<td class="aleftBold" rowspan="2">Home/Cell Phone*</td>
 		<td colspan="2"><table><tr>
 			<td><label>(</label></td>
 			<td><input style="border: 1px solid #C40A20 !important;" id="Home_Telephone_Ac" name="Home_Telephone_Ac" maxlength="3"  value="<?php if(isset($_POST['Home_Telephone_Ac'])) echo $_POST['Home_Telephone_Ac']; ?>"></td>
