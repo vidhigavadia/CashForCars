@@ -160,7 +160,7 @@ table , td, th, tr {
 <div class="reducedOpacity">
   <table style="width:550px; margin: 0;">
 		
-		<tr><td class="aleftBold" rowspan="7">Contact</td></tr>
+	<tr><td class="aleftBold" rowspan="7">Contact</td></tr>
 		<tr>
 			<td><input style="border: 1px solid #C40A20 !important;" id="First_Name" name="First_Name" maxlength="30" autofocus="autofocus" value="<?php if(isset($_POST['First_Name'])) echo $_POST['First_Name']; ?>"/></td>
 			<td><input style="border: 1px solid #C40A20 !important;" id="Last_Name" name="Last_Name" maxlength="30" value="<?php if(isset($_POST['Last_Name'])) echo $_POST['Last_Name']; ?>"/></td> 
@@ -176,29 +176,9 @@ table , td, th, tr {
 		<tr><td colspan="2" class="statictext">Email</td></tr>
 		<tr><td class="acenter" colspan="2"><label id="emailfail" style="display: none;"></label></td></tr>
 		
-	    
-</table>    
-<!-- </fieldset> -->
-</div>
-
-<?php echo "<br><br>"; ?>
-
-<!--  <div id="loadingCircle" style="display: none;"></div>-->
-
-<!-- <label id="label2" class="formlabel">ADDITIONAL INFORMATION</label> -->
-<?php 
- /*	if (strcmp($_GET['i'], '2503') == 0 || strcmp($_GET['i'], '2504') == 0) {
-		echo "<label id=\"label2\" class=\"nraformlabel\">Additional Information</label>";
-	} else { */
-		echo "<label id=\"label2\" class=\"formlabel\">ADDITIONAL INFORMATION</label>";
-//	}
-?>
-<?php echo "<br><br>"; ?>
-
-<table style="width:550px; margin: 0;">
-
-	<tr>
-		<td class="aleftBold" rowspan="3">Home/Cell Phone*</td>
+		
+			<tr>
+		<td class="aleftBold" rowspan="2">Home/Cell Phone*</td>
 		<td colspan="2"><table><tr>
 			<td><label>(</label></td>
 			<td><input style="border: 1px solid #C40A20 !important;" id="Home_Telephone_Ac" name="Home_Telephone_Ac" maxlength="3"  value="<?php if(isset($_POST['Home_Telephone_Ac'])) echo $_POST['Home_Telephone_Ac']; ?>"></td>
@@ -224,12 +204,12 @@ table , td, th, tr {
 	    	</table>
 	    </td>
 	</tr>
+	
+	
 
 	<tr><td class="acenter" colspan="2"><label id="phonefail" style="display: none;"></label></td></tr>
-	<!--  <tr><td class="acenter" colspan="2"><label id="phonefaila" style="display: none;"></label></td></tr>
-	<tr><td class="acenter" colspan="2"><label id="phonefailb" style="display: none;"></label></td></tr>-->
 	
-	<tr><td class="aleftBold" rowspan="3">Zip Code</td></tr>
+		<tr><td class="aleftBold" rowspan="3">Zip Code</td></tr>
 		<tr>
 			 <td><input style="border: 1px solid #C40A20 !important;" id="Zip" name="Zip" maxlength="5" value="<?php if(isset($_POST['Zip'])) echo $_POST['Zip']; ?>"/></td> 
 		
@@ -237,9 +217,11 @@ table , td, th, tr {
 		<tr>
 			<td class="statictext">Zip Code*</td>
 		</tr>
-	
-	  
-</table>	  
+		
+	    
+</table>    
+<!-- </fieldset> -->
+</div>
 
 
 <?php echo "<br><br>"; ?>
@@ -255,9 +237,15 @@ table , td, th, tr {
 
 <?php echo "<br><br>"; ?>
 <table style="width:550px; margin: 0;">
-	<tr>
+<tr>
 		<td class="aleftBold" rowspan="7">Vehicle</td>
-		<td colspan="2">
+		
+		<td colspan="2"><input id="VehicleType" name="VehicleType"/></td>
+	</tr>
+		<tr><td class="statictext">Vehicle Type</td></tr>
+		<tr><td class="acenter" colspan="2"><label id="typefail" style="display: none;"></label></td></tr>
+		<tr>
+		<td class="acenter" colspan="2">
 			<table>
 				<tr>
 					<td><select id="Year1" name="Year1" >
@@ -296,19 +284,19 @@ table , td, th, tr {
 	
 	<tr><td class="acenter" colspan="2"><input id="YearMakeModel" name="YearMakeModel" maxlength="255" value="<?php if(isset($_POST['YearMakeModel'])) echo $_POST['YearMakeModel']; ?>"/></td> </tr>
 	<tr><td class="acenter" colspan="2"><label id="yearmakemodelfail" style="display: none;"></label></td></tr> 
-       
-
 	
 	<tr class="blank_row"><td colspan="3"></td></tr>
 	<tr><td class="aleftBold" rowspan="5">How did you hear about us?</td></tr>
 	<tr><td><select name="howHear" id="howHear">
-			<option value="Non Profit Website" <?php if(isset($_POST['howHear']) && $_POST['howHear'] == 'Non Profit Website') { echo ' selected="selected"';} ?> >Non Profit Website</option>
-			<option value="Radio" <?php if(isset($_POST['howHear']) && $_POST['howHear'] == 'Radio') { echo ' selected="selected"';} ?> >Radio</option>
-			<option value="TV" <?php if(isset($_POST['howHear']) && $_POST['howHear'] == 'TV') { echo ' selected="selected"';} ?> >TV</option>
-			<option value="Print Advertising" <?php if(isset($_POST['howHear']) && $_POST['howHear'] == 'Print Advertising') { echo ' selected="selected"';} ?> >Print Advertising</option>
-			<option value="Internet Search" <?php if(isset($_POST['howHear']) && $_POST['howHear'] == 'Internet Search') { echo ' selected="selected"';} ?> >Internet Search</option>
+			<option value="Online" <?php if(isset($_POST['howHear']) && $_POST['howHear'] == 'Online') { echo ' selected="selected"';} ?> >Online</option>
+			<option value="Newspaper" <?php if(isset($_POST['howHear']) && $_POST['howHear'] == 'Newspaper') { echo ' selected="selected"';} ?> >Newspaper</option>
+			<option value="Gas Station TV" <?php if(isset($_POST['howHear']) && $_POST['howHear'] == 'Gas Station TV') { echo ' selected="selected"';} ?> >Gas Station TV</option>
+			<option value="Billboard" <?php if(isset($_POST['howHear']) && $_POST['howHear'] == 'Billboard') { echo ' selected="selected"';} ?> >Billboard</option>
+			<option value="Driving By" <?php if(isset($_POST['howHear']) && $_POST['howHear'] == 'Driving By') { echo ' selected="selected"';} ?> >Driving By</option>
 			<option value="Social Media" <?php if(isset($_POST['howHear']) && $_POST['howHear'] == 'Social Media') { echo ' selected="selected"';} ?> >Social Media</option>
-			<option value="Referral" <?php if(isset($_POST['howHear']) && $_POST['howHear'] == 'Referral') { echo ' selected="selected"';} ?> >Referral</option>
+			<option value="Friend" <?php if(isset($_POST['howHear']) && $_POST['howHear'] == 'Friend') { echo ' selected="selected"';} ?> >Friend</option>
+			<option value="DMV Video" <?php if(isset($_POST['howHear']) && $_POST['howHear'] == 'DMV Video') { echo ' selected="selected"';} ?> >DMV Video</option>
+			<option value="Don't Remember" <?php if(isset($_POST['howHear']) && $_POST['howHear'] == "Don't Remember") { echo ' selected="selected"';} ?> >Don't Remember</option>
 			<option value="Other" <?php if(isset($_POST['howHear']) && $_POST['howHear'] == 'Other') { echo ' selected="selected"';} ?> >Other</option>
 		</select></td>
 	</tr>
@@ -350,7 +338,7 @@ table , td, th, tr {
 	<tr>
 	<td></td>
 	<td><input style="width: 100px !important;" class="captchaButton" type="button" name ="reloadcaptchabtn"  id="reloadcaptchabtn" value="Reload" onclick="reloadCaptcha()">&nbsp;<input style="width: 100px !important;" class="captchaButton" type="button" name ="verifycaptchabtn"  id="verifycaptchabtn" value="Verify" onclick="verifyCaptcha()"></td>
-	</tr>	
+	</tr>
 </table>    
 
 <?php echo "<br><br>"; ?>
