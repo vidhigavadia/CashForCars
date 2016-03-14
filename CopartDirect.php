@@ -35,8 +35,11 @@ include_once 'form_validate.php';
 </script>
 
 <style type="text/css">
-table , td, th, tr {
+table {
       	border: 1px solid black;      
+}
+td, th, tr {
+      /*	border: 1px solid black;      */
 }
 </style>
 
@@ -256,35 +259,6 @@ $state_list = array('AL'=>"Alabama",
 <?php echo "<br><br>"; ?>
 
 <table style="width:550px; margin: 0;">
-  
-  <tr><td colspan="2">
-  
-	  <table>
-		  <tr>
-		    <td><input style="border: 1px solid #C40A20 !important;" id="City" name="City" maxlength="40" value="<?php if(isset($_POST['City'])) echo $_POST['City']; ?>"/></td>
-		    <td><select style="border: 1px solid #C40A20 !important;" id="State" name="State">
-		                        		<option value=""></option>
-		                            	<?php foreach ($state_list as $key => $value) {
-		                     
-		                            			echo '<option value="'.$key.'" '.'>'.$key.' - '.$value.'</option>';
-		                            	}
-		                            		?>
-		                            </select></td> 
-		        <td><input style="border: 1px solid #C40A20 !important;" id="Zip" name="Zip" maxlength="5" value="<?php if(isset($_POST['Zip'])) echo $_POST['Zip']; ?>"/></td> 
-			</tr>
-			<tr>
-			  	<td class="statictext">City*</td>
-				<td class="statictext">State*</td>
-				<td class="statictext">Zip*</td>
-			</tr>
-		</table>
-	</td></tr>
-	
-	<tr><td class="acenter" colspan="2"><label id="cityfail" style="display: none;"></label></td></tr>
-  	<tr><td class="acenter" colspan="2"><label id="statefail" style="display: none;"></label></td></tr>
-  	<tr><td class="acenter" colspan="2"><label id="zipfail" style="display: none;"></label></td></tr>
-
-	<tr class="blank_row"><td colspan="3"></td></tr>
 
   <tr><td class="aleftBold" rowspan="10">Vehicle Location (if not at home)</td></tr>
   <tr>
