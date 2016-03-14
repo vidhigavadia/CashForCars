@@ -204,10 +204,8 @@ table , td, th, tr {
 		<tr><td colspan="2" class="statictext">Email</td></tr>
 		<tr><td class="acenter" colspan="2"><label id="emailfail" style="display: none;"></label></td></tr>
 		
-</table>    
-<table style="width:550px; margin: 0;">
-
-	<tr>
+		
+			<tr>
 		<td class="aleftBold" rowspan="3">Home/Cell Phone*</td>
 		<td colspan="2"><table><tr>
 			<td><label>(</label></td>
@@ -236,6 +234,11 @@ table , td, th, tr {
 	</tr>
 
 	<tr><td class="acenter" colspan="2"><label id="phonefail" style="display: none;"></label></td></tr>
+		
+</table>    
+<table style="width:550px; margin: 0;">
+
+
 <!-- </fieldset> -->
 </div>
 
