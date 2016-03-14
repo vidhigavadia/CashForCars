@@ -199,7 +199,7 @@ $state_list = array('AL'=>"Alabama",
 				exit();
 		//	}
  		} 
-	} else {  error_log(print_r($GLOBALS['formErrors']))}?>
+	} else {  ?>
 
 	
 	<form style="width: 550px;" id="formElem" name="formElem" method="post">
