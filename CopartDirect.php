@@ -258,48 +258,7 @@ $state_list = array('AL'=>"Alabama",
 ?>
 <?php echo "<br><br>"; ?>
 
-<table style="border: 1px solid red; width:550px; margin: 0;">
-  
- 
-	<tr>
-		<td class="aleftBold" rowspan="3">Home/Cell Phone*</td>
-		<td colspan="2"><table><tr>
-			<td><label>(</label></td>
-			<td><input style="border: 1px solid #C40A20 !important;" id="Home_Telephone_Ac" name="Home_Telephone_Ac" maxlength="3"  value="<?php if(isset($_POST['Home_Telephone_Ac'])) echo $_POST['Home_Telephone_Ac']; ?>"></td>
-			<td><label>)</label></td>
-	    	<td><input style="border: 1px solid #C40A20 !important;" id="homephonea" name="homephonea" maxlength="3" value="<?php if(isset($_POST['homephonea'])) echo $_POST['homephonea']; ?>"></td>
-	    	<td><label>-</label></td>
-	    	<td><input style="border: 1px solid #C40A20 !important;" id="homephoneb" name="homephoneb" maxlength="4" value="<?php if(isset($_POST['homephoneb'])) echo $_POST['homephoneb']; ?>"></td>
-	    	<td><select id="besttime" name="besttime" >
-	                        	<option value="Morning" <?php if(isset($_POST['besttime']) && $_POST['besttime'] == 'Morning') { echo ' selected="selected"';} ?> >Morning</option>
-	                        	<option value="Afternoon" <?php if(isset($_POST['besttime']) && $_POST['besttime'] == 'Afternoon') { echo ' selected="selected"';} ?> >Afternoon</option>
-	                       		<option value="Evening" <?php if(isset($_POST['besttime']) && $_POST['besttime'] == 'Evening') { echo ' selected="selected"';} ?> >Evening</option>
-                        	</select></td> 
-	    	</tr>
-	    	<tr>
-	    		<td></td>
-			  	<td class="statictext">xxx*</td>
-			  	<td></td>
-				<td class="statictext">xxx*</td>
-				<td></td>
-				<td class="statictext">xxxx*</td>
-				<td class="statictext">&nbsp;Best Time</td>
-			</tr>
-	    	</table>
-	    </td>
-	</tr>
-
-	<tr><td class="acenter" colspan="2"><label id="phonefail" style="display: none;"></label></td></tr>
-	<!--  <tr><td class="acenter" colspan="2"><label id="phonefaila" style="display: none;"></label></td></tr>
-	<tr><td class="acenter" colspan="2"><label id="phonefailb" style="display: none;"></label></td></tr>-->
-	
-	
-
-
-	
-
 	  
-</table>	  
 
 
 <?php echo "<br><br>"; ?>
