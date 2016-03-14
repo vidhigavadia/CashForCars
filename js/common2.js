@@ -62,15 +62,24 @@ function hideSubmit() {
 	var s = document.getElementById( 'registerButton' );
 	s.style.opacity = '0.7';
 	s.disabled=true;
-	
-	var ss = document.getElementById( 'registersButton' );
-	ss.style.opacity = '0.7';
-	ss.disabled=true;
+
+}
+
+function hideSubmit_c() {
+	var s = document.getElementById( 'registersButton' );
+	s.style.opacity = '0.7';
+	s.disabled=true;
 }
 
 //Function to show Donate my Vehicle button
 function showsubmit() {
 var s = document.getElementById( 'registerButton' );
+    s.style.opacity = '1';
+    s.disabled=false;
+}
+
+function showsubmit_c() {
+var s = document.getElementById( 'registersButton' );
     s.style.opacity = '1';
     s.disabled=false;
     
@@ -110,6 +119,33 @@ function verifyCaptcha() {
 					$('#captchafail').text('Captcha Validated');
 			        $('#captchafail').css("color","green");
 			        showsubmit();	
+				} else {
+					$('#captchafail').show();
+			        $('#captchafail').text('Incorrect Captcha. Please try again.');
+			        $("#captchafail").css("color","red");
+			        hideSubmit();
+				}
+			},
+			error: function(err) {
+				alert("An unexpected error has occured.");
+//				$('#captchatext').val('');
+		}
+		}); 
+}
+
+
+function verifyCaptcha_c() {
+	var inputtext = $('#captchatext').val();
+	
+	$.ajax({
+			url: "captcha_helper.php",
+			dataType: "html",
+			success: function(data) {
+				if(inputtext == data) {
+					$('#captchafail').show();
+					$('#captchafail').text('Captcha Validated');
+			        $('#captchafail').css("color","green");
+			        showsubmit_c();	
 				} else {
 					$('#captchafail').show();
 			        $('#captchafail').text('Incorrect Captcha. Please try again.');
