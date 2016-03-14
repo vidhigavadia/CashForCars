@@ -934,9 +934,9 @@ $('#registerButton').click(function(e) {
 	var email = $.trim($('#Email').val());
 
 	var zip = $.trim($('#Zip').val());
-	var homephone1 = $.trim($('#Home_Telephone_Ac').val());
-	var homephone2 = $.trim($('#homephonea').val());
-	var homephone3 = $.trim($('#homephoneb').val());
+//	var homephone1 = $.trim($('#Home_Telephone_Ac').val());
+//	var homephone2 = $.trim($('#homephonea').val());
+//	var homephone3 = $.trim($('#homephoneb').val());
 
 	// First name 
 	if(fname==='') {
@@ -966,12 +966,12 @@ $('#registerButton').click(function(e) {
 	
 
 	
-	if (homephone1 === '' && homephone2 === '' && homephone3 === '') {
+/*	if (homephone1 === '' && homephone2 === '' && homephone3 === '') {
 		e.preventDefault();
 	      $('#phonefail').show();
 	      $('#phonefail').text('Home/Cell Phone is required');
 	      $("#phonefail").css("color","red");
-	} else { phoneTest(e); }
+	} else { phoneTest(e); }*/
 	
 
 	//setTimeout(function(){ reloadCaptcha(); }, 100);
