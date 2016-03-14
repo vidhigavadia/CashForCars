@@ -35,7 +35,7 @@ function pickupDateValid($value) {
 		return '';
 	}
 }
-function address1Valid($value) {
+/*function address1Valid($value) {
 	trim($value);
 	if(strlen($value) == 0) {
 		return 'Address Line one is required';
@@ -44,7 +44,7 @@ function address1Valid($value) {
 	}else{
 		return '';
 	}
-}
+} */
 function address2Valid($value) {
 	trim($value);
 	if (strlen($value) != 0 && !preg_match('/^[a-z0-9A-Z\s\~\!\@\#\$\%\^\&\*\(\)\-\_\+\=\[\]\{\}\;\'\:\"\,\.\/\\\<\>\?\|]+$/i', $value)) {
@@ -53,7 +53,7 @@ function address2Valid($value) {
 		return '';
 	}
 }
-function cityValid($value) {
+/*function cityValid($value) {
 	trim($value);
 	if(strlen($value) == 0) {
 		return 'City is required';
@@ -62,14 +62,14 @@ function cityValid($value) {
 	}else{
 		return '';
 	}
-}
-function stateValid($value) {
+} */
+/*function stateValid($value) {
 	if(strlen($value) == 0) {
 		return 'State must be selected';
 	} else{
 		return '';
 	}
-}
+} */
 function zipValid($value) {
 	trim($value);
 	if(strlen((string)$value) == 0) {
