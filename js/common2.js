@@ -82,11 +82,6 @@ function showsubmit_c() {
 var s = document.getElementById( 'registersButton' );
     s.style.opacity = '1';
     s.disabled=false;
-    
-    
-    var ss = document.getElementById( 'registersButton' );
-    ss.style.opacity = '1';
-    ss.disabled=false;
 }
 
 function reduceClick() {
