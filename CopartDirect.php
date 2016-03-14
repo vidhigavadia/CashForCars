@@ -36,7 +36,7 @@ include_once 'form_validate.php';
 
 <style type="text/css">
 table , td, th, tr {
-/*         	border: 1px solid black;      */
+      	border: 1px solid black;      
 }
 </style>
 
