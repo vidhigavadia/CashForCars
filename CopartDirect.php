@@ -107,8 +107,7 @@ $state_list = array('AL'=>"Alabama",
 		if (emailValid($_POST['Email'])) $GLOBALS['formErrors'][] = emailValid($_POST['Email']) ;
 	
 		
-		if (address1Valid($_POST['Mailing_Address1'])) $GLOBALS['formErrors'][] = address1Valid($_POST['Mailing_Address1']) ;
-		if (address2Valid($_POST['Mailing_Address2'])) $GLOBALS['formErrors'][] = address2Valid($_POST['Mailing_Address2']) ;
+	
 		if (cityValid($_POST['City'])) $GLOBALS['formErrors'][] = cityValid($_POST['City']) ;
 		if (stateValid($_POST['State'])) $GLOBALS['formErrors'][] = stateValid($_POST['State']) ;
 		if (zipValid($_POST['Zip'])) $GLOBALS['formErrors'][] = zipValid($_POST['Zip']) ;
@@ -144,8 +143,6 @@ $state_list = array('AL'=>"Alabama",
 		if(isset($_POST['Email']) && $_POST['Email'] != '') $formValues['email'] = $_POST['Email'];
 		
 		
-		$address = $_POST['Mailing_Address1'].", ".$_POST['Mailing_Address2'];
-		if(isset($address)) $formValues['Street'] = $address;
 		if(isset($_POST['City']) && $_POST['City'] != '') $formValues['City'] = $_POST['City'];
 		if(isset($_POST['State']) && $_POST['State'] != '') $formValues['state'] = $_POST['State'];
 		if(isset($_POST['Zip']) && $_POST['Zip'] != '') $formValues['PostalCode'] = $_POST['Zip'];
