@@ -970,7 +970,7 @@ $('#registerButton').click(function(e) {
 	commentsTest(e);
 	otherTest(e);	
 	yearmakemodelTest(e);  */
-	setTimeout(function(){ reloadCaptcha(); }, 100);
+	//setTimeout(function(){ reloadCaptcha(); }, 100);
 });
 
 $(document).delegate('textarea[maxlength]', 'input keyup' , function(e) {
