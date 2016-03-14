@@ -84,7 +84,10 @@ input {
 #registerButton {
     width: 50% !important;
 }
- 
+
+#registersButton {
+    width: 50% !important;
+}
 table { 
 	border-spacing: 0;
 	border-collapse: collapse;
