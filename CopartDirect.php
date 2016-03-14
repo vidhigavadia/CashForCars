@@ -55,30 +55,20 @@ table , td, th, tr {
 		if (firstnameValid($_POST['First_Name'])) $GLOBALS['formErrors'][] = firstnameValid($_POST['First_Name']);
 		if (lastnameValid($_POST['Last_Name'])) $GLOBALS['formErrors'][] = lastnameValid($_POST['Last_Name']) ;
 		if (emailValid($_POST['Email'])) $GLOBALS['formErrors'][] = emailValid($_POST['Email']) ;
-	
-		
-		if (address1Valid($_POST['Mailing_Address1'])) $GLOBALS['formErrors'][] = address1Valid($_POST['Mailing_Address1']) ;
-		if (address2Valid($_POST['Mailing_Address2'])) $GLOBALS['formErrors'][] = address2Valid($_POST['Mailing_Address2']) ;
-		if (cityValid($_POST['City'])) $GLOBALS['formErrors'][] = cityValid($_POST['City']) ;
-		if (stateValid($_POST['State'])) $GLOBALS['formErrors'][] = stateValid($_POST['State']) ;
+
 		if (zipValid($_POST['Zip'])) $GLOBALS['formErrors'][] = zipValid($_POST['Zip']) ;
 		
-		if (caraddress1Valid($_POST['caraddress1'])) $GLOBALS['formErrors'][] = caraddress1Valid($_POST['caraddress1']) ;
-		if (caraddress2Valid($_POST['caraddress2'])) $GLOBALS['formErrors'][] = caraddress2Valid($_POST['caraddress2']) ;
-		if (carcityValid($_POST['carcity'])) $GLOBALS['formErrors'][] = carcityValid($_POST['carcity']) ;
-		if (carzipValid($_POST['carzip'])) $GLOBALS['formErrors'][] = carzipValid($_POST['carzip']) ;
+	
 		
 		$homePhone = $_POST['Home_Telephone_Ac'].$_POST['homephonea'].$_POST['homephoneb'];
 		if (phoneValid($homePhone)) $GLOBALS['formErrors'][] = phoneValid($homePhone);
 		
-		$workPhone = $_POST['Work_Telephone_Ac'].$_POST['workphonea'].$_POST['workphoneb'];
-		if (workPhoneValid($workPhone)) $GLOBALS['formErrors'][] = workPhoneValid($workPhone);
-		if (workphoneextValid($_POST['Work_Telephone_Ext'])) $GLOBALS['formErrors'][] = workphoneextValid($_POST['Work_Telephone_Ext']) ;
+	
 		if (vehicleTypeValid($_POST['VehicleType'])) $GLOBALS['formErrors'][] = vehicleTypeValid($_POST['VehicleType']) ;
 		
 		if (yearmakemodelValid($_POST['YearMakeModel'])) $GLOBALS['formErrors'][] = yearmakemodelValid($_POST['YearMakeModel']) ;
-		if (mileageValid($_POST['Mileage'])) $GLOBALS['formErrors'][] = mileageValid($_POST['Mileage']) ;
-		if (commentsValid($_POST['Comments'])) $GLOBALS['formErrors'][] = commentsValid($_POST['Comments']) ;
+	
+	
 		if (otherValid($_POST['other'])) $GLOBALS['formErrors'][] = otherValid($_POST['other']) ;
 		
 		if (captchaValid($_POST['txtCaptcha'])) $GLOBALS['formErrors'][] = captchaValid($_POST['txtCaptcha']) ;	
@@ -94,37 +84,22 @@ table , td, th, tr {
 		if(isset($_POST['Email']) && $_POST['Email'] != '') $formValues['email'] = $_POST['Email'];
 		
 		
-		$address = $_POST['Mailing_Address1'].", ".$_POST['Mailing_Address2'];
-		if(isset($address)) $formValues['Street'] = $address;
-		if(isset($_POST['City']) && $_POST['City'] != '') $formValues['City'] = $_POST['City'];
-		if(isset($_POST['State']) && $_POST['State'] != '') $formValues['state'] = $_POST['State'];
+	
 		if(isset($_POST['Zip']) && $_POST['Zip'] != '') $formValues['PostalCode'] = $_POST['Zip'];
 		
-		if(isset($_POST['caraddress1']) && $_POST['caraddress1'] != '') $formValues['Pickup_Address1__c'] = $_POST['caraddress1'];
-		if(isset($_POST['caraddress2']) && $_POST['caraddress2'] != '') $formValues['Pickup_Address2__c'] = $_POST['caraddress2'];
-		if(isset($_POST['carcity']) && $_POST['carcity'] != '') $formValues['Pickup_City__c'] = $_POST['carcity'];
-		if(isset($_POST['carstate']) && $_POST['carstate'] != '') $formValues['Pickup_Location_State__c'] = $_POST['carstate'];
-		if(isset($_POST['carzip']) && $_POST['carzip'] != '') $formValues['Pickup_Postal_Code__c'] = $_POST['carzip'];
-		
+	
 		if(isset($_POST['besttime']) && $_POST['besttime'] != '') $formValues['BestTimetoCall__c'] = $_POST['besttime'];
 		$phone = $_POST['Home_Telephone_Ac'].$_POST['homephonea'].$_POST['homephoneb'];
 		if(isset($phone) && $phone != '') $formValues['Phone'] = $phone;
 		
-		$wphone = $_POST['Work_Telephone_Ac'].$_POST['workphonea'].$_POST['workphoneb'];
-		if(isset($wphone) && $wphone != '') $formValues['Work_Phone__c'] = $wphone;
-		if(isset($_POST['Work_Telephone_Ext']) && $_POST['Work_Telephone_Ext'] != '') $formValues['Work_Phone_Extension__c'] = $_POST['Work_Telephone_Ext'];
+	
 		
 		if(isset($_POST['VehicleType']) && $_POST['VehicleType'] != '') $formValues['Type_of_Vehicle__c'] = $_POST['VehicleType'];
 		if(isset($_POST['Year1']) && $_POST['Year1'] != '') $formValues['year__c'] = $_POST['Year1'];
 		if(isset($_POST['Make']) && $_POST['Make'] != '') $formValues['make__c'] = $_POST['Make'];
 		if(isset($_POST['Model']) && $_POST['Model'] != '') $formValues['model__c'] = $_POST['Model'];
-		if(isset($_POST['Mileage']) && $_POST['Mileage'] != '') $formValues['Veh_Miles__c'] = $_POST['Mileage'];
+	
 		
-// 		if(checkbox_value("Drivable") == 1) { $formValues['Is_Car_Drivable__c'] = 'Yes'; }
-// 		if(checkbox_value("LienRelease") == 0) { $formValues['Lien__c'] = 'Yes'; }
-		if(isset($_POST["Drivable"])) { $formValues['Is_Car_Drivable__c'] = 'Yes'; } else {$formValues['Is_Car_Drivable__c'] = 'No';}
-		if(!isset($_POST["LienRelease"])) { $formValues['Lien__c'] = 'Yes'; } else { $formValues['Lien__c'] = 'No'; }
-		if(isset($_POST['Comments']) && $_POST['Comments'] != '') $formValues['Web_Lead_Comments__c'] = $_POST['Comments'];
 		if (strcmp(strtoupper(trim($_POST['howHear'])), strtoupper(trim('Other'))) != 0) {
 			$formValues['How_did_you_hear_about_us__c'] = $_POST['howHear'];
 		} else {
@@ -232,8 +207,21 @@ table , td, th, tr {
 	    	</table>
 	    </td>
 	</tr>
+	
+	
 
 	<tr><td class="acenter" colspan="2"><label id="phonefail" style="display: none;"></label></td></tr>
+	
+		<tr><td class="aleftBold" rowspan="3">Zip Code</td></tr>
+		<tr>
+			 <td><input style="border: 1px solid #C40A20 !important;" id="Zip" name="Zip" maxlength="5" value="<?php if(isset($_POST['Zip'])) echo $_POST['Zip']; ?>"/></td> 
+		
+		</tr>
+		<tr>
+			<td class="statictext">Zip Code*</td>
+		</tr>
+	
+	
 		
 </table>    
 <table style="width:550px; margin: 0;">
