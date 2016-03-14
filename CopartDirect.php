@@ -316,7 +316,7 @@ $state_list = array('AL'=>"Alabama",
 <?php echo "<br><br>"; ?>
 <table style="border: 1px solid red; width:550px; margin: 0;">
 	<tr>
-		<td class="aleftBold" rowspan="9">Vehicle</td>
+		<td class="aleftBold" rowspan="7">Vehicle</td>
 		
 		<td colspan="2"><input id="VehicleType" name="VehicleType"/></td>
 	</tr>
@@ -363,19 +363,10 @@ $state_list = array('AL'=>"Alabama",
 	<tr><td class="acenter" colspan="2"><input id="YearMakeModel" name="YearMakeModel" maxlength="255" value="<?php if(isset($_POST['YearMakeModel'])) echo $_POST['YearMakeModel']; ?>"/></td> </tr>
 	<tr><td class="acenter" colspan="2"><label id="yearmakemodelfail" style="display: none;"></label></td></tr> 
        
-	<tr><td class="acenter"><input id="Mileage" name="Mileage" maxlength="7" value="<?php if(isset($_POST['Mileage'])) echo $_POST['Mileage']; ?>"/></td></tr>
-	<tr><td class="statictext">Mileage</td></tr>
-	<tr><td class="acenter" colspan="2"><label id="mileagefail" style="display: none;"></label></td></tr>
 	
-	<tr><td class="aleftBold">Is the car drivable?</td><td><input style="text-align: left;vertical-align: middle;" type="checkbox" id="Drivable" name="Drivable" <?php if(isset($_POST['Drivable'])) echo "checked"; ?>/></td></tr>
-	<tr><td class="aleftBold">Is the car paid for entirely?</td><td><input style="text-align: left;vertical-align: middle;" type="checkbox" id="LienRelease" name="LienRelease" <?php if(isset($_POST['LienRelease'])) echo "checked"; ?>/></td></tr>
 	
 	<tr class="blank_row"><td colspan="3"></td></tr>
-	<tr><td class="aleftBold" rowspan="3">Comments</td></tr>
-	<tr><td colspan="2"><textarea id="Comments" name="Comments"  maxlength="255" cols="30" rows="3" style="resize: none;" value="<?php if(isset($_POST['Comments'])) echo $_POST['Comments']; ?>"></textarea></td></tr>
-	<tr><td class="acenter" colspan="2"><label id="commentsfail" style="display: none;"></label></td></tr>
 	
-	<tr class="blank_row"><td colspan="3"></td></tr>
 	<tr><td class="aleftBold" rowspan="5">How did you hear about us?</td></tr>
 	<tr><td><select name="howHear" id="howHear">
 			<option value="Non Profit Website" <?php if(isset($_POST['howHear']) && $_POST['howHear'] == 'Non Profit Website') { echo ' selected="selected"';} ?> >Non Profit Website</option>
