@@ -216,7 +216,7 @@ $state_list = array('AL'=>"Alabama",
 ?>
 <?php echo "<br><br>"; ?>
 <div class="reducedOpacity">
-  <table style="border: 1px solid dark width:550px; margin: 0;">
+  <table style="border: 1px solid red; width:550px; margin: 0;">
 		
 		<tr><td class="aleftBold" rowspan="11">Contact</td></tr>
 		<tr>
