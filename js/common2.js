@@ -919,7 +919,7 @@ $('#registerButton').click(function(e) {
 	// Address Line-1
 	if(addr1==='') {
 		e.preventDefault();
-    $('#adr1fail').show();
+  /*  $('#adr1fail').show();
     $('#adr1fail').text('Address Line one is required');
     $("#adr1fail").css("color","red");
 	} else { address1Test(e); }
@@ -939,7 +939,7 @@ $('#registerButton').click(function(e) {
 		e.preventDefault();
     $('#statefail').show();
     $('#statefail').text('State must be selected');
-    $("#statefail").css("color","red");
+    $("#statefail").css("color","red"); */
 	}
 	
 	// Zipcode
@@ -950,11 +950,11 @@ $('#registerButton').click(function(e) {
     $("#zipfail").css("color","red");
 	} else { zipTest(e); }
 	
-	carAddress1Test(e);
+	/*carAddress1Test(e);
 	carAddress2Test(e);
 	carCityTest(e);
 	carZipTest(e);
-	memberIDTest(e);
+	memberIDTest(e); */
 	
 	if (homephone1 === '' && homephone2 === '' && homephone3 === '') {
 		e.preventDefault();
