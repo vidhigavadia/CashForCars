@@ -535,7 +535,7 @@ $state_list = array('AL'=>"Alabama",
 
 <?php echo "<br><br>"; ?>
 <div class="acenter">
-	<input class="customSubmit" type="submit" action="process.php" method="post" value="Donate my vehicle" id="registerButton" name="submit">
+	<input class="customSubmit" type="submit" method="post" value="Donate my vehicle" id="registerButton" name="submit">
 
 </div>
 <br>	
