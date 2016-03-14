@@ -30,7 +30,7 @@ include_once 'form_validate.php';
 <script src='https://www.google.com/recaptcha/api.js'></script>
 
 <script type="text/javascript">
-	var formName = "<?php echo "index.php"; ?>";
+	var formName = "<?php echo "CopartDirect.php"; ?>";
 	window.onload = hideSubmit;
 </script>
 
@@ -101,6 +101,7 @@ $state_list = array('AL'=>"Alabama",
 		'WY'=>"Wyoming");	
 		if(isset($_POST['OrgID'])) {
 		
+		error_log("----------------------------------------------------------------");
 			$formErrors = array();
 		if (firstnameValid($_POST['First_Name'])) $GLOBALS['formErrors'][] = firstnameValid($_POST['First_Name']);
 		if (lastnameValid($_POST['Last_Name'])) $GLOBALS['formErrors'][] = lastnameValid($_POST['Last_Name']) ;
@@ -132,7 +133,7 @@ $state_list = array('AL'=>"Alabama",
 		
 		if (captchaValid($_POST['txtCaptcha'])) $GLOBALS['formErrors'][] = captchaValid($_POST['txtCaptcha']) ;	
 		
-		error_log(print_r($GLOBALS['formErrors']));
+	
 		}
 		
 	
