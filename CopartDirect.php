@@ -188,7 +188,7 @@ table , td, th, tr {
 <div class="reducedOpacity">
   <table style="width:550px; margin: 0;">
 		
-		<tr><td class="aleftBold" rowspan="9">Contact</td></tr>
+		<tr><td class="aleftBold" rowspan="6">Contact</td></tr>
 		<tr>
 			<td><input style="border: 1px solid #C40A20 !important;" id="First_Name" name="First_Name" maxlength="30" autofocus="autofocus" value="<?php if(isset($_POST['First_Name'])) echo $_POST['First_Name']; ?>"/></td>
 			<td><input style="border: 1px solid #C40A20 !important;" id="Last_Name" name="Last_Name" maxlength="30" value="<?php if(isset($_POST['Last_Name'])) echo $_POST['Last_Name']; ?>"/></td> 
