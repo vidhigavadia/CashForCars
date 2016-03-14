@@ -131,6 +131,8 @@ $state_list = array('AL'=>"Alabama",
 		if (otherValid($_POST['other'])) $GLOBALS['formErrors'][] = otherValid($_POST['other']) ;
 		
 		if (captchaValid($_POST['txtCaptcha'])) $GLOBALS['formErrors'][] = captchaValid($_POST['txtCaptcha']) ;	
+		
+		error_log(print_r($GLOBALS['formErrors']));
 		}
 		
 	
