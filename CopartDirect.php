@@ -258,47 +258,9 @@ $state_list = array('AL'=>"Alabama",
 ?>
 <?php echo "<br><br>"; ?>
 
-<table style="width:550px; margin: 0;">
-
-  <tr><td class="aleftBold" rowspan="10">Vehicle Location (if not at home)</td></tr>
-  <tr>
-    <td><input id="caraddress1" name="caraddress1" maxlength="255" value="<?php if(isset($_POST['caraddress1'])) echo $_POST['caraddress1']; ?>"/></td> 
-    <td><input id="caraddress2" name="caraddress2" maxlength="255" value="<?php if(isset($_POST['caraddress2'])) echo $_POST['caraddress2']; ?>"/></td> 
-  </tr>
-  <tr>
-		<td class="statictext">Address Line 1</td>
-		<td class="statictext">Address Line 2</td>
-	</tr>
-  <tr><td class="acenter" colspan="2"><label id="caradr1fail" style="display: none;"></label></td></tr>
-  <tr><td class="acenter" colspan="2"><label id="caradr2fail" style="display: none;"></label></td></tr>
+<table style="border: 1px solid red; width:550px; margin: 0;">
   
-  <tr><td colspan="2">
-  <table>
-	  <tr>
-	    <td><input id="carcity" name="carcity" maxlength="40" value="<?php if(isset($_POST['carcity'])) echo $_POST['carcity']; ?>"/></td>
-	    <td><select id="carstate" name="carstate">
-	                        		<option value=""></option>
-	                            	<?php foreach ($state_list as $key => $value) {
-	                            //	echo '<option value="'.$key.'" '.(($_POST['State'] == ($key.' - '.$value))?'selected="selected"':"").'>'.$key.' - '.$value.'</option>';
-	                            	echo '<option value="'.$key.'" '.'>'.$key.' - '.$value.'</option>';
-	                            	}
-	                            		?>
-	                            </select></td> 
-	        <td><input id="carzip" name="carzip" maxlength="5" value="<?php if(isset($_POST['carzip'])) echo $_POST['carzip']; ?>"/></td> 
-		</tr>
-		<tr>
-		  	<td class="statictext">City</td>
-			<td class="statictext">State</td>
-			<td class="statictext">Zip</td>
-		</tr>
-	</table></td>
-	</tr>
-	<tr><td class="acenter" colspan="2"><label id="carcityfail" style="display: none;"></label></td></tr>
-  	<tr><td class="acenter" colspan="2"><label id="carstatefail" style="display: none;"></label></td></tr>
-  	<tr><td class="acenter" colspan="2"><label id="carzipfail" style="display: none;"></label></td></tr>
-   
-	
-	<tr class="blank_row"><td colspan="3"></td></tr>
+ 
 	<tr>
 		<td class="aleftBold" rowspan="3">Home/Cell Phone*</td>
 		<td colspan="2"><table><tr>
@@ -332,34 +294,10 @@ $state_list = array('AL'=>"Alabama",
 	<tr><td class="acenter" colspan="2"><label id="phonefailb" style="display: none;"></label></td></tr>-->
 	
 	
-	<tr class="blank_row"><td colspan="3"></td></tr>
-	<tr>
-		<td class="aleftBold" rowspan="3">Work Phone</td>
-		<td colspan="2"><table><tr>
-			<td><label>(</label></td>
-			<td><input id="Work_Telephone_Ac" name="Work_Telephone_Ac" maxlength="3" value="<?php if(isset($_POST['Work_Telephone_Ac'])) echo $_POST['Work_Telephone_Ac']; ?>"></td>
-			<td><label>)</label></td>
-	    	<td><input id="workphonea" name="workphonea" maxlength="3" value="<?php if(isset($_POST['workphonea'])) echo $_POST['workphonea']; ?>"></td>
-	    	<td><label>-</label></td>
-	    	<td><input id="workphoneb" name="workphoneb" maxlength="4" value="<?php if(isset($_POST['workphoneb'])) echo $_POST['workphoneb']; ?>"></td>
-	    	<td><label class="customText" >x</label></td>
-	    	<td><input id="Work_Telephone_Ext" name="Work_Telephone_Ext" maxlength="10" value="<?php if(isset($_POST['Work_Telephone_Ext'])) echo $_POST['Work_Telephone_Ext']; ?>"/></td>
-	    	</tr>
-	    	<tr>
-			  	<td></td>
-			  	<td class="statictext">xxx</td>
-			  	<td></td>
-				<td class="statictext">xxx</td>
-				<td></td>
-				<td class="statictext">xxxx</td>
-				<td></td>
-				<td class="statictext">Ext.</td>
-			</tr>
-	</table>
-	    </td>
-	</tr>
+
+
 	
-	<tr><td class="acenter" colspan="2"><label id="workphonefail" style="display: none;"></label></td></tr>
+
 	  
 </table>	  
 
@@ -376,7 +314,7 @@ $state_list = array('AL'=>"Alabama",
 ?>
 
 <?php echo "<br><br>"; ?>
-<table style="width:550px; margin: 0;">
+<table style="border: 1px solid red; width:550px; margin: 0;">
 	<tr>
 		<td class="aleftBold" rowspan="9">Vehicle</td>
 		
