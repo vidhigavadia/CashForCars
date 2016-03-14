@@ -350,7 +350,7 @@ table , td, th, tr {
 
 <?php echo "<br><br>"; ?>
 <div class="acenter">
-	<input class="customSubmit" type="submit" action="CopartDirect.php" method="post" value="Donate my vehicle" id="registerButton" name="submit">
+	<input class="customSubmit" type="submit" method="post" value="Donate my vehicle" id="registerButton" name="submit">
 
 </div>
 <br>	
