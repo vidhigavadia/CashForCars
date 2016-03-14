@@ -3,7 +3,6 @@ session_start();
 error_reporting(E_ALL);
 //include_once 'connection.php';
 include_once 'form_validate.php';
-
 ?>
 <!doctype html>
 <html lang="en">
@@ -17,7 +16,7 @@ include_once 'form_validate.php';
 <!-- <meta http-equiv='cache-control' content='no-cache'> -->
 <!-- <meta http-equiv='expires' content='0'> -->
 <!-- <meta http-equiv='pragma' content='no-cache'> -->
-<title>Copart Direct</title>
+<title>Cash For Cars</title>
 
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/themes/base/jquery-ui.css" />
 <link rel="stylesheet" href="/css/formStyle.css" />
@@ -31,8 +30,7 @@ include_once 'form_validate.php';
 <script src='https://www.google.com/recaptcha/api.js'></script>
 
 <script type="text/javascript">
-
-	var formName = "<?php echo "CopartDirect.php"; ?>";
+	var formName = "<?php echo "index.php"; ?>";
 	window.onload = hideSubmit;
 </script>
 
@@ -50,55 +48,133 @@ table , td, th, tr {
 <div id="donate" class="left">
 
 <?php 
-	
-	if(isset($_POST['OrgID'])) {
-		$formErrors = array();
+$state_list = array('AL'=>"Alabama",
+		'AK'=>"Alaska",
+		'AZ'=>"Arizona",
+		'AR'=>"Arkansas",
+		'CA'=>"California",
+		'CO'=>"Colorado",
+		'CT'=>"Connecticut",
+		'DE'=>"Delaware",
+		'DC'=>"District Of Columbia",
+		'FL'=>"Florida",
+		'GA'=>"Georgia",
+		'HI'=>"Hawaii",
+		'ID'=>"Idaho",
+		'IL'=>"Illinois",
+		'IN'=>"Indiana",
+		'IA'=>"Iowa",
+		'KS'=>"Kansas",
+		'KY'=>"Kentucky",
+		'LA'=>"Louisiana",
+		'ME'=>"Maine",
+		'MD'=>"Maryland",
+		'MA'=>"Massachusetts",
+		'MI'=>"Michigan",
+		'MN'=>"Minnesota",
+		'MS'=>"Mississippi",
+		'MO'=>"Missouri",
+		'MT'=>"Montana",
+		'NE'=>"Nebraska",
+		'NV'=>"Nevada",
+		'NH'=>"New Hampshire",
+		'NJ'=>"New Jersey",
+		'NM'=>"New Mexico",
+		'NY'=>"New York",
+		'NC'=>"North Carolina",
+		'ND'=>"North Dakota",
+		'OH'=>"Ohio",
+		'OK'=>"Oklahoma",
+		'OR'=>"Oregon",
+		'PA'=>"Pennsylvania",
+		'RI'=>"Rhode Island",
+		'SC'=>"South Carolina",
+		'SD'=>"South Dakota",
+		'TN'=>"Tennessee",
+		'TX'=>"Texas",
+		'UT'=>"Utah",
+		'VT'=>"Vermont",
+		'VA'=>"Virginia",
+		'WA'=>"Washington",
+		'WV'=>"West Virginia",
+		'WI'=>"Wisconsin",
+		'WY'=>"Wyoming");	
+		if(isset($_POST['OrgID'])) {
+		
+			$formErrors = array();
 		if (firstnameValid($_POST['First_Name'])) $GLOBALS['formErrors'][] = firstnameValid($_POST['First_Name']);
 		if (lastnameValid($_POST['Last_Name'])) $GLOBALS['formErrors'][] = lastnameValid($_POST['Last_Name']) ;
 		if (emailValid($_POST['Email'])) $GLOBALS['formErrors'][] = emailValid($_POST['Email']) ;
 	
 		
-		
-	
+		if (address1Valid($_POST['Mailing_Address1'])) $GLOBALS['formErrors'][] = address1Valid($_POST['Mailing_Address1']) ;
+		if (address2Valid($_POST['Mailing_Address2'])) $GLOBALS['formErrors'][] = address2Valid($_POST['Mailing_Address2']) ;
+		if (cityValid($_POST['City'])) $GLOBALS['formErrors'][] = cityValid($_POST['City']) ;
+		if (stateValid($_POST['State'])) $GLOBALS['formErrors'][] = stateValid($_POST['State']) ;
 		if (zipValid($_POST['Zip'])) $GLOBALS['formErrors'][] = zipValid($_POST['Zip']) ;
 		
-	
+		if (caraddress1Valid($_POST['caraddress1'])) $GLOBALS['formErrors'][] = caraddress1Valid($_POST['caraddress1']) ;
+		if (caraddress2Valid($_POST['caraddress2'])) $GLOBALS['formErrors'][] = caraddress2Valid($_POST['caraddress2']) ;
+		if (carcityValid($_POST['carcity'])) $GLOBALS['formErrors'][] = carcityValid($_POST['carcity']) ;
+		if (carzipValid($_POST['carzip'])) $GLOBALS['formErrors'][] = carzipValid($_POST['carzip']) ;
+		
 		$homePhone = $_POST['Home_Telephone_Ac'].$_POST['homephonea'].$_POST['homephoneb'];
 		if (phoneValid($homePhone)) $GLOBALS['formErrors'][] = phoneValid($homePhone);
 		
-	
+		$workPhone = $_POST['Work_Telephone_Ac'].$_POST['workphonea'].$_POST['workphoneb'];
+		if (workPhoneValid($workPhone)) $GLOBALS['formErrors'][] = workPhoneValid($workPhone);
+		if (workphoneextValid($_POST['Work_Telephone_Ext'])) $GLOBALS['formErrors'][] = workphoneextValid($_POST['Work_Telephone_Ext']) ;
+		if (vehicleTypeValid($_POST['VehicleType'])) $GLOBALS['formErrors'][] = vehicleTypeValid($_POST['VehicleType']) ;
+		
 		if (yearmakemodelValid($_POST['YearMakeModel'])) $GLOBALS['formErrors'][] = yearmakemodelValid($_POST['YearMakeModel']) ;
-	
-	
+		if (mileageValid($_POST['Mileage'])) $GLOBALS['formErrors'][] = mileageValid($_POST['Mileage']) ;
+		if (commentsValid($_POST['Comments'])) $GLOBALS['formErrors'][] = commentsValid($_POST['Comments']) ;
 		if (otherValid($_POST['other'])) $GLOBALS['formErrors'][] = otherValid($_POST['other']) ;
 		
-		if (captchaValid($_POST['txtCaptcha'])) $GLOBALS['formErrors'][] = captchaValid($_POST['txtCaptcha']) ;
+		if (captchaValid($_POST['txtCaptcha'])) $GLOBALS['formErrors'][] = captchaValid($_POST['txtCaptcha']) ;	
+		}
 		
 	
-	} 
 	if(isset($_POST['OrgID']) && sizeof($GLOBALS['formErrors']) == 0) {
 		include_once 'lead.php';
-
 		
 		$formValues = array();
 		if(isset($_POST['First_Name']) && $_POST['First_Name'] != '') $formValues['FirstName'] = $_POST['First_Name'];
 		if(isset($_POST['Last_Name']) && $_POST['Last_Name'] != '') $formValues['LastName'] = $_POST['Last_Name'];
 		if(isset($_POST['Email']) && $_POST['Email'] != '') $formValues['email'] = $_POST['Email'];
-	
-	
+		
+		
+		$address = $_POST['Mailing_Address1'].", ".$_POST['Mailing_Address2'];
+		if(isset($address)) $formValues['Street'] = $address;
+		if(isset($_POST['City']) && $_POST['City'] != '') $formValues['City'] = $_POST['City'];
+		if(isset($_POST['State']) && $_POST['State'] != '') $formValues['state'] = $_POST['State'];
 		if(isset($_POST['Zip']) && $_POST['Zip'] != '') $formValues['PostalCode'] = $_POST['Zip'];
 		
-	
+		if(isset($_POST['caraddress1']) && $_POST['caraddress1'] != '') $formValues['Pickup_Address1__c'] = $_POST['caraddress1'];
+		if(isset($_POST['caraddress2']) && $_POST['caraddress2'] != '') $formValues['Pickup_Address2__c'] = $_POST['caraddress2'];
+		if(isset($_POST['carcity']) && $_POST['carcity'] != '') $formValues['Pickup_City__c'] = $_POST['carcity'];
+		if(isset($_POST['carstate']) && $_POST['carstate'] != '') $formValues['Pickup_Location_State__c'] = $_POST['carstate'];
+		if(isset($_POST['carzip']) && $_POST['carzip'] != '') $formValues['Pickup_Postal_Code__c'] = $_POST['carzip'];
 		
 		if(isset($_POST['besttime']) && $_POST['besttime'] != '') $formValues['BestTimetoCall__c'] = $_POST['besttime'];
 		$phone = $_POST['Home_Telephone_Ac'].$_POST['homephonea'].$_POST['homephoneb'];
 		if(isset($phone) && $phone != '') $formValues['Phone'] = $phone;
 		
-
+		$wphone = $_POST['Work_Telephone_Ac'].$_POST['workphonea'].$_POST['workphoneb'];
+		if(isset($wphone) && $wphone != '') $formValues['Work_Phone__c'] = $wphone;
+		if(isset($_POST['Work_Telephone_Ext']) && $_POST['Work_Telephone_Ext'] != '') $formValues['Work_Phone_Extension__c'] = $_POST['Work_Telephone_Ext'];
+		
+		if(isset($_POST['VehicleType']) && $_POST['VehicleType'] != '') $formValues['Type_of_Vehicle__c'] = $_POST['VehicleType'];
 		if(isset($_POST['Year1']) && $_POST['Year1'] != '') $formValues['year__c'] = $_POST['Year1'];
 		if(isset($_POST['Make']) && $_POST['Make'] != '') $formValues['make__c'] = $_POST['Make'];
 		if(isset($_POST['Model']) && $_POST['Model'] != '') $formValues['model__c'] = $_POST['Model'];
-	
+		if(isset($_POST['Mileage']) && $_POST['Mileage'] != '') $formValues['Veh_Miles__c'] = $_POST['Mileage'];
+		
+// 		if(checkbox_value("Drivable") == 1) { $formValues['Is_Car_Drivable__c'] = 'Yes'; }
+// 		if(checkbox_value("LienRelease") == 0) { $formValues['Lien__c'] = 'Yes'; }
+		if(isset($_POST["Drivable"])) { $formValues['Is_Car_Drivable__c'] = 'Yes'; } else {$formValues['Is_Car_Drivable__c'] = 'No';}
+		if(!isset($_POST["LienRelease"])) { $formValues['Lien__c'] = 'Yes'; } else { $formValues['Lien__c'] = 'No'; }
+		if(isset($_POST['Comments']) && $_POST['Comments'] != '') $formValues['Web_Lead_Comments__c'] = $_POST['Comments'];
 		if (strcmp(strtoupper(trim($_POST['howHear'])), strtoupper(trim('Other'))) != 0) {
 			$formValues['How_did_you_hear_about_us__c'] = $_POST['howHear'];
 		} else {
@@ -108,9 +184,8 @@ table , td, th, tr {
 		if(isset($_POST['YearMakeModel']) && $_POST['YearMakeModel'] != '') $formValues['VehicleDescription__c'] = $_POST['YearMakeModel'];
 		$formValues['RecordTypeid'] = '012600000009TX7'; 
 	//	$formValues['Non_Profit_Organization__c'] = $_POST['NPOQAAccID'];
-
 		$formValues['LeadSource'] = 'Form Widget'; // "Pictorial Widget" for Pictorial form
-		
+	//	$formValues['ownerId'] = '00G320000030A70';
 		
 		$leadResponse = create_lead($formValues);
 		if($leadResponse == 1) { 
@@ -127,7 +202,10 @@ table , td, th, tr {
 	
 	<form style="width: 550px;" id="formElem" name="formElem" method="post">
 	
-
+	<?php 
+	//	$id = (empty($_GET['i'])) ? '' : $_GET['i']; 
+		//extract(orgDetails($id));
+	?>
 
 <!-- <noscript> 
 <table style="width:550px; margin: 0;" class="acenter"><tr><td colspan="3">For full functionality of this site it is necessary to enable JavaScript.-->
@@ -138,8 +216,8 @@ table , td, th, tr {
 	
 <p>
 
-	<input type='hidden' name='OrgID' id='OrgID' value='2503'>
-	<input id="NewOrg" name="NewOrg" type='hidden'   value=''/>
+
+	<input id="NewOrg" name="OrgID" type='hidden'   value='posted'/>
 </p>
 
 
@@ -153,14 +231,14 @@ table , td, th, tr {
 /*	if (strcmp($_GET['i'], '2503') == 0 || strcmp($_GET['i'], '2504') == 0) {
 		echo "<label id=\"label1\" class=\"nraformlabel\">Schedule A Pick-up</label>";
 	} else { */
-		echo "<label id=\"label1\" class=\"formlabel\">CONTACT DETAILS</label>";
+		echo "<label id=\"label1\" class=\"formlabel\">SCHEDULE A PICK-UP</label>";
 //	}
 ?>
 <?php echo "<br><br>"; ?>
 <div class="reducedOpacity">
   <table style="width:550px; margin: 0;">
 		
-	<tr><td class="aleftBold" rowspan="7">Contact</td></tr>
+		<tr><td class="aleftBold" rowspan="9">Contact</td></tr>
 		<tr>
 			<td><input style="border: 1px solid #C40A20 !important;" id="First_Name" name="First_Name" maxlength="30" autofocus="autofocus" value="<?php if(isset($_POST['First_Name'])) echo $_POST['First_Name']; ?>"/></td>
 			<td><input style="border: 1px solid #C40A20 !important;" id="Last_Name" name="Last_Name" maxlength="30" value="<?php if(isset($_POST['Last_Name'])) echo $_POST['Last_Name']; ?>"/></td> 
@@ -176,9 +254,107 @@ table , td, th, tr {
 		<tr><td colspan="2" class="statictext">Email</td></tr>
 		<tr><td class="acenter" colspan="2"><label id="emailfail" style="display: none;"></label></td></tr>
 		
-		
+</table>    
+<!-- </fieldset> -->
+</div>
+
+<?php echo "<br><br>"; ?>
+
+<!--  <div id="loadingCircle" style="display: none;"></div>-->
+
+<!-- <label id="label2" class="formlabel">ADDITIONAL INFORMATION</label> -->
+<?php 
+ /*	if (strcmp($_GET['i'], '2503') == 0 || strcmp($_GET['i'], '2504') == 0) {
+		echo "<label id=\"label2\" class=\"nraformlabel\">Additional Information</label>";
+	} else { */
+		echo "<label id=\"label2\" class=\"formlabel\">ADDITIONAL INFORMATION</label>";
+//	}
+?>
+<?php echo "<br><br>"; ?>
+
+<table style="width:550px; margin: 0;">
+
+  <tr><td class="aleftBold" rowspan="10">Home Address</td></tr>
+  <tr>
+    <td><input style="border: 1px solid #C40A20 !important;" id="Mailing_Address1" name="Mailing_Address1" maxlength="255" value="<?php if(isset($_POST['Mailing_Address1'])) echo $_POST['Mailing_Address1']; ?>"/></td> 
+    <td><input id="Mailing_Address2" name="Mailing_Address2" maxlength="255" value="<?php if(isset($_POST['Mailing_Address2'])) echo $_POST['Mailing_Address2']; ?>"/></td> 
+  </tr>
+  <tr>
+		<td class="statictext">Address Line 1*</td>
+		<td class="statictext">Address Line 2</td>
+	</tr>
+  <tr><td class="acenter" colspan="2"><label id="adr1fail" style="display: none;"></label></td></tr>
+  <tr><td class="acenter" colspan="2"><label id="adr2fail" style="display: none;"></label></td></tr>
+  
+  <tr><td colspan="2">
+	  <table>
+		  <tr>
+		    <td><input style="border: 1px solid #C40A20 !important;" id="City" name="City" maxlength="40" value="<?php if(isset($_POST['City'])) echo $_POST['City']; ?>"/></td>
+		    <td><select style="border: 1px solid #C40A20 !important;" id="State" name="State">
+		                        		<option value=""></option>
+		                            	<?php foreach ($state_list as $key => $value) {
+		                     
+		                            			echo '<option value="'.$key.'" '.'>'.$key.' - '.$value.'</option>';
+		                            	}
+		                            		?>
+		                            </select></td> 
+		        <td><input style="border: 1px solid #C40A20 !important;" id="Zip" name="Zip" maxlength="5" value="<?php if(isset($_POST['Zip'])) echo $_POST['Zip']; ?>"/></td> 
+			</tr>
 			<tr>
-		<td class="aleftBold" rowspan="2">Home/Cell Phone*</td>
+			  	<td class="statictext">City*</td>
+				<td class="statictext">State*</td>
+				<td class="statictext">Zip*</td>
+			</tr>
+		</table>
+	</td></tr>
+	
+	<tr><td class="acenter" colspan="2"><label id="cityfail" style="display: none;"></label></td></tr>
+  	<tr><td class="acenter" colspan="2"><label id="statefail" style="display: none;"></label></td></tr>
+  	<tr><td class="acenter" colspan="2"><label id="zipfail" style="display: none;"></label></td></tr>
+
+	<tr class="blank_row"><td colspan="3"></td></tr>
+
+  <tr><td class="aleftBold" rowspan="10">Vehicle Location (if not at home)</td></tr>
+  <tr>
+    <td><input id="caraddress1" name="caraddress1" maxlength="255" value="<?php if(isset($_POST['caraddress1'])) echo $_POST['caraddress1']; ?>"/></td> 
+    <td><input id="caraddress2" name="caraddress2" maxlength="255" value="<?php if(isset($_POST['caraddress2'])) echo $_POST['caraddress2']; ?>"/></td> 
+  </tr>
+  <tr>
+		<td class="statictext">Address Line 1</td>
+		<td class="statictext">Address Line 2</td>
+	</tr>
+  <tr><td class="acenter" colspan="2"><label id="caradr1fail" style="display: none;"></label></td></tr>
+  <tr><td class="acenter" colspan="2"><label id="caradr2fail" style="display: none;"></label></td></tr>
+  
+  <tr><td colspan="2">
+  <table>
+	  <tr>
+	    <td><input id="carcity" name="carcity" maxlength="40" value="<?php if(isset($_POST['carcity'])) echo $_POST['carcity']; ?>"/></td>
+	    <td><select id="carstate" name="carstate">
+	                        		<option value=""></option>
+	                            	<?php foreach ($state_list as $key => $value) {
+	                            //	echo '<option value="'.$key.'" '.(($_POST['State'] == ($key.' - '.$value))?'selected="selected"':"").'>'.$key.' - '.$value.'</option>';
+	                            	echo '<option value="'.$key.'" '.'>'.$key.' - '.$value.'</option>';
+	                            	}
+	                            		?>
+	                            </select></td> 
+	        <td><input id="carzip" name="carzip" maxlength="5" value="<?php if(isset($_POST['carzip'])) echo $_POST['carzip']; ?>"/></td> 
+		</tr>
+		<tr>
+		  	<td class="statictext">City</td>
+			<td class="statictext">State</td>
+			<td class="statictext">Zip</td>
+		</tr>
+	</table></td>
+	</tr>
+	<tr><td class="acenter" colspan="2"><label id="carcityfail" style="display: none;"></label></td></tr>
+  	<tr><td class="acenter" colspan="2"><label id="carstatefail" style="display: none;"></label></td></tr>
+  	<tr><td class="acenter" colspan="2"><label id="carzipfail" style="display: none;"></label></td></tr>
+   
+	
+	<tr class="blank_row"><td colspan="3"></td></tr>
+	<tr>
+		<td class="aleftBold" rowspan="3">Home/Cell Phone*</td>
 		<td colspan="2"><table><tr>
 			<td><label>(</label></td>
 			<td><input style="border: 1px solid #C40A20 !important;" id="Home_Telephone_Ac" name="Home_Telephone_Ac" maxlength="3"  value="<?php if(isset($_POST['Home_Telephone_Ac'])) echo $_POST['Home_Telephone_Ac']; ?>"></td>
@@ -204,24 +380,42 @@ table , td, th, tr {
 	    	</table>
 	    </td>
 	</tr>
-	
-	
 
 	<tr><td class="acenter" colspan="2"><label id="phonefail" style="display: none;"></label></td></tr>
+	<!--  <tr><td class="acenter" colspan="2"><label id="phonefaila" style="display: none;"></label></td></tr>
+	<tr><td class="acenter" colspan="2"><label id="phonefailb" style="display: none;"></label></td></tr>-->
 	
-		<tr><td class="aleftBold" rowspan="3">Zip Code</td></tr>
-		<tr>
-			 <td><input style="border: 1px solid #C40A20 !important;" id="Zip" name="Zip" maxlength="5" value="<?php if(isset($_POST['Zip'])) echo $_POST['Zip']; ?>"/></td> 
-		
-		</tr>
-		<tr>
-			<td class="statictext">Zip Code*</td>
-		</tr>
-		
-	    
-</table>    
-<!-- </fieldset> -->
-</div>
+	
+	<tr class="blank_row"><td colspan="3"></td></tr>
+	<tr>
+		<td class="aleftBold" rowspan="3">Work Phone</td>
+		<td colspan="2"><table><tr>
+			<td><label>(</label></td>
+			<td><input id="Work_Telephone_Ac" name="Work_Telephone_Ac" maxlength="3" value="<?php if(isset($_POST['Work_Telephone_Ac'])) echo $_POST['Work_Telephone_Ac']; ?>"></td>
+			<td><label>)</label></td>
+	    	<td><input id="workphonea" name="workphonea" maxlength="3" value="<?php if(isset($_POST['workphonea'])) echo $_POST['workphonea']; ?>"></td>
+	    	<td><label>-</label></td>
+	    	<td><input id="workphoneb" name="workphoneb" maxlength="4" value="<?php if(isset($_POST['workphoneb'])) echo $_POST['workphoneb']; ?>"></td>
+	    	<td><label class="customText" >x</label></td>
+	    	<td><input id="Work_Telephone_Ext" name="Work_Telephone_Ext" maxlength="10" value="<?php if(isset($_POST['Work_Telephone_Ext'])) echo $_POST['Work_Telephone_Ext']; ?>"/></td>
+	    	</tr>
+	    	<tr>
+			  	<td></td>
+			  	<td class="statictext">xxx</td>
+			  	<td></td>
+				<td class="statictext">xxx</td>
+				<td></td>
+				<td class="statictext">xxxx</td>
+				<td></td>
+				<td class="statictext">Ext.</td>
+			</tr>
+	</table>
+	    </td>
+	</tr>
+	
+	<tr><td class="acenter" colspan="2"><label id="workphonefail" style="display: none;"></label></td></tr>
+	  
+</table>	  
 
 
 <?php echo "<br><br>"; ?>
@@ -231,14 +425,14 @@ table , td, th, tr {
 /*	if (strcmp($_GET['i'], '2503') == 0 || strcmp($_GET['i'], '2504') == 0) {
 		echo "<label id=\"label1\" class=\"nraformlabel\">Donation Details</label>";
 	} else { */
-		echo "<label id=\"label1\" class=\"formlabel\">VEHICLE DETAILS</label>";
+		echo "<label id=\"label1\" class=\"formlabel\">DONATION DETAILS</label>";
 //	}
 ?>
 
 <?php echo "<br><br>"; ?>
 <table style="width:550px; margin: 0;">
-<tr>
-		<td class="aleftBold" rowspan="7">Vehicle</td>
+	<tr>
+		<td class="aleftBold" rowspan="9">Vehicle</td>
 		
 		<td colspan="2"><input id="VehicleType" name="VehicleType"/></td>
 	</tr>
@@ -284,19 +478,29 @@ table , td, th, tr {
 	
 	<tr><td class="acenter" colspan="2"><input id="YearMakeModel" name="YearMakeModel" maxlength="255" value="<?php if(isset($_POST['YearMakeModel'])) echo $_POST['YearMakeModel']; ?>"/></td> </tr>
 	<tr><td class="acenter" colspan="2"><label id="yearmakemodelfail" style="display: none;"></label></td></tr> 
+       
+	<tr><td class="acenter"><input id="Mileage" name="Mileage" maxlength="7" value="<?php if(isset($_POST['Mileage'])) echo $_POST['Mileage']; ?>"/></td></tr>
+	<tr><td class="statictext">Mileage</td></tr>
+	<tr><td class="acenter" colspan="2"><label id="mileagefail" style="display: none;"></label></td></tr>
+	
+	<tr><td class="aleftBold">Is the car drivable?</td><td><input style="text-align: left;vertical-align: middle;" type="checkbox" id="Drivable" name="Drivable" <?php if(isset($_POST['Drivable'])) echo "checked"; ?>/></td></tr>
+	<tr><td class="aleftBold">Is the car paid for entirely?</td><td><input style="text-align: left;vertical-align: middle;" type="checkbox" id="LienRelease" name="LienRelease" <?php if(isset($_POST['LienRelease'])) echo "checked"; ?>/></td></tr>
+	
+	<tr class="blank_row"><td colspan="3"></td></tr>
+	<tr><td class="aleftBold" rowspan="3">Comments</td></tr>
+	<tr><td colspan="2"><textarea id="Comments" name="Comments"  maxlength="255" cols="30" rows="3" style="resize: none;" value="<?php if(isset($_POST['Comments'])) echo $_POST['Comments']; ?>"></textarea></td></tr>
+	<tr><td class="acenter" colspan="2"><label id="commentsfail" style="display: none;"></label></td></tr>
 	
 	<tr class="blank_row"><td colspan="3"></td></tr>
 	<tr><td class="aleftBold" rowspan="5">How did you hear about us?</td></tr>
 	<tr><td><select name="howHear" id="howHear">
-			<option value="Online" <?php if(isset($_POST['howHear']) && $_POST['howHear'] == 'Online') { echo ' selected="selected"';} ?> >Online</option>
-			<option value="Newspaper" <?php if(isset($_POST['howHear']) && $_POST['howHear'] == 'Newspaper') { echo ' selected="selected"';} ?> >Newspaper</option>
-			<option value="Gas Station TV" <?php if(isset($_POST['howHear']) && $_POST['howHear'] == 'Gas Station TV') { echo ' selected="selected"';} ?> >Gas Station TV</option>
-			<option value="Billboard" <?php if(isset($_POST['howHear']) && $_POST['howHear'] == 'Billboard') { echo ' selected="selected"';} ?> >Billboard</option>
-			<option value="Driving By" <?php if(isset($_POST['howHear']) && $_POST['howHear'] == 'Driving By') { echo ' selected="selected"';} ?> >Driving By</option>
+			<option value="Non Profit Website" <?php if(isset($_POST['howHear']) && $_POST['howHear'] == 'Non Profit Website') { echo ' selected="selected"';} ?> >Non Profit Website</option>
+			<option value="Radio" <?php if(isset($_POST['howHear']) && $_POST['howHear'] == 'Radio') { echo ' selected="selected"';} ?> >Radio</option>
+			<option value="TV" <?php if(isset($_POST['howHear']) && $_POST['howHear'] == 'TV') { echo ' selected="selected"';} ?> >TV</option>
+			<option value="Print Advertising" <?php if(isset($_POST['howHear']) && $_POST['howHear'] == 'Print Advertising') { echo ' selected="selected"';} ?> >Print Advertising</option>
+			<option value="Internet Search" <?php if(isset($_POST['howHear']) && $_POST['howHear'] == 'Internet Search') { echo ' selected="selected"';} ?> >Internet Search</option>
 			<option value="Social Media" <?php if(isset($_POST['howHear']) && $_POST['howHear'] == 'Social Media') { echo ' selected="selected"';} ?> >Social Media</option>
-			<option value="Friend" <?php if(isset($_POST['howHear']) && $_POST['howHear'] == 'Friend') { echo ' selected="selected"';} ?> >Friend</option>
-			<option value="DMV Video" <?php if(isset($_POST['howHear']) && $_POST['howHear'] == 'DMV Video') { echo ' selected="selected"';} ?> >DMV Video</option>
-			<option value="Don't Remember" <?php if(isset($_POST['howHear']) && $_POST['howHear'] == "Don't Remember") { echo ' selected="selected"';} ?> >Don't Remember</option>
+			<option value="Referral" <?php if(isset($_POST['howHear']) && $_POST['howHear'] == 'Referral') { echo ' selected="selected"';} ?> >Referral</option>
 			<option value="Other" <?php if(isset($_POST['howHear']) && $_POST['howHear'] == 'Other') { echo ' selected="selected"';} ?> >Other</option>
 		</select></td>
 	</tr>
@@ -338,12 +542,12 @@ table , td, th, tr {
 	<tr>
 	<td></td>
 	<td><input style="width: 100px !important;" class="captchaButton" type="button" name ="reloadcaptchabtn"  id="reloadcaptchabtn" value="Reload" onclick="reloadCaptcha()">&nbsp;<input style="width: 100px !important;" class="captchaButton" type="button" name ="verifycaptchabtn"  id="verifycaptchabtn" value="Verify" onclick="verifyCaptcha()"></td>
-	</tr>
+	</tr>	
 </table>    
 
 <?php echo "<br><br>"; ?>
 <div class="acenter">
-	<input class="customSubmit" type="submit" method="post" value="Donate my vehicle" id="registerButton" name="submit">
+	<input class="customSubmit" type="submit" action="process.php" method="post" value="Donate my vehicle" id="registerButton" name="submit">
 
 </div>
 <br>	
