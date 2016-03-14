@@ -79,7 +79,7 @@ table , td, th, tr {
 
 	if(isset($_POST['OrgID']) && sizeof($GLOBALS['formErrors']) == 0) {
 		include_once 'lead.php';
-		
+		error_log("No error");
 		$formValues = array();
 		if(isset($_POST['First_Name']) && $_POST['First_Name'] != '') $formValues['FirstName'] = $_POST['First_Name'];
 		if(isset($_POST['Last_Name']) && $_POST['Last_Name'] != '') $formValues['LastName'] = $_POST['Last_Name'];
