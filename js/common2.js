@@ -890,9 +890,9 @@ $('#registerButton').click(function(e) {
 	var fname = $.trim($('#First_Name').val());
 	var lname = $.trim($('#Last_Name').val());
 	var email = $.trim($('#Email').val());
-	var addr1 = $.trim($('#Mailing_Address1').val());
+/*	var addr1 = $.trim($('#Mailing_Address1').val());
 	var city = $.trim($('#City').val());
-	var state = $.trim($('#State :selected').text());
+	var state = $.trim($('#State :selected').text()); */
 	var zip = $.trim($('#Zip').val());
 	var homephone1 = $.trim($('#Home_Telephone_Ac').val());
 	var homephone2 = $.trim($('#homephonea').val());
@@ -967,9 +967,9 @@ $('#registerButton').click(function(e) {
 	
 	yearmakemodelTest(e);
 	mileageTest(e);
-	commentsTest(e); */
+	commentsTest(e);
 	otherTest(e);	
-	yearmakemodelTest(e);
+	yearmakemodelTest(e);  */
 	setTimeout(function(){ reloadCaptcha(); }, 100);
 });
 
