@@ -337,7 +337,7 @@ table , td, th, tr {
 	<tr><td class="acenter" colspan="3"><label id="captchafail" style="display: none;"></label></td></tr>
 	<tr>
 	<td></td>
-	<td><input style="width: 100px !important;" class="captchaButton" type="button" name ="reloadcaptchabtn"  id="reloadcaptchabtn" value="Reload" onclick="reloadCaptcha()">&nbsp;<input style="width: 100px !important;" class="captchaButton" type="button" name ="verifycaptchabtn"  id="verifycaptchabtn" value="Verify" onclick="verifyCaptcha_c()"></td>
+	<td><input style="width: 100px !important;" class="captchaButton" type="button" name ="reloadcaptchabtn"  id="reloadcaptchabtn" value="Reload" onclick="reloadCaptcha()">&nbsp;<input style="width: 100px !important;" class="captchaButton" type="button" name ="verifycaptchabtn"  id="verifycaptchabtn" value="Verify" onclick="verifyCaptcha()"></td>
 	</tr>
 </table>    
 
