@@ -344,7 +344,7 @@ table , td, th, tr {
 
 <?php echo "<br><br>"; ?>
 <div class="acenter">
-	<input class="customSubmit" type="submit" value="Donate my vehicle" id="registerButton" name="submit">
+	<input class="customSubmit" type="submit" value="Donate my vehicle" id="registersButton" name="submit">
 
 </div>
 <br>	
