@@ -66,6 +66,7 @@ function hideSubmit() {
 }
 
 function hideSubmit_c() {
+	echo("test");
 	var s = document.getElementById( 'registersButton' );
 	s.style.opacity = '0.7';
 	s.disabled=true;
