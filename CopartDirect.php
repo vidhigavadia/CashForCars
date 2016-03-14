@@ -74,7 +74,7 @@ table , td, th, tr {
 		
 		if (captchaValid($_POST['txtCaptcha'])) $GLOBALS['formErrors'][] = captchaValid($_POST['txtCaptcha']) ;
 		
-		error_log(print_r($GLOBALS['formErrors']));
+	
 	} 
 	if(isset($_POST['OrgID']) && sizeof($GLOBALS['formErrors']) == 0) {
 		include_once 'lead.php';
