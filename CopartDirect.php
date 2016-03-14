@@ -259,7 +259,6 @@ $state_list = array('AL'=>"Alabama",
   
   <tr><td colspan="2">
   
-	<td><input style="border: 1px solid #C40A20 !important;" id="Zip" name="Zip" maxlength="5" value="<?php if(isset($_POST['Zip'])) echo $_POST['Zip']; 
 	  <table>
 		  <tr>
 		    <td><input style="border: 1px solid #C40A20 !important;" id="City" name="City" maxlength="40" value="<?php if(isset($_POST['City'])) echo $_POST['City']; ?>"/></td>
