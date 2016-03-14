@@ -917,9 +917,9 @@ $('#registerButton').click(function(e) {
 	emailTest(e);
 	
 	// Address Line-1
-	if(addr1==='') {
+/*	if(addr1==='') {
 		e.preventDefault();
-  /*  $('#adr1fail').show();
+  $('#adr1fail').show();
     $('#adr1fail').text('Address Line one is required');
     $("#adr1fail").css("color","red");
 	} else { address1Test(e); }
@@ -939,8 +939,8 @@ $('#registerButton').click(function(e) {
 		e.preventDefault();
     $('#statefail').show();
     $('#statefail').text('State must be selected');
-    $("#statefail").css("color","red"); */
-	}
+    $("#statefail").css("color","red"); 
+	} */
 	
 	// Zipcode
 	if(zip==='') {
@@ -963,12 +963,13 @@ $('#registerButton').click(function(e) {
 	      $("#phonefail").css("color","red");
 	} else { phoneTest(e); }
 	
-	workPhoneTest(e);
+/*	workPhoneTest(e);
 	
 	yearmakemodelTest(e);
 	mileageTest(e);
-	commentsTest(e);
+	commentsTest(e); */
 	otherTest(e);	
+	yearmakemodelTest(e);
 	setTimeout(function(){ reloadCaptcha(); }, 100);
 });
 
