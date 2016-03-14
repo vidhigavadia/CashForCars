@@ -213,7 +213,7 @@ function emailTest(e) {
 	    }
 }
 
-function address1Test(e) {
+/*function address1Test(e) {
 	var addr_regex =  /^[a-z0-9A-Z\s\~\!\@\#\$\%\^\&\*\(\)\-\_\+\=\[\]\{\}\;\'\:\"\,\.\/\\\<\>\?\|]+$/i;
 	var addr1 = $('#Mailing_Address1').val();
 	
@@ -227,7 +227,7 @@ function address1Test(e) {
 	  $('#adr1fail').hide();
   	return true;
   }
-}
+} */
 
 function address2Test(e) {
 	var addr_regex =  /^[a-z0-9A-Z\s\~\!\@\#\$\%\^\&\*\(\)\-\_\+\=\[\]\{\}\;\'\:\"\,\.\/\\\<\>\?\|]+$/i;
@@ -245,7 +245,7 @@ function address2Test(e) {
   }
 }
 
-function cityTest(e) {
+/*function cityTest(e) {
 	var city_regex =  /^[a-z0-9A-Z\s\~\!\@\#\$\%\^\&\*\(\)\-\_\+\=\[\]\{\}\;\'\:\"\,\.\/\\\<\>\?\|]+$/i;
 	var city = $('#City').val();
 	
@@ -259,7 +259,7 @@ function cityTest(e) {
 	  $('#cityfail').hide();
   	return true;
   }
-}
+} */
 
 function zipTest(e) {
 	var zip_regex =/^\d{5}$/;
@@ -408,10 +408,10 @@ function commentsTest(e) {
 }
 
 function otherTest(e) {
-	var city_regex =  /^[a-z0-9A-Z\s\~\!\@\#\$\%\^\&\*\(\)\-\_\+\=\[\]\{\}\;\'\:\"\,\.\/\\\<\>\?\|]+$/i;
+	var other_regex =  /^[a-z0-9A-Z\s\~\!\@\#\$\%\^\&\*\(\)\-\_\+\=\[\]\{\}\;\'\:\"\,\.\/\\\<\>\?\|]+$/i;
 	var other = $('#other').val();
 	
-	 if(!city_regex.test(other) && other.length != 0) {
+	 if(!other_regex.test(other) && other.length != 0) {
 		 e.preventDefault();
 	     $('#otherfail').show();
 	     $('#otherfail').text('Alphanumeric only');
@@ -557,7 +557,7 @@ $('#Mailing_Address2').keyup(function() {
 });
 
 //City Validation
-$('#City').keyup(function() {
+/*$('#City').keyup(function() {
 	var city_regex =  /^[a-z0-9A-Z\s\~\!\@\#\$\%\^\&\*\(\)\-\_\+\=\[\]\{\}\;\'\:\"\,\.\/\\\<\>\?\|]+$/i;
 	var city = $('#City').val();
 	
@@ -571,10 +571,10 @@ $('#City').keyup(function() {
   	return true;
   }
 
-});
+}); */
 
 //State Validation
-$('#State').change(function() {
+/*$('#State').change(function() {
 	var state = $.trim($('#State :selected').text());
 	if(state == '') {
       $('#statefail').show();
@@ -586,7 +586,7 @@ $('#State').change(function() {
   	return true;
   }
 
-});
+}); */
 
 //Zipcode Validation
 $('#Zip').blur(function() {
@@ -766,10 +766,10 @@ $('#Comments').keyup(function() {
 
 //Other Field for how to hear validation
 $('#other').keyup(function() {
-	var city_regex =  /^[a-z0-9A-Z\s\~\!\@\#\$\%\^\&\*\(\)\-\_\+\=\[\]\{\}\;\'\:\"\,\.\/\\\<\>\?\|]+$/i;
+	var other_regex =  /^[a-z0-9A-Z\s\~\!\@\#\$\%\^\&\*\(\)\-\_\+\=\[\]\{\}\;\'\:\"\,\.\/\\\<\>\?\|]+$/i;
 	var other = $('#other').val();
 	
-	if(!city_regex.test(other) && other.length != 0) {
+	if(!other_regex.test(other) && other.length != 0) {
 		$('#otherfail').show();
 	    $('#otherfail').text('Alphanumeric only');
 	    $("#otherfail").css("color","red");
