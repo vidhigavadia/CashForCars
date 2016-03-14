@@ -382,7 +382,7 @@ $state_list = array('AL'=>"Alabama",
 			<option value="Social Media" <?php if(isset($_POST['howHear']) && $_POST['howHear'] == 'Social Media') { echo ' selected="selected"';} ?> >Social Media</option>
 			<option value="Friend" <?php if(isset($_POST['howHear']) && $_POST['howHear'] == 'Friend') { echo ' selected="selected"';} ?> >Friend</option>
 			<option value="DMV Video" <?php if(isset($_POST['howHear']) && $_POST['howHear'] == 'DMV Video') { echo ' selected="selected"';} ?> >DMV Video</option>
-			<option value="Don't Remember" <?php if(isset($_POST['howHear']) && $_POST['howHear'] == 'Don't Remember') { echo ' selected="selected"';} ?> >Don't Remember</option>
+			<option value="Don't Remember" <?php if(isset($_POST['howHear']) && $_POST['howHear'] == "Don't Remember") { echo ' selected="selected"';} ?> >Don't Remember</option>
 			<option value="Other" <?php if(isset($_POST['howHear']) && $_POST['howHear'] == 'Other') { echo ' selected="selected"';} ?> >Other</option>
 		</select></td>
 	</tr>
