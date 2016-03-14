@@ -33,7 +33,7 @@ include_once 'form_validate.php';
 <script type="text/javascript">
 
 	var formName = "<?php echo "CopartDirect.php"; ?>";
-	window.onload = hideSubmit_c;
+	window.onload = hideSubmit;
 </script>
 
 <style type="text/css">
