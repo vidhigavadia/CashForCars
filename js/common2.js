@@ -59,6 +59,7 @@ function withIDModels(data) {
 
 //Function to hide submit button on pageload.
 function hideSubmit() {
+	echo("test");
 	var s = document.getElementById( 'registerButton' );
 	s.style.opacity = '0.7';
 	s.disabled=true;
