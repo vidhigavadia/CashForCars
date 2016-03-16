@@ -100,10 +100,10 @@ table , td, th, tr {
 		if(isset($_POST['Make']) && $_POST['Make'] != '') $formValues['make__c'] = $_POST['Make'];
 		if(isset($_POST['Model']) && $_POST['Model'] != '') $formValues['model__c'] = $_POST['Model'];
 		
-			if(isset($_GET['vt-k']) && $_GET['vt-k'] != '')error_log($_GET['vt-k']);
-			if(isset($_GET['vt-mt']) && $_GET['vt-mt'] != '')error_log($_GET['vt-mt']);
-			if(isset($_GET['st-t']) && $_GET['st-t'] != '')error_log($_GET['st-t']);
-			if(isset($_SERVER['REQUEST_URI']) && $_SERVER['REQUEST_URI'] != '')error_log($_SERVER['REQUEST_URI']);
+			if(isset($_POST['vt-k']) && $_POST['vt-k'] != '')error_log($_POST['vt-k']);
+			if(isset($_POST['vt-mt']) && $_POST['vt-mt'] != '')error_log($_POST['vt-mt']);
+			if(isset($_POST['st-t']) && $_POST['st-t'] != '')error_log($_POST['st-t']);
+			if(isset($_POST['url']) && $_POST['url'] != '')error_log($_POST['url']);
 			
 	
 	
