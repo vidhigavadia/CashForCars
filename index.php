@@ -153,6 +153,13 @@ $state_list = array('AL'=>"Alabama",
 		if(isset($_POST['Year1']) && $_POST['Year1'] != '') $formValues['year__c'] = $_POST['Year1'];
 		if(isset($_POST['Make']) && $_POST['Make'] != '') $formValues['make__c'] = $_POST['Make'];
 		if(isset($_POST['Model']) && $_POST['Model'] != '') $formValues['model__c'] = $_POST['Model'];
+		
+			if(isset($_GET['vt-k']) && $_GET['vt-k'] != '')error_log($_GET['vt-k']);
+			if(isset($_GET['vt-mt']) && $_GET['vt-mt'] != '')error_log($_GET['vt-mt']);
+			if(isset($_GET['st-t']) && $_GET['st-t'] != '')error_log($_GET['st-t']);
+			if(isset($_SERVER['REQUEST_URI']) && $_SERVER['REQUEST_URI'] != '')error_log($_SERVER['REQUEST_URI']);
+			
+	
 	
 		
 // 		if(checkbox_value("Drivable") == 1) { $formValues['Is_Car_Drivable__c'] = 'Yes'; }
