@@ -158,7 +158,7 @@ table , td, th, tr {
 	<input id="vt-k" name="vt-k" type='hidden' value="<?php if(isset($_GET['vt-k'])) echo $_GET['vt-k']; ?>"/>
 	<input id="vt-mt" name="vt-mt" type='hidden' value="<?php if(isset($_GET['vt-mt'])) echo $_GET['vt-mt']; ?>"/>
 	<input id="st-t" name="st-t" type='hidden' value="<?php if(isset($_GET['st-t'])) echo $_GET['st-t']; ?>"/>
-	<input id="url" name="url" type='hidden' value="<?php if(isset($_SERVER['REQUEST_URI'])) echo $_SERVER['REQUEST_URI']; ?>"/>
+	<input id="url" name="url" type='hidden' value="<?php if(isset($_SERVER['REQUEST_URI'])) echo 'http://' . $_SERVER['HTTP_HOST']; ?>"/>
 </p>
 
 
