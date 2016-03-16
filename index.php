@@ -276,7 +276,7 @@ $state_list = array('AL'=>"Alabama",
 
 	<tr><td class="acenter" colspan="2"><label id="phonefail" style="display: none;"></label></td></tr>
 	
-		<tr><td class="aleftBold" rowspan="3">Zip Code</td></tr>
+		<tr><td class="aleftBold" rowspan="4">Zip Code</td></tr>
 		<tr>
 			 <td><input style="border: 1px solid #C40A20 !important;" id="Zip" name="Zip" maxlength="5" value="<?php if(isset($_POST['Zip'])) echo $_POST['Zip']; ?>"/></td> 
 		
