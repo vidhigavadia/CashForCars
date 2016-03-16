@@ -49,57 +49,7 @@ table , td, th, tr {
 <div id="donate" class="left">
 
 <?php 
-$state_list = array('AL'=>"Alabama",
-		'AK'=>"Alaska",
-		'AZ'=>"Arizona",
-		'AR'=>"Arkansas",
-		'CA'=>"California",
-		'CO'=>"Colorado",
-		'CT'=>"Connecticut",
-		'DE'=>"Delaware",
-		'DC'=>"District Of Columbia",
-		'FL'=>"Florida",
-		'GA'=>"Georgia",
-		'HI'=>"Hawaii",
-		'ID'=>"Idaho",
-		'IL'=>"Illinois",
-		'IN'=>"Indiana",
-		'IA'=>"Iowa",
-		'KS'=>"Kansas",
-		'KY'=>"Kentucky",
-		'LA'=>"Louisiana",
-		'ME'=>"Maine",
-		'MD'=>"Maryland",
-		'MA'=>"Massachusetts",
-		'MI'=>"Michigan",
-		'MN'=>"Minnesota",
-		'MS'=>"Mississippi",
-		'MO'=>"Missouri",
-		'MT'=>"Montana",
-		'NE'=>"Nebraska",
-		'NV'=>"Nevada",
-		'NH'=>"New Hampshire",
-		'NJ'=>"New Jersey",
-		'NM'=>"New Mexico",
-		'NY'=>"New York",
-		'NC'=>"North Carolina",
-		'ND'=>"North Dakota",
-		'OH'=>"Ohio",
-		'OK'=>"Oklahoma",
-		'OR'=>"Oregon",
-		'PA'=>"Pennsylvania",
-		'RI'=>"Rhode Island",
-		'SC'=>"South Carolina",
-		'SD'=>"South Dakota",
-		'TN'=>"Tennessee",
-		'TX'=>"Texas",
-		'UT'=>"Utah",
-		'VT'=>"Vermont",
-		'VA'=>"Virginia",
-		'WA'=>"Washington",
-		'WV'=>"West Virginia",
-		'WI'=>"Wisconsin",
-		'WY'=>"Wyoming");	
+	
 		if(isset($_POST['OrgID'])) {
 		
 			$formErrors = array();
@@ -144,10 +94,6 @@ $state_list = array('AL'=>"Alabama",
 		if(isset($_POST['besttime']) && $_POST['besttime'] != '') $formValues['BestTimetoCall__c'] = $_POST['besttime'];
 		$phone = $_POST['Home_Telephone_Ac'].$_POST['homephonea'].$_POST['homephoneb'];
 		if(isset($phone) && $phone != '') $formValues['Phone'] = $phone;
-		
-		$wphone = $_POST['Work_Telephone_Ac'].$_POST['workphonea'].$_POST['workphoneb'];
-		if(isset($wphone) && $wphone != '') $formValues['Work_Phone__c'] = $wphone;
-		if(isset($_POST['Work_Telephone_Ext']) && $_POST['Work_Telephone_Ext'] != '') $formValues['Work_Phone_Extension__c'] = $_POST['Work_Telephone_Ext'];
 		
 		if(isset($_POST['VehicleType']) && $_POST['VehicleType'] != '') $formValues['Type_of_Vehicle__c'] = $_POST['VehicleType'];
 		if(isset($_POST['Year1']) && $_POST['Year1'] != '') $formValues['year__c'] = $_POST['Year1'];
