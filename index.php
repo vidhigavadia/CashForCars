@@ -285,6 +285,8 @@ $state_list = array('AL'=>"Alabama",
 			<td class="statictext">Zip Code*</td>
 		</tr>
 		
+		<tr><td class="acenter" colspan="2"><label id="zipfail" style="display: none;"></label></td></tr>
+		
 </table>    
 <!-- </fieldset> -->
 </div>
