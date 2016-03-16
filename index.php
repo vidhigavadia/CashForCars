@@ -219,7 +219,7 @@ $state_list = array('AL'=>"Alabama",
 /*	if (strcmp($_GET['i'], '2503') == 0 || strcmp($_GET['i'], '2504') == 0) {
 		echo "<label id=\"label1\" class=\"nraformlabel\">Schedule A Pick-up</label>";
 	} else { */
-		echo "<label id=\"label1\" class=\"formlabel\">SCHEDULE A PICK-UP</label>";
+		echo "<label id=\"label1\" class=\"formlabel\">CONTACT DETAILS</label>";
 //	}
 ?>
 <?php echo "<br><br>"; ?>
